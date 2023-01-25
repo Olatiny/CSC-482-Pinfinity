@@ -74,7 +74,7 @@ public class BallScript : MonoBehaviour
         //Ball.velocity = new Vector2(Ball.velocity.x, Ball.velocity.y - g);
         if (GameManager.Instance.ballOnTop && Ball.velocity.y > 0)
         {
-            Debug.Log("Cam x=" + cam.transform.position.x+ ", y=" + cam.transform.position.y);
+            //Debug.Log("Cam x=" + cam.transform.position.x+ ", y=" + cam.transform.position.y);
             cam.transform.position = new Vector3(cam.transform.position.x, Ball.transform.position.y + .1f, cam.transform.position.z);
         }
 

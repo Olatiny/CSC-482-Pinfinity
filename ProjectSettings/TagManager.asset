@@ -10,6 +10,7 @@ TagManager:
   - TopHalf
   - Bumper
   - Despawn
+  - BumperRow
   layers:
   - Default
   - TransparentFX

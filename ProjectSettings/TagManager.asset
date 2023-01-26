@@ -15,11 +15,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bumpers
   - Water
   - UI
-  - 
-  - 
+  - Paddles
+  - Screen Boundary
   - 
   - 
   - 

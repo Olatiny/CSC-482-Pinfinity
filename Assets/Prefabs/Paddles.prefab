@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2772052679037141135}
   - component: {fileID: 2772052679037141132}
   - component: {fileID: 2772052679037141133}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Paddle Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 100
   isMoving: 0
+  hitStrength: 100
+  damperStrength: 30
 --- !u!95 &2772052679037141132
 Animator:
   serializedVersion: 4
@@ -133,7 +135,7 @@ GameObject:
   - component: {fileID: 2772052679592171933}
   - component: {fileID: 2772052679592171932}
   - component: {fileID: 2772052679592171907}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Paddle Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,6 +192,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 97
   isMoving: 0
+  hitStrength: 100
+  damperStrength: 30
 --- !u!212 &2772052679592171907
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -253,7 +257,7 @@ GameObject:
   - component: {fileID: 2772052680706392493}
   - component: {fileID: 2772052680706392466}
   - component: {fileID: 2772052680706392467}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Paddle Sprite
   m_TagString: Paddle
   m_Icon: {fileID: 0}
@@ -364,7 +368,7 @@ GameObject:
   - component: {fileID: 2772052681149031008}
   - component: {fileID: 2772052681149031009}
   - component: {fileID: 2772052681149031014}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Paddle Sprite
   m_TagString: Paddle
   m_Icon: {fileID: 0}
@@ -473,7 +477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1114639886057609353}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Paddles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

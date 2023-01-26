@@ -6,19 +6,23 @@ public class BumperManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] validBumpers;
     [SerializeField] private GameObject spawnPoint;
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("BumperRow"))
+        {
+            GameObject bump = validBumpers[0];
+            Instantiate(bump, spawnPoint.transform.position, spawnPoint.transform.rotation);
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("Trigger detected in bumper row");
 
-        if (collision.gameObject.tag == "BumperRow")
+        if (collision.gameObject.CompareTag("Despawn"))
         {
-            GameObject bump = validBumpers[0];
-
-            Destroy(collision.gameObject);
-
-            Instantiate(bump, spawnPoint.transform.position, spawnPoint.transform.rotation);
-
+            Destroy(collision.transform.parent.gameObject);
             //Debug.Break();
         }
     }

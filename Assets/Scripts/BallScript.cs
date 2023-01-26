@@ -25,12 +25,12 @@ public class BallScript : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Paddle" && collision.gameObject.GetComponentInParent<PaddleScriptTest>().GetMoving())
+        if (collision.gameObject.CompareTag("Paddle") && collision.gameObject.GetComponentInParent<PaddleScriptTest>().GetMoving())
         {
-            float x_dist = Mathf.Abs(transform.position.x - collision.gameObject.transform.parent.position.x);
-            float y_dist = Mathf.Abs(transform.position.y - collision.gameObject.transform.parent.position.y);
+            //float x_dist = Mathf.Abs(transform.position.x - collision.gameObject.transform.parent.position.x);
+            //float y_dist = Mathf.Abs(transform.position.y - collision.gameObject.transform.parent.position.y);
 
-            Ball.AddForce(new Vector2(collision.gameObject.transform.up.normalized.x * speed * (1), collision.gameObject.transform.up.normalized.y * speed * (1)), ForceMode2D.Force);
+            //Ball.AddForce(new Vector2(collision.gameObject.transform.up.normalized.x * speed * (1), collision.gameObject.transform.up.normalized.y * speed * (1)), ForceMode2D.Force);
             //Debug.Log("After Paddle: x=" + Ball.velocity.x + " y=" + Ball.velocity.y);
         }
     }

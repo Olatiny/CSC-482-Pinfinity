@@ -19,7 +19,10 @@ public class PaddleScriptTest : MonoBehaviour
     private HingeJoint2D hinge;
 
     // Start is called before the first frame update
-    void Start() { }
+    void Start() {
+        Physics2D.IgnoreLayerCollision(6, 3);
+        Physics2D.IgnoreLayerCollision(7, 6);
+    }
 
     public bool GetMoving()
     {

@@ -9,7 +9,7 @@ public class BumperScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ball")
+        if (collision.gameObject.CompareTag("Ball"))
         {
             Vector2 dir = (collision.gameObject.transform.position - transform.position).normalized;
 

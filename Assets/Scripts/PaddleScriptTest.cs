@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class PaddleScriptTest : MonoBehaviour
 {
-    [SerializeField] private KeyCode key;
+    [SerializeField]
+    private KeyCode key;
 
-    [SerializeField] private bool isMoving = false;
+    [SerializeField]
+    private bool isMoving = false;
+
+    [SerializeField]
+    private float hitStrength = 100f;
+
+    [SerializeField]
+    private float damperStrength = 30f;
+
+    private HingeJoint2D hinge;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void Start() { }
 
     public bool GetMoving()
     {
@@ -23,14 +30,13 @@ public class PaddleScriptTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(key))
+        if (Input.GetKey(key))
         {
-            gameObject.GetComponent<Animator>().Play("Paddle Hit");
+            GetComponent<Rigidbody2D>().AddTorque(hitStrength);
         }
-
-        if (Input.GetKeyUp(key))
+        else
         {
-            gameObject.GetComponent<Animator>().Play("Paddle Release");
+            GetComponent<Rigidbody2D>().AddTorque(-damperStrength);
         }
     }
 }

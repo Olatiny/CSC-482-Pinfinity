@@ -1,0 +1,2775 @@
+fileFormatVersion: 2
+guid: 18d1971b1c48c15438eb8bcc6704298b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d84a785a754082d448f8d867d0337f72
+      internalID: -1833805577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 669b4c38d141c37438276fcb72a0034f
+      internalID: 1337739171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f09cc9c6e6cf41745b1103d18e0da386
+      internalID: 685425828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0341f728c95c0b479b37b1adac6caef
+      internalID: 347031601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f65af15d49cfc4e9368155166c21cb
+      internalID: 1855295525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5df1a02b4954dad419c2ad1bde564082
+      internalID: 913144893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfdbc2ea1afc8094d9bb40d36a37546e
+      internalID: -560859399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 353da29bef4175040bc03896513ad7ca
+      internalID: -989015724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6651515bf3493340a8174d1a232abf8
+      internalID: 26656267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e81a2e5591415240a65b5192480d3a9
+      internalID: 1457348122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6295d488834449b4fa9d166191f35c11
+      internalID: 576510244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_11
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ea30092c049b914a8afb50ce29980f0
+      internalID: 1552333461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_12
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b21d7d556d8b7148997b0a977e4ef2b
+      internalID: 1268439681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_13
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e8cc1be9a5ca4e4db2c591ed14d3824
+      internalID: -223690611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_14
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1785
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3182f100e4af97846a111799ed67597c
+      internalID: 1413961401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f69862ef82cc61542b13e1dfdbca56c3
+      internalID: -1355417436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 381823b05d45da941a784f86daaa67b2
+      internalID: -1670128958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9180d6ce9f165b489e845e7fec9a557
+      internalID: 1884443794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 733c6572ef937e743ada144c9c2ed8bd
+      internalID: 1734384931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_19
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa016a978889a204c95467fbeb3be40a
+      internalID: 2050261016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_20
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56f47f4f5c727814fb11ee9e41376cf9
+      internalID: 635269179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_21
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 494ef203eafa5354099c91e08f37be71
+      internalID: 1350992370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_22
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 633690de6e0f2644784142199917c44d
+      internalID: 530661610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_23
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41b0167e0336cc4290282d1c08a2856
+      internalID: 590338419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_24
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc568406dc230c645b9191be601780d2
+      internalID: 1324658021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_25
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cca40b367e80f14ba32fce5c32c45dc
+      internalID: -71840979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_26
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c09a0f82d8385be448e973805a64b438
+      internalID: 253019680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_27
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24dce14099311734daba384d997ded0c
+      internalID: -121003557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_28
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21c7a65668324094f8ceeb965e84caba
+      internalID: -1165833422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_29
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1530
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3784a763147f9746b43f7731c85e796
+      internalID: -578571169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2736e09e9b9aef242af5a2efff157fef
+      internalID: 1772349198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_31
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75de10a088235784f86c3033a9678acf
+      internalID: 709232370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_32
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5542833259941774c95081ff82c70db1
+      internalID: 2068002272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_33
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2da8f46b1166c5a4495956bd06d096b9
+      internalID: 2112244111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_34
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdaa365b66ab8ee4ba32fe0869635175
+      internalID: 2015559876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_35
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d3a5bfe01a4e74681d589093ad33fa
+      internalID: -667183002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_36
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1892a995ae4ae6349a11bb43e0e798b3
+      internalID: 928696932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_37
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a3b7740732f494428f4cbcb80cc053e
+      internalID: -1419629879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_38
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b0b677dcc04a934b9dec11673fe12c8
+      internalID: -1762214781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_39
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46ef2d481937aef489a22ef34a2a0635
+      internalID: -1147504607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_40
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e4a152154eddea4b95d13be6f6d7ecc
+      internalID: 639137409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_41
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 598889da3e033a946b18ca0cc44432c4
+      internalID: -363056768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_42
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c4e74cb9e000c142842b105061dfeca
+      internalID: 368267332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_43
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e3806dea7cf8ba44b7981261f2e7d5e
+      internalID: 1645033419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_44
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1275
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbea7f5cc76a39b4f97a4d04bd4a5d77
+      internalID: 206800003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86a2ad3a7619700409b4b30a4c6f3bb3
+      internalID: -1069358701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_46
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f313eefce3ae14409a96a809034ecf8
+      internalID: -49826968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_47
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b47a0ac4027d0c4eb31de36a0ee7cad
+      internalID: -396321000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_48
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47dec134c152d0d4bbe4687025223559
+      internalID: -1037342955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_49
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29a3cbf1e291c7e4393e0d0d984e9837
+      internalID: 1364854706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_50
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f07cf0975a1d9e4fba1b121ea09fb7c
+      internalID: -1162170592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_51
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7cff7ce71e26364f90c49b3f37f1720
+      internalID: -1292543184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_52
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d72751cdc4e3a93479fdf9c5beb83616
+      internalID: 264724773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_53
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e61629e25b5a254aa79c154a94ec1c2
+      internalID: 2015097125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_54
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fa70ce5062b44841ac244c5bcbe5ff3
+      internalID: -1580195853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_55
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa46d6daf7d12c46bb22235f16db87c
+      internalID: -1689007926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_56
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7011035a5b8fe3d418f0c6d8c4087d5b
+      internalID: 839855591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_57
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c37797dd64b209409a408073d06aaa6
+      internalID: 1807451010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_58
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8686ea798c6e5154daeee9c428a09096
+      internalID: 193694283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_59
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1020
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8c58d694c01d84aa2a1786f3ba46be
+      internalID: -839019894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ae016cf87c85d843b3542a2b733209c
+      internalID: 1293865225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_61
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6de3b5e5ae5c3c46b5db73b914df786
+      internalID: 240325275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_62
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437201bf1fc77714b9f47f513455d26f
+      internalID: -686773631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_63
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cf0546bec1c1ba4ca79ef57e9c343a5
+      internalID: 2005831300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_64
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc55dfcdc654d734a80ffa20f72d397a
+      internalID: 2015236970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_65
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 259bc29380d6d6149a0eb6ecb0988d6a
+      internalID: 116022140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_66
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51114f78d09debb4181423a9d033fad5
+      internalID: 553709060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_67
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a42a84f89da18714cbb57fc21ab254e5
+      internalID: 1561759270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_68
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 063a73b000862ac4380ca6a4ac003633
+      internalID: 2028890829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_69
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99311c6448550794aa63b55deb4e04a1
+      internalID: 1643776133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_70
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b333558b50229da4e964d03f84bd9ade
+      internalID: -1354939660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_71
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b8e074fccb69334f952c3f2b83cb4e2
+      internalID: -1953579946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_72
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001949f861c497449a3090078802db4d
+      internalID: -2035628221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_73
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d36e599827037ce4cb612f2a2bab2bf1
+      internalID: -252549243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_74
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 765
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e62dc205c5f02204abbdec40b7d963fc
+      internalID: -241550621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 391d7a6dc6452d94d946831c28e45c84
+      internalID: -1844743592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_76
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29949e6a50a42e24089c70ad9e3c89b1
+      internalID: -698614994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_77
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeacac9f23023e34e90d61ea61c5ac48
+      internalID: 71107796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_78
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3c760f467cf2f429dcf0525319a3c0
+      internalID: -1874291074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_79
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdaac247ea2b9c645a6b95ec246a6994
+      internalID: -1548763590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_80
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de7ac900ab5bb2941907fd2ececa31a1
+      internalID: -1568778974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_81
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15a43cd60730a204193b4836d1066926
+      internalID: -1641140955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_82
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0445f0b24347ad3499b2372de7c5f31a
+      internalID: -1040297305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_83
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcafd318111c26042a6d782f625a34ad
+      internalID: 1527669646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_84
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fed57a927ad7b3b408ddb2a2ef56d41a
+      internalID: 1707022810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_85
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e52d8c239662744b92316253d639cd5
+      internalID: 2062260425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_86
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e6937a409b8ce64e9bf46b56843b66f
+      internalID: -1805755755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_87
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a366e56f1c58f3c43b1a5a5e6fa82ed1
+      internalID: -479155038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_88
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d1e8900463105e408b2ebe75d0d566a
+      internalID: -1327244385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_89
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 510
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f685be80dad40b4b920791dd6ec0b03
+      internalID: -1508241401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f35509f93649abd44b6dda2d72d5db65
+      internalID: 947009779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_91
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a659684d790ea04394657c20126fbc2
+      internalID: 1176514538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_92
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60517c8f0d82b53479fd8d8ef41b6c22
+      internalID: 925381010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_93
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3d395ea04b829b4896a8fb2c2a201bf
+      internalID: -1883658621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_94
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 143df2ce8774ba44492801985d1a0927
+      internalID: 1729816244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_95
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37721a68a0b52d54d92f7169f0a69092
+      internalID: -1905254309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_96
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e92c0ea5de42e68469dd4b85ac390053
+      internalID: 1640645615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_97
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11fb1c421c94eec45ac4e8b25507701b
+      internalID: 309081696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_98
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bcb4cead237c024d99c4f0d15be0066
+      internalID: -782366240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_99
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d92fdb2ba7cb2e458c4866e23d23b26
+      internalID: 606726998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_100
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7440cefcdf4a254aa4c94f71ddcb08e
+      internalID: -1544891932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_101
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d83ef2d55814e9e409f5b9fee0688f97
+      internalID: -578416718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_102
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70318ed9e85d3fa458a9fd15089bf4b9
+      internalID: 1305215684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_103
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c3b4925da3c8e4cb5d81a73c9535be
+      internalID: 409064347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_104
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 255
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a9a52ce68f8eb743af4dfb62dc88baa
+      internalID: 1436781883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 457dcaba064e2f74dbc017a607990394
+      internalID: 353295269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_106
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 408a4c632ce23e042b3f083760275d25
+      internalID: -1292459942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_107
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6c2d9922bf5f54a8731d214bf7a9c3
+      internalID: -1740017480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_108
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a729f7cf113cc946a918765d6bf4c9b
+      internalID: 1032211245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_109
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9eba66f131d9144795e1413786b9e20
+      internalID: -1160829481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_110
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf23286a2295c5498d90a547d7d8a58
+      internalID: -2034688058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_111
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0b6b29c00c7d4f468e39cdf68e11280
+      internalID: 2108650503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_112
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81d44477249221145a680c0077543028
+      internalID: -1909828260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_113
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eb0265b9854f9340b5548eee8a4dd5c
+      internalID: -861136678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_114
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e1ed044303ea444d97812a5f0d80637
+      internalID: 1406215773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_115
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecdffa4587a4f924c867c15945f4dd55
+      internalID: 1852129702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_116
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4200f68e7a97704b83015bcb84dfc29
+      internalID: 1201620597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_117
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 216c217c4b3032944978d19eba00f632
+      internalID: 49030017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_118
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ac039e3b3fca4a49b57c6d950dbcdf6
+      internalID: 1339066923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinball Animation V4.2_119
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 128
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53904321117f352499fdc6ffdf516dd9
+      internalID: 2015505304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Pinball Animation V4.2_54: -1580195853
+      Pinball Animation V4.2_73: -252549243
+      Pinball Animation V4.2_89: -1508241401
+      Pinball Animation V4.2_97: 309081696
+      Pinball Animation V4.2_40: 639137409
+      Pinball Animation V4.2_52: 264724773
+      Pinball Animation V4.2_102: 1305215684
+      Pinball Animation V4.2_90: 947009779
+      Pinball Animation V4.2_3: 347031601
+      Pinball Animation V4.2_91: 1176514538
+      Pinball Animation V4.2_98: -782366240
+      Pinball Animation V4.2_36: 928696932
+      Pinball Animation V4.2_92: 925381010
+      Pinball Animation V4.2_11: 1552333461
+      Pinball Animation V4.2_71: -1953579946
+      Pinball Animation V4.2_67: 1561759270
+      Pinball Animation V4.2_72: -2035628221
+      Pinball Animation V4.2_78: -1874291074
+      Pinball Animation V4.2_109: -1160829481
+      Pinball Animation V4.2_15: -1355417436
+      Pinball Animation V4.2_68: 2028890829
+      Pinball Animation V4.2_104: 1436781883
+      Pinball Animation V4.2_112: -1909828260
+      Pinball Animation V4.2_4: 1855295525
+      Pinball Animation V4.2_7: -989015724
+      Pinball Animation V4.2_70: -1354939660
+      Pinball Animation V4.2_45: -1069358701
+      Pinball Animation V4.2_62: -686773631
+      Pinball Animation V4.2_94: 1729816244
+      Pinball Animation V4.2_107: -1740017480
+      Pinball Animation V4.2_55: -1689007926
+      Pinball Animation V4.2_19: 2050261016
+      Pinball Animation V4.2_30: 1772349198
+      Pinball Animation V4.2_32: 2068002272
+      Pinball Animation V4.2_41: -363056768
+      Pinball Animation V4.2_66: 553709060
+      Pinball Animation V4.2_51: -1292543184
+      Pinball Animation V4.2_27: -121003557
+      Pinball Animation V4.2_42: 368267332
+      Pinball Animation V4.2_63: 2005831300
+      Pinball Animation V4.2_99: 606726998
+      Pinball Animation V4.2_116: 1201620597
+      Pinball Animation V4.2_28: -1165833422
+      Pinball Animation V4.2_1: 1337739171
+      Pinball Animation V4.2_34: 2015559876
+      Pinball Animation V4.2_5: 913144893
+      Pinball Animation V4.2_79: -1548763590
+      Pinball Animation V4.2_108: 1032211245
+      Pinball Animation V4.2_93: -1883658621
+      Pinball Animation V4.2_12: 1268439681
+      Pinball Animation V4.2_82: -1040297305
+      Pinball Animation V4.2_2: 685425828
+      Pinball Animation V4.2_65: 116022140
+      Pinball Animation V4.2_84: 1707022810
+      Pinball Animation V4.2_86: -1805755755
+      Pinball Animation V4.2_33: 2112244111
+      Pinball Animation V4.2_16: -1670128958
+      Pinball Animation V4.2_118: 1339066923
+      Pinball Animation V4.2_76: -698614994
+      Pinball Animation V4.2_56: 839855591
+      Pinball Animation V4.2_13: -223690611
+      Pinball Animation V4.2_106: -1292459942
+      Pinball Animation V4.2_20: 635269179
+      Pinball Animation V4.2_114: 1406215773
+      Pinball Animation V4.2_18: 1734384931
+      Pinball Animation V4.2_44: 206800003
+      Pinball Animation V4.2_75: -1844743592
+      Pinball Animation V4.2_111: 2108650503
+      Pinball Animation V4.2_88: -1327244385
+      Pinball Animation V4.2_113: -861136678
+      Pinball Animation V4.2_101: -578416718
+      Pinball Animation V4.2_59: -839019894
+      Pinball Animation V4.2_85: 2062260425
+      Pinball Animation V4.2_53: 2015097125
+      Pinball Animation V4.2_87: -479155038
+      Pinball Animation V4.2_10: 576510244
+      Pinball Animation V4.2_21: 1350992370
+      Pinball Animation V4.2_57: 1807451010
+      Pinball Animation V4.2_17: 1884443794
+      Pinball Animation V4.2_77: 71107796
+      Pinball Animation V4.2_24: 1324658021
+      Pinball Animation V4.2_50: -1162170592
+      Pinball Animation V4.2_60: 1293865225
+      Pinball Animation V4.2_23: 590338419
+      Pinball Animation V4.2_64: 2015236970
+      Pinball Animation V4.2_80: -1568778974
+      Pinball Animation V4.2_9: 1457348122
+      Pinball Animation V4.2_117: 49030017
+      Pinball Animation V4.2_100: -1544891932
+      Pinball Animation V4.2_0: -1833805577
+      Pinball Animation V4.2_43: 1645033419
+      Pinball Animation V4.2_8: 26656267
+      Pinball Animation V4.2_29: -578571169
+      Pinball Animation V4.2_25: -71840979
+      Pinball Animation V4.2_81: -1641140955
+      Pinball Animation V4.2_83: 1527669646
+      Pinball Animation V4.2_115: 1852129702
+      Pinball Animation V4.2_22: 530661610
+      Pinball Animation V4.2_95: -1905254309
+      Pinball Animation V4.2_105: 353295269
+      Pinball Animation V4.2_31: 709232370
+      Pinball Animation V4.2_14: 1413961401
+      Pinball Animation V4.2_37: -1419629879
+      Pinball Animation V4.2_74: -241550621
+      Pinball Animation V4.2_58: 193694283
+      Pinball Animation V4.2_26: 253019680
+      Pinball Animation V4.2_119: 2015505304
+      Pinball Animation V4.2_48: -1037342955
+      Pinball Animation V4.2_47: -396321000
+      Pinball Animation V4.2_49: 1364854706
+      Pinball Animation V4.2_110: -2034688058
+      Pinball Animation V4.2_61: 240325275
+      Pinball Animation V4.2_103: 409064347
+      Pinball Animation V4.2_6: -560859399
+      Pinball Animation V4.2_38: -1762214781
+      Pinball Animation V4.2_69: 1643776133
+      Pinball Animation V4.2_35: -667183002
+      Pinball Animation V4.2_96: 1640645615
+      Pinball Animation V4.2_46: -49826968
+      Pinball Animation V4.2_39: -1147504607
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

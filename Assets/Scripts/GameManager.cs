@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject spawnPoint;
 
     private Vector2 ballVelocity;
-    private int score = 0;
-    private int lives = 3;
+    public int score = 0;
+    public int lives = 3;
 
     public enum GameState
     {
@@ -36,6 +36,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         ballVelocity = ball.GetComponent<Rigidbody2D>().velocity;
+
+        if (ball.transform.position.y > score)
+        {
+            score = (int) ball.transform.position.y;
+        }
     }
 
     public void SetBallOnTop(bool top)

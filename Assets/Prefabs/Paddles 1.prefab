@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 97
   isMoving: 0
-  hitStrength: 60
+  hitStrength: 120
   damperStrength: 20
 --- !u!50 &7399665521896571235
 Rigidbody2D:
@@ -300,7 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 100
   isMoving: 0
-  hitStrength: -60
+  hitStrength: -120
   damperStrength: -20
 --- !u!50 &7399665522806225289
 Rigidbody2D:

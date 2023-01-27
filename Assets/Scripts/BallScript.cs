@@ -58,6 +58,17 @@ public class BallScript : MonoBehaviour
             //Debug.Log("top half!");
             GameManager.Instance.SetBallOnTop(true);
         }
+
+        if (collision.gameObject.CompareTag("BumperManager"))
+        {
+            GameManager.Instance.LoseLives(1);
+
+            if (GameManager.Instance.state != GameManager.GameState.GameOver)
+            {
+                transform.position = ballSpawn.transform.position;
+                Ball.velocity = new Vector2(0, 0);
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -71,6 +82,8 @@ public class BallScript : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.state == GameManager.GameState.GameOver) return;
+
         //Ball.velocity = new Vector2(Ball.velocity.x, Ball.velocity.y - g);
         if (GameManager.Instance.ballOnTop && Ball.velocity.y > 0)
         {
@@ -82,11 +95,6 @@ public class BallScript : MonoBehaviour
         if (Ball.velocity.x != 0)
         {
             lastXnonZero = Ball.velocity.x;
-        }
-
-        if (!GetComponent<Renderer>().isVisible)
-        {
-            transform.position = ballSpawn.transform.position;
         }
     }
 }

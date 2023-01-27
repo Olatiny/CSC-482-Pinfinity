@@ -11,6 +11,7 @@ TagManager:
   - Bumper
   - Despawn
   - BumperRow
+  - BumperManager
   layers:
   - Default
   - TransparentFX

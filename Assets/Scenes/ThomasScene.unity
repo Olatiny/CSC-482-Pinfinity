@@ -259,12 +259,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16860867}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0853829, y: 0.69228804, z: 0.055810213}
+  m_LocalPosition: {x: 1.0853829, y: 0.69228804, z: 10.05581}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 519420032}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &16860869
 MonoBehaviour:
@@ -283,7 +283,9 @@ MonoBehaviour:
   paddles: {fileID: 0}
   segments: []
   spawnPoint: {fileID: 273821760}
-  state: 3
+  score: 0
+  lives: 3
+  state: 0
 --- !u!1 &65288933
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +301,7 @@ GameObject:
   - component: {fileID: 65288935}
   m_Layer: 0
   m_Name: Bumper Manager
-  m_TagString: Untagged
+  m_TagString: BumperManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,6 +335,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   validBumpers:
   - {fileID: 8976691321332216114, guid: 509b56ca13d4b4e45ae0fc2e4f668401, type: 3}
+  - {fileID: 8976691321332216114, guid: 343ae89c1d603524896b1980b6e46478, type: 3}
+  - {fileID: 8976691321332216114, guid: be2401f3503b8124285bd92154c1cbbf, type: 3}
   spawnPoint: {fileID: 273821760}
 --- !u!50 &65288936
 Rigidbody2D:
@@ -463,7 +467,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170441670}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.44, y: -1.35, z: 10}
+  m_LocalPosition: {x: 1.61, y: 0.96, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -758,7 +762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7399665521896571234, guid: 4c06a3013a46f6a45baa503fb6216987, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -3.6100001
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 7399665522471910764, guid: 4c06a3013a46f6a45baa503fb6216987, type: 3}
       propertyPath: m_Name
@@ -814,7 +818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7399665522806225288, guid: 4c06a3013a46f6a45baa503fb6216987, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -3.61
+      value: -3.9999998
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c06a3013a46f6a45baa503fb6216987, type: 3}
@@ -941,6 +945,7 @@ Transform:
   - {fileID: 891106322}
   - {fileID: 170441671}
   - {fileID: 65288934}
+  - {fileID: 16860868}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1286,7 +1291,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1319894943613309320, guid: 509b56ca13d4b4e45ae0fc2e4f668401, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1319894943613309320, guid: 509b56ca13d4b4e45ae0fc2e4f668401, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1457,5 +1462,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

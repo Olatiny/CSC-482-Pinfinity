@@ -11,8 +11,21 @@ public class BumperManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("BumperRow"))
         {
-            GameObject bump = validBumpers[0];
-            Instantiate(bump, spawnPoint.transform.position, spawnPoint.transform.rotation);
+            GameObject bump = validBumpers[Random.Range(0, validBumpers.Length)];
+            //GameObject bump = validBumpers[2];
+
+            Vector2 pos1 = collision.gameObject.transform.GetChild(0).position;
+            Vector2 pos2 = spawnPoint.transform.position;
+
+            if (pos1.y > pos2.y)
+            {
+                Instantiate(bump, pos1, spawnPoint.transform.rotation);
+            }
+            else
+            {
+                Instantiate(bump, pos2, spawnPoint.transform.rotation);
+            }
+
         }
     }
 

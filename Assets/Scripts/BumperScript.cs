@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class BumperScript : MonoBehaviour
 {
-    [SerializeField] private GameObject ball;
-    [SerializeField] private int force;
+    [SerializeField]
+    private GameObject ball;
+
+    [SerializeField]
+    private float forceMult;
+
+    [SerializeField]
+    private float forceStatic;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -13,7 +19,13 @@ public class BumperScript : MonoBehaviour
         {
             Vector2 dir = (collision.gameObject.transform.position - transform.position).normalized;
 
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(dir.x * force, dir.y * force), ForceMode2D.Force);
+            collision.gameObject
+                .GetComponent<Rigidbody2D>()
+                .AddForce(
+                    new Vector2(dir.x * forceMult + forceStatic, dir.y * forceMult + forceStatic),
+                    ForceMode2D.Force
+                );
+            forceStatic = forceStatic * 1.2f;
         }
     }
 }

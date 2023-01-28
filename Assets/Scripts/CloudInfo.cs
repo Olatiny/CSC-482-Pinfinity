@@ -6,24 +6,26 @@ public class CloudInfo : MonoBehaviour
 {
     [SerializeField]
     private float depth = 1;
-
-    [SerializeField]
-    private float speed = 1;
     private Vector3 origialSpawnPos;
-    private float spawnTime;
 
     private void Update()
     {
         Transform cameraTransform = Camera.allCameras[0].transform;
         float distanceFromCamera = cameraTransform.position.y - origialSpawnPos.y;
-        transform.position =
-            origialSpawnPos
-            + new Vector3(0.1f * speed * Time.time - spawnTime, distanceFromCamera / depth, 0);
+        transform.position = new Vector3(
+            transform.position.x + Time.deltaTime * (1 / depth) * 0.1f,
+            origialSpawnPos.y + distanceFromCamera / depth,
+            origialSpawnPos.z
+        );
     }
 
-    private void Awake()
+    private void Start()
     {
-        origialSpawnPos = transform.position;
-        spawnTime = Time.time;
+        int flipped = Random.Range(0, 2) * 2 - 1;
+        origialSpawnPos = new Vector3(
+            transform.position.x * flipped,
+            transform.position.y,
+            depth + 30
+        );
     }
 }

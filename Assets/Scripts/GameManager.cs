@@ -5,21 +5,36 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private const float SKY_DIM_MAX = 1000.0f;
+
     public static GameManager Instance;
 
     private void Awake()
     {
         Instance = this;
+        startingColor = gameCamera.backgroundColor;
     }
 
     public bool ballOnTop = false;
 
-    [SerializeField] private GameObject ball;
-    [SerializeField] private GameObject paddles;
-    [SerializeField] private GameObject[] segments;
-    [SerializeField] private GameObject spawnPoint;
+    [SerializeField]
+    private Camera gameCamera;
+
+    [SerializeField]
+    private GameObject ball;
+
+    [SerializeField]
+    private GameObject paddles;
+
+    [SerializeField]
+    private GameObject[] segments;
+
+    [SerializeField]
+    private GameObject spawnPoint;
 
     private Vector2 ballVelocity;
+    private Color startingColor;
+    public float dimFactor = 1;
     public int score = 0;
     public int lives = 3;
 
@@ -39,8 +54,10 @@ public class GameManager : MonoBehaviour
 
         if (ball.transform.position.y > score)
         {
-            score = (int) ball.transform.position.y;
+            score = (int)ball.transform.position.y;
         }
+        dimFactor = 1 - Mathf.Clamp(ball.transform.position.y / SKY_DIM_MAX, 0f, 0.8f);
+        gameCamera.backgroundColor = startingColor * dimFactor;
     }
 
     public void SetBallOnTop(bool top)
@@ -81,7 +98,7 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
         state = GameState.MainMenu;
-    
+
         score = 0;
         lives = 3;
     }

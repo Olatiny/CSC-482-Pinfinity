@@ -17,6 +17,13 @@ public class CloudInfo : MonoBehaviour
             origialSpawnPos.y + distanceFromCamera / depth,
             origialSpawnPos.z
         );
+        Color c = GetComponent<SpriteRenderer>().color;
+        GetComponent<SpriteRenderer>().color = new Color(
+            c.r,
+            c.g,
+            c.b,
+            (FindObjectOfType<GameManager>().dimFactor / 2.5f)
+        );
     }
 
     private void Start()

@@ -259,12 +259,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16860867}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.901076, y: 0.77557886, z: 0.12939481}
+  m_LocalPosition: {x: 2.901076, y: 0.77557886, z: 10.129395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 448786538}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &16860869
 MonoBehaviour:
@@ -279,10 +279,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballOnTop: 0
+  gameCamera: {fileID: 519420031}
   ball: {fileID: 304775352}
   paddles: {fileID: 0}
   segments: []
   spawnPoint: {fileID: 273821760}
+  dimFactor: 1
   score: 0
   lives: 3
   state: 0
@@ -882,7 +884,6 @@ Transform:
   - {fileID: 273821762}
   - {fileID: 1903764526}
   - {fileID: 65288934}
-  - {fileID: 16860868}
   m_Father: {fileID: 519420032}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1166,7 +1167,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.18280526, g: 0.30248997, b: 0.49056602, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

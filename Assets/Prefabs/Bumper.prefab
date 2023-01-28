@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c764226364e0f24bbe605d39a1f9b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
   forceMult: 1
   forceStatic: 100
+  score: 300
 --- !u!58 &1890143611976747420
 CircleCollider2D:
   m_ObjectHideFlags: 0

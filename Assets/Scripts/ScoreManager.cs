@@ -7,7 +7,11 @@ public class ScoreManager : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI scoreText;
-    private int score;
+    private int scoreFromBumpers;
+    private int scoreFromHeight;
+
+    [SerializeField]
+    private GameObject ball;
 
     // Start is called before the first frame update
     void Start() { }
@@ -15,11 +19,13 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        scoreFromHeight = Mathf.Max((int)(ball.transform.position.y * 10.0), scoreFromHeight);
+        int score = scoreFromBumpers + scoreFromHeight;
         scoreText.SetText(score.ToString());
     }
 
     public void AddScore(int value)
     {
-        score += value;
+        scoreFromBumpers += value;
     }
 }

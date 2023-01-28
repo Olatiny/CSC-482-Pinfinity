@@ -26,7 +26,10 @@ public class BumperScript : MonoBehaviour
             collision.gameObject
                 .GetComponent<Rigidbody2D>()
                 .AddForce(
-                    new Vector2(dir.x * forceMult + forceStatic, dir.y * forceMult + forceStatic),
+                    new Vector2(
+                        dir.x * forceMult + dir.x * forceStatic,
+                        dir.y * forceMult + dir.y * forceStatic
+                    ),
                     ForceMode2D.Force
                 );
             forceStatic = forceStatic * KNOCKBACK_MULT;

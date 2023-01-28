@@ -8,6 +8,12 @@ public class BumperScript : MonoBehaviour
     private const int KNOCKBACK_MULT = 2;
 
     [SerializeField]
+    private Sprite defaultSprite;
+
+    [SerializeField]
+    private Sprite hitSprite;
+
+    [SerializeField]
     private float forceMult;
 
     [SerializeField]

@@ -9,7 +9,7 @@ public class BallScript : MonoBehaviour
 
     private float lastXnonZero;
 
-    [SerializeField] private int speed = 10;
+    //[SerializeField] private int speed = 10;
     [SerializeField] private GameObject ballSpawn;
     //[SerializeField] private Camera cam;
 
@@ -20,8 +20,9 @@ public class BallScript : MonoBehaviour
     //private Vector2 velocity;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        lastXnonZero = 0;
         Ball = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -46,12 +47,6 @@ public class BallScript : MonoBehaviour
             GameManager.Instance.LoseLives(1);
 
             Destroy(gameObject);
-
-            if (GameManager.Instance.state != GameManager.GameState.GameOver)
-            {
-                transform.position = ballSpawn.transform.position;
-                Ball.velocity = new Vector2(0, 0);
-            }
         }
     }
 

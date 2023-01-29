@@ -113,6 +113,30 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2650,7 +2674,7 @@ TextureImporter:
       Pinball Animation V4.2_54: -1580195853
       Pinball Animation V4.2_73: -252549243
       Pinball Animation V4.2_89: -1508241401
-      Pinball Animation V4.2_97: 309081696
+      Pinball Animation V4.2_35: -667183002
       Pinball Animation V4.2_40: 639137409
       Pinball Animation V4.2_52: 264724773
       Pinball Animation V4.2_102: 1305215684
@@ -2713,8 +2737,8 @@ TextureImporter:
       Pinball Animation V4.2_114: 1406215773
       Pinball Animation V4.2_18: 1734384931
       Pinball Animation V4.2_44: 206800003
-      Pinball Animation V4.2_75: -1844743592
       Pinball Animation V4.2_111: 2108650503
+      Pinball Animation V4.2_75: -1844743592
       Pinball Animation V4.2_88: -1327244385
       Pinball Animation V4.2_113: -861136678
       Pinball Animation V4.2_101: -578416718
@@ -2762,10 +2786,10 @@ TextureImporter:
       Pinball Animation V4.2_103: 409064347
       Pinball Animation V4.2_6: -560859399
       Pinball Animation V4.2_38: -1762214781
-      Pinball Animation V4.2_69: 1643776133
-      Pinball Animation V4.2_35: -667183002
-      Pinball Animation V4.2_96: 1640645615
       Pinball Animation V4.2_46: -49826968
+      Pinball Animation V4.2_69: 1643776133
+      Pinball Animation V4.2_97: 309081696
+      Pinball Animation V4.2_96: 1640645615
       Pinball Animation V4.2_39: -1147504607
   spritePackingTag: 
   pSDRemoveMatte: 0

@@ -33,6 +33,9 @@ public class PaddleScriptTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Don't do anything if Paused or Game Over
+        if (GameManager.Instance.state == GameManager.GameState.GameOver || GameManager.Instance.state == GameManager.GameState.Paused) return;
+
         if (Input.GetKey(key))
         {
             GetComponent<Rigidbody2D>().AddTorque(hitStrength);

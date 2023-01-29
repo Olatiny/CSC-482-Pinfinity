@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1754787891003823453, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 21a1bf4814aa700469e0f519f2238a0a, type: 2}
     - target: {fileID: 1890143611976747418, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -93,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1890143611976747421, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
       propertyPath: forceStatic
-      value: 300
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1890143611976747423, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
       propertyPath: m_Name

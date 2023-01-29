@@ -29,6 +29,9 @@ public class BumperScript : MonoBehaviour
         {
             Vector2 dir = (collision.gameObject.transform.position - transform.position).normalized;
 
+            //collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Animator>().Play("BumperBounce");
+
             collision.gameObject
                 .GetComponent<Rigidbody2D>()
                 .AddForce(
@@ -36,12 +39,12 @@ public class BumperScript : MonoBehaviour
                         dir.x * forceMult + dir.x * forceStatic,
                         dir.y * forceMult + dir.y * forceStatic
                     ),
-                    ForceMode2D.Force
+                    ForceMode2D.Impulse
                 );
             forceStatic = forceStatic * KNOCKBACK_MULT;
             if (numHits < HITS_UNTIL_DEAD)
             {
-                FindObjectOfType<ScoreManager>().AddScore(score);
+                GameManager.Instance.AddScore(score);
                 numHits++;
             }
         }

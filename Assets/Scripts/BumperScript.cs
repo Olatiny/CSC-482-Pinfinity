@@ -4,8 +4,24 @@ using UnityEngine;
 
 public class BumperScript : MonoBehaviour
 {
-    [SerializeField] private GameObject ball;
-    [SerializeField] private int force;
+    private const int HITS_UNTIL_DEAD = 3;
+    private const int KNOCKBACK_MULT = 2;
+
+    [SerializeField]
+    private Sprite defaultSprite;
+
+    [SerializeField]
+    private Sprite hitSprite;
+
+    [SerializeField]
+    private float forceMult;
+
+    [SerializeField]
+    private float forceStatic;
+
+    [SerializeField]
+    private int score;
+    private int numHits = 0;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -13,7 +29,21 @@ public class BumperScript : MonoBehaviour
         {
             Vector2 dir = (collision.gameObject.transform.position - transform.position).normalized;
 
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(dir.x * force, dir.y * force), ForceMode2D.Force);
+            collision.gameObject
+                .GetComponent<Rigidbody2D>()
+                .AddForce(
+                    new Vector2(
+                        dir.x * forceMult + dir.x * forceStatic,
+                        dir.y * forceMult + dir.y * forceStatic
+                    ),
+                    ForceMode2D.Force
+                );
+            forceStatic = forceStatic * KNOCKBACK_MULT;
+            if (numHits < HITS_UNTIL_DEAD)
+            {
+                FindObjectOfType<ScoreManager>().AddScore(score);
+                numHits++;
+            }
         }
     }
 }

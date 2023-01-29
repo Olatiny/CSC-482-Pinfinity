@@ -12,6 +12,7 @@ TagManager:
   - Despawn
   - BumperRow
   - BumperManager
+  - ScoreManager
   layers:
   - Default
   - TransparentFX

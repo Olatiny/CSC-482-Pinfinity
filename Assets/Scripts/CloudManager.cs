@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloudSpawner : MonoBehaviour
+public class CloudManager : MonoBehaviour
 {
-    [SerializeField]
-    private Sprite[] cloudImages;
-
     [SerializeField]
     private GameObject spawnPoint;
 

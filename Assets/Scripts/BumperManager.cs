@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class BumperManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] validBumpers;
-    [SerializeField] private GameObject spawnPoint;
+    [SerializeField]
+    private GameObject[] validBumpers;
+
+    [SerializeField]
+    private GameObject spawnPoint;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,13 +28,12 @@ public class BumperManager : MonoBehaviour
             {
                 Instantiate(bump, pos2, spawnPoint.transform.rotation);
             }
-
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Trigger detected in bumper row");
+        // Debug.Log("Trigger detected in bumper row");
 
         if (collision.gameObject.CompareTag("Despawn"))
         {

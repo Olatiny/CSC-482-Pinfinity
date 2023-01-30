@@ -84,22 +84,43 @@ public class GameManager : MonoBehaviour
 
     IEnumerator FadePaddles()
     {
-        float speed = 0.02f;
+        float speed = 8f;
         float length = 16f;
+        float final_paddle_left = paddles.transform.GetChild(0).transform.position.x;
+        float final_holder_left = paddles.transform.GetChild(1).transform.position.x;
+        float final_paddle_right = paddles.transform.GetChild(2).transform.position.x;
+        float final_holder_right = paddles.transform.GetChild(3).transform.position.x;
+
         paddles.transform.GetChild(0).transform.position -= new Vector3(length, 0, 0);
         paddles.transform.GetChild(1).transform.position -= new Vector3(length, 0, 0);
         paddles.transform.GetChild(2).transform.position += new Vector3(length, 0, 0);
         paddles.transform.GetChild(3).transform.position += new Vector3(length, 0, 0);
 
-        for (float distance = length; distance >= 0; distance -= speed)
+        for (float distance = length; distance >= 0; distance -= speed * Time.deltaTime)
         {
-            paddles.transform.GetChild(0).transform.position += new Vector3(speed, 0, 0);
-            paddles.transform.GetChild(1).transform.position += new Vector3(speed, 0, 0);
-            paddles.transform.GetChild(2).transform.position -= new Vector3(speed, 0, 0);
-            paddles.transform.GetChild(3).transform.position -= new Vector3(speed, 0, 0);
+            paddles.transform.GetChild(0).transform.position += new Vector3(
+                speed * Time.deltaTime,
+                0,
+                0
+            );
+            paddles.transform.GetChild(1).transform.position += new Vector3(
+                speed * Time.deltaTime,
+                0,
+                0
+            );
+            paddles.transform.GetChild(2).transform.position -= new Vector3(
+                speed * Time.deltaTime,
+                0,
+                0
+            );
+            paddles.transform.GetChild(3).transform.position -= new Vector3(
+                speed * Time.deltaTime,
+                0,
+                0
+            );
             if (distance < 8f)
             {
-                GameCamera.transform.position += new Vector3(0, 0.01f, 0);
+                GameCamera.transform.position += new Vector3(0, 0.02f * speed, 0);
             }
             yield return null;
         }
@@ -108,6 +129,27 @@ public class GameManager : MonoBehaviour
             spawnPoint.transform.position,
             spawnPoint.transform.rotation
         );
+        paddles.transform.GetChild(0).transform.position = new Vector3(
+            final_paddle_left,
+            paddles.transform.GetChild(0).transform.position.y,
+            3
+        );
+        paddles.transform.GetChild(1).transform.position = new Vector3(
+            final_holder_left,
+            paddles.transform.GetChild(1).transform.position.y,
+            3
+        );
+        paddles.transform.GetChild(2).transform.position = new Vector3(
+            final_paddle_right,
+            paddles.transform.GetChild(2).transform.position.y,
+            3
+        );
+        paddles.transform.GetChild(3).transform.position = new Vector3(
+            final_holder_right,
+            paddles.transform.GetChild(3).transform.position.y,
+            3
+        );
+
         state = GameState.Playing;
     }
 
@@ -137,10 +179,11 @@ public class GameManager : MonoBehaviour
 
         if (ballOnTop && ball.GetComponent<Rigidbody2D>().velocity.y > 0)
         {
-            GameCamera.transform.position = new Vector3(
-                GameCamera.transform.position.x,
-                ball.transform.position.y + (.01f * ball.GetComponent<Rigidbody2D>().velocity.y),
-                GameCamera.transform.position.z
+            GameCamera.transform.position += new Vector3(
+                0,
+                ((ball.transform.position.y - GameCamera.transform.position.y) + 2)
+                    * Time.deltaTime,
+                0
             );
         }
 

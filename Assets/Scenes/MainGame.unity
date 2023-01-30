@@ -2534,8 +2534,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 100
   isMoving: 0
-  hitStrength: -600
-  damperStrength: -100
+  hitStrength: -40000
+  damperStrength: -8000
 --- !u!212 &872496721
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3826,7 +3826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1319894943613309320, guid: 509b56ca13d4b4e45ae0fc2e4f668401, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1319894943613309320, guid: 509b56ca13d4b4e45ae0fc2e4f668401, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4482,8 +4482,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 97
   isMoving: 0
-  hitStrength: 600
-  damperStrength: 100
+  hitStrength: 40000
+  damperStrength: 8000
 --- !u!50 &7399665522054965314
 Rigidbody2D:
   serializedVersion: 4

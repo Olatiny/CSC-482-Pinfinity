@@ -9,7 +9,6 @@ public class AnimatedText : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("hi");
         StartCoroutine(AnimateText());
     }
 

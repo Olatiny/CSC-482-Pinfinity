@@ -69,7 +69,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -2674,7 +2674,7 @@ TextureImporter:
       Pinball Animation V4.2_54: -1580195853
       Pinball Animation V4.2_73: -252549243
       Pinball Animation V4.2_89: -1508241401
-      Pinball Animation V4.2_35: -667183002
+      Pinball Animation V4.2_39: -1147504607
       Pinball Animation V4.2_40: 639137409
       Pinball Animation V4.2_52: 264724773
       Pinball Animation V4.2_102: 1305215684
@@ -2786,11 +2786,11 @@ TextureImporter:
       Pinball Animation V4.2_103: 409064347
       Pinball Animation V4.2_6: -560859399
       Pinball Animation V4.2_38: -1762214781
+      Pinball Animation V4.2_35: -667183002
       Pinball Animation V4.2_46: -49826968
+      Pinball Animation V4.2_96: 1640645615
       Pinball Animation V4.2_69: 1643776133
       Pinball Animation V4.2_97: 309081696
-      Pinball Animation V4.2_96: 1640645615
-      Pinball Animation V4.2_39: -1147504607
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

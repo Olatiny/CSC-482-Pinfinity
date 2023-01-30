@@ -99,8 +99,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.4
-  m_LinearDrag: 0
+  m_Mass: 5
+  m_LinearDrag: 1
   m_AngularDrag: 0
   m_GravityScale: 1.6
   m_Material: {fileID: 0}
@@ -136,6 +136,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f425a9e28ce91249b3a8818b3e8fcbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 25
   ballSpawn: {fileID: 0}
-  cam: {fileID: 0}

@@ -6,10 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.anyKey)
         {
             GetComponent<Animator>().Play("Fade Out");
         }

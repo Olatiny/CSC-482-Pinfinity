@@ -45,9 +45,9 @@ public class BumperScript : MonoBehaviour
                     ),
                     ForceMode2D.Impulse
                 );
-            forceStatic = forceStatic * KNOCKBACK_MULT;
             if (numHits < HITS_UNTIL_DEAD)
             {
+                forceStatic *= KNOCKBACK_MULT;
                 StartCoroutine(BumperScore());
                 GameManager.Instance.AddScore(score);
                 numHits++;

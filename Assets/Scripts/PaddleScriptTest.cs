@@ -43,11 +43,11 @@ public class PaddleScriptTest : MonoBehaviour
 
         if (Input.GetKey(key))
         {
-            GetComponent<Rigidbody2D>().AddTorque(hitStrength * Time.deltaTime);
+            GetComponent<Rigidbody2D>().AddTorque(hitStrength);
         }
         else
         {
-            GetComponent<Rigidbody2D>().AddTorque(-damperStrength * Time.deltaTime);
+            GetComponent<Rigidbody2D>().AddTorque(-damperStrength);
         }
     }
 }

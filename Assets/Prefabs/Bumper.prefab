@@ -104,7 +104,7 @@ MonoBehaviour:
   defaultSprite: {fileID: -768256713, guid: 1a81308c27d238240bbe2b101ef2462f, type: 3}
   hitSprite: {fileID: 467104196, guid: 1a81308c27d238240bbe2b101ef2462f, type: 3}
   forceMult: 1.5
-  forceStatic: 30
+  forceStatic: 35
   score: 300
 --- !u!58 &1890143611976747420
 CircleCollider2D:

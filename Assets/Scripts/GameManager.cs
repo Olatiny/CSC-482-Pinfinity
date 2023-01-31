@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject spawnPoint;
 
+    [SerializeField]
+    private BumperManager bumperManager;
+
     [Header("UI fields")]
     [SerializeField]
     private TextMeshProUGUI ScoreText;
@@ -58,9 +61,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject GameOverCanvas;
-
-    [SerializeField]
-    private BumperManager bumperManager;
 
     [SerializeField]
     private TextMeshProUGUI GameOverScoreText;
@@ -242,9 +242,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("Paused Game");
         PlayingCanvas.SetActive(false);
         PausedCanvas.SetActive(true);
-        ballVelocity = ball.GetComponent<Rigidbody2D>().velocity;
-        ball.GetComponent<Rigidbody2D>().gravityScale = 0;
-        ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        //ballVelocity = ball.GetComponent<Rigidbody2D>().velocity;
+        //ball.GetComponent<Rigidbody2D>().gravityScale = 0;
+        //ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        ball.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         state = GameState.Paused;
     }
 
@@ -252,8 +253,9 @@ public class GameManager : MonoBehaviour
     {
         PausedCanvas.SetActive(false);
         PlayingCanvas.SetActive(true);
-        ball.GetComponent<Rigidbody2D>().gravityScale = 1.6f;
-        ball.GetComponent<Rigidbody2D>().velocity = ballVelocity;
+        //ball.GetComponent<Rigidbody2D>().gravityScale = 1.6f;
+        //ball.GetComponent<Rigidbody2D>().velocity = ballVelocity;
+        ball.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         state = GameState.Playing;
     }
 

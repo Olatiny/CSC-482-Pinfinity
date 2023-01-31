@@ -7,6 +7,14 @@ public class IntroCutscene : MonoBehaviour
 {
     //[SerializeField] private GameObject screenSwipe;
 
+    private void Update()
+    {
+        if (Input.anyKey)
+        {
+            beginTransition();
+        }
+    }
+
     private void beginTransition()
     {
         GetComponent<Animator>().Play("IntroFadeOut");

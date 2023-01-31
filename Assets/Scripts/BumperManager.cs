@@ -50,6 +50,8 @@ public class BumperManager : MonoBehaviour
             {
                 Instantiate(bump, pos2, spawnPoint.transform.rotation);
             }
+
+            Debug.Log(bump.name + "was instantiated");
         }
     }
 

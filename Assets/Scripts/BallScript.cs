@@ -10,7 +10,9 @@ public class BallScript : MonoBehaviour
     private float lastXnonZero;
 
     //[SerializeField] private int speed = 10;
-    [SerializeField] private GameObject ballSpawn;
+    [SerializeField]
+    private GameObject ballSpawn;
+
     //[SerializeField] private Camera cam;
 
     private Vector2 lastVelocity = Vector2.zero;
@@ -30,7 +32,7 @@ public class BallScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall")
         {
-            Ball.AddForce(new Vector2(lastXnonZero * -2, 0), ForceMode2D.Force);
+            Ball.AddForce(new Vector2(lastXnonZero * -3, 0), ForceMode2D.Force);
         }
     }
 
@@ -62,7 +64,11 @@ public class BallScript : MonoBehaviour
     private void Update()
     {
         // Don't do anything if paused or game over.
-        if (GameManager.Instance.state == GameManager.GameState.GameOver || GameManager.Instance.state == GameManager.GameState.Paused) return;
+        if (
+            GameManager.Instance.state == GameManager.GameState.GameOver
+            || GameManager.Instance.state == GameManager.GameState.Paused
+        )
+            return;
 
         if (Ball.velocity.x != 0)
         {

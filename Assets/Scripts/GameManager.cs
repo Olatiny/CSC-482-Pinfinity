@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
             );
             if (distance < 8f)
             {
-                GameCamera.transform.position += new Vector3(0, 0.02f * speed, 0);
+                GameCamera.transform.position += new Vector3(0, Time.deltaTime * speed, 0);
             }
             yield return null;
         }
@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour
         {
             GameCamera.transform.position += new Vector3(
                 0,
-                ((ball.transform.position.y - GameCamera.transform.position.y) + 2)
+                (Mathf.Pow((ball.transform.position.y - GameCamera.transform.position.y), 2) + 2)
                     * Time.deltaTime,
                 0
             );

@@ -50,7 +50,11 @@ public class BumperScript : MonoBehaviour
                 forceStatic *= KNOCKBACK_MULT;
                 StartCoroutine(BumperScore());
                 GameManager.Instance.AddScore(score);
-                numHits++;
+            }
+            numHits++;
+            if (numHits > 10)
+            {
+                Destroy(gameObject);
             }
         }
     }

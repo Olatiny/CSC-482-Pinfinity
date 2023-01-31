@@ -60,6 +60,9 @@ public class GameManager : MonoBehaviour
     private GameObject GameOverCanvas;
 
     [SerializeField]
+    private BumperManager bumperManager;
+
+    [SerializeField]
     private TextMeshProUGUI GameOverScoreText;
 
     [Header("Effects")]
@@ -177,19 +180,23 @@ public class GameManager : MonoBehaviour
         if (state == GameState.Paused)
             return;
 
-        if (ballOnTop && ball.GetComponent<Rigidbody2D>().velocity.y > 0)
+        if (ballOnTop)
         {
             GameCamera.transform.position += new Vector3(
                 0,
-                (Mathf.Pow((ball.transform.position.y - GameCamera.transform.position.y), 2) + 2)
+                (Mathf.Pow((ball.transform.position.y - GameCamera.transform.position.y), 2) / 3)
                     * Time.deltaTime,
                 0
             );
         }
 
         HeightScore = Mathf.Max((int)(ball.transform.position.y * 10.0), HeightScore);
-        ScoreText.SetText("Score: " + (HeightScore + BumperScore).ToString());
-
+        ScoreText.SetText("Score: " + (HeightScore * 10 + BumperScore).ToString());
+        LivesText.SetText("Hieght: " + ((int)HeightScore).ToString());
+        if (HeightScore > 500)
+        {
+            bumperManager.current_stage = 1;
+        }
         dimFactor = 1 - Mathf.Clamp((HeightScore / 10) / SKY_DIM_MAX, 0f, 0.8f);
         GameCamera.backgroundColor = startingColor * dimFactor;
     }
@@ -207,8 +214,6 @@ public class GameManager : MonoBehaviour
     public void LoseLives(int lives)
     {
         this.lives -= lives;
-
-        LivesText.SetText("Lives: " + this.lives.ToString());
 
         if (this.lives <= 0)
         {
@@ -255,5 +260,10 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("MainGame");
     }
 }

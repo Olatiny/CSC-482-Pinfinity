@@ -4,18 +4,40 @@ using UnityEngine;
 
 public class BumperManager : MonoBehaviour
 {
+    public int current_stage = 0;
+
     [SerializeField]
-    private GameObject[] validBumpers;
+    private GameObject[] stage_1;
+
+    [SerializeField]
+    private GameObject[] stage_2;
+
+    [SerializeField]
+    private GameObject[] stage_3;
+
+    [SerializeField]
+    private GameObject[] stage_4;
+
+    private int stages_num = 4;
 
     [SerializeField]
     private GameObject spawnPoint;
+    private GameObject[][] stages;
+
+    private void Awake()
+    {
+        stages = new GameObject[stages_num][];
+        stages[0] = stage_1;
+        stages[1] = stage_2;
+        stages[2] = stage_3;
+        stages[3] = stage_4;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("BumperRow"))
         {
-            GameObject bump = validBumpers[Random.Range(0, validBumpers.Length)];
-            //GameObject bump = validBumpers[2];
+            GameObject bump = stages[current_stage][Random.Range(0, stages[current_stage].Length)];
 
             Vector2 pos1 = collision.gameObject.transform.GetChild(0).position;
             Vector2 pos2 = spawnPoint.transform.position;

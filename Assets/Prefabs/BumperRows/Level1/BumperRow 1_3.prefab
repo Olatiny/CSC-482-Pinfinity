@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 2809593519980500135}
   - component: {fileID: 6311486900017924099}
   m_Layer: 3
-  m_Name: BumperRow
+  m_Name: BumperRow 1_3
   m_TagString: BumperRow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

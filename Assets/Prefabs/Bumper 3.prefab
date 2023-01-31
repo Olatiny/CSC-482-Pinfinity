@@ -88,9 +88,21 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1890143611976747421, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
+      propertyPath: hitSprite
+      value: 
+      objectReference: {fileID: -2119622074, guid: 1d8d4f3f5e6c82147b1430b392d08b4c, type: 3}
+    - target: {fileID: 1890143611976747421, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 3443613835840044567, guid: 9e142f5c055f1ae4a8b6d8d347cce919, type: 3}
+    - target: {fileID: 1890143611976747421, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
       propertyPath: forceStatic
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1890143611976747421, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
+      propertyPath: defaultSprite
+      value: 
+      objectReference: {fileID: -2104627863, guid: 1d8d4f3f5e6c82147b1430b392d08b4c, type: 3}
     - target: {fileID: 1890143611976747423, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
       propertyPath: m_Name
       value: Bumper 3

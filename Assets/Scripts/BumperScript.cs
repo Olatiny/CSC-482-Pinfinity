@@ -8,6 +8,9 @@ public class BumperScript : MonoBehaviour
     private const int KNOCKBACK_MULT = 2;
 
     [SerializeField]
+    private GameObject scoreText;
+
+    [SerializeField]
     private Sprite defaultSprite;
 
     [SerializeField]
@@ -30,7 +33,8 @@ public class BumperScript : MonoBehaviour
             Vector2 dir = (collision.gameObject.transform.position - transform.position).normalized;
 
             //collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            GetComponent<Animator>().Play("BumperBounce");
+            GetComponent<Animator>()
+                .Play("BumperBounce");
 
             collision.gameObject
                 .GetComponent<Rigidbody2D>()
@@ -44,9 +48,28 @@ public class BumperScript : MonoBehaviour
             forceStatic = forceStatic * KNOCKBACK_MULT;
             if (numHits < HITS_UNTIL_DEAD)
             {
+                StartCoroutine(BumperScore());
                 GameManager.Instance.AddScore(score);
                 numHits++;
             }
         }
+    }
+
+    IEnumerator BumperScore()
+    {
+        Instantiate(
+            scoreText,
+            gameObject.transform.position + new Vector3(0, 0.5f, 0),
+            gameObject.transform.rotation
+        );
+        float highlight = 0.5f;
+        GetComponent<SpriteRenderer>().sprite = hitSprite;
+        float i = 0;
+        while (i < highlight)
+        {
+            i += Time.deltaTime;
+            yield return null;
+        }
+        GetComponent<SpriteRenderer>().sprite = defaultSprite;
     }
 }

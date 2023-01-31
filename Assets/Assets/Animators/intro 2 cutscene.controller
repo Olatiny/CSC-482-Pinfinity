@@ -57,7 +57,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: intro cutscene
+  m_Name: intro 2 cutscene
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -93,7 +93,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: be9178801ec5cbb4fb53973bbd1a9753, type: 2}
+  m_Motion: {fileID: 7400000, guid: c23b9d82fd4621043b0cc3644c6cef3c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

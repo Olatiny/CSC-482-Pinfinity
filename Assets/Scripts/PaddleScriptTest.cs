@@ -19,7 +19,8 @@ public class PaddleScriptTest : MonoBehaviour
     private HingeJoint2D hinge;
 
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         Physics2D.IgnoreLayerCollision(6, 3);
         Physics2D.IgnoreLayerCollision(7, 6);
     }
@@ -34,15 +35,19 @@ public class PaddleScriptTest : MonoBehaviour
     void Update()
     {
         // Don't do anything if Paused or Game Over
-        if (GameManager.Instance.state == GameManager.GameState.GameOver || GameManager.Instance.state == GameManager.GameState.Paused) return;
+        if (
+            GameManager.Instance.state == GameManager.GameState.GameOver
+            || GameManager.Instance.state == GameManager.GameState.Paused
+        )
+            return;
 
         if (Input.GetKey(key))
         {
-            GetComponent<Rigidbody2D>().AddTorque(hitStrength);
+            GetComponent<Rigidbody2D>().AddTorque(hitStrength * Time.deltaTime);
         }
         else
         {
-            GetComponent<Rigidbody2D>().AddTorque(-damperStrength);
+            GetComponent<Rigidbody2D>().AddTorque(-damperStrength * Time.deltaTime);
         }
     }
 }

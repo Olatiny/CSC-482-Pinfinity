@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BumperScript : MonoBehaviour
 {
     private const int HITS_UNTIL_DEAD = 3;
-    private const int KNOCKBACK_MULT = 2;
+    private const float KNOCKBACK_MULT = 1.5f;
 
     [SerializeField]
     private GameObject scoreText;
@@ -42,8 +43,8 @@ public class BumperScript : MonoBehaviour
                 .GetComponent<Rigidbody2D>()
                 .AddForce(
                     new Vector2(
-                        mag * normal.x + normal.x * forceStatic,
-                        mag * normal.y + normal.y * forceStatic
+                        mag * normal.x + normal.x * forceStatic * GameManager.Instance.GetCombo(),
+                        mag * normal.y + normal.y * forceStatic * GameManager.Instance.GetCombo()
                     ),
                     ForceMode2D.Impulse
                 );
@@ -71,11 +72,20 @@ public class BumperScript : MonoBehaviour
 
     IEnumerator BumperScore()
     {
-        Instantiate(
+        GameObject text = Instantiate(
             scoreText,
             gameObject.transform.position + new Vector3(0, 0.5f, 0),
             gameObject.transform.rotation
         );
+
+        text.GetComponent<TextMesh>().alignment = TextAlignment.Center;
+
+        if (GameManager.Instance.GetCombo() > 1)
+        {
+            text.GetComponent<TextMesh>().text += "\n(x " + GameManager.Instance.GetCombo().ToString() + ")";
+            Debug.Log(text.GetComponent<TextMesh>().text);
+        }
+
         float highlight = 0.5f;
         GetComponent<SpriteRenderer>().sprite = hitSprite;
         float i = 0;

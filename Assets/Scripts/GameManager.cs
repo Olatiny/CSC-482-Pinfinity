@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour
     [Header("Effects")]
     public float dimFactor = 1;
 
+    private float ComboMult = 1;
+
     private Vector2 ballVelocity;
     private float ballAngularVel;
     private Color startingColor;
@@ -194,7 +196,7 @@ public class GameManager : MonoBehaviour
 
         HeightScore = Mathf.Max((int)(ball.transform.position.y * 10.0), HeightScore);
         ScoreText.SetText("Score: " + (HeightScore * 10 + BumperScore).ToString());
-        LivesText.SetText("Hieght: " + ((int)HeightScore).ToString());
+        LivesText.SetText("Height: " + ((int)HeightScore).ToString());
         if (HeightScore > 500 && bumperManager.current_stage < 1)
         {
             bumperManager.current_stage = 1;
@@ -203,7 +205,7 @@ public class GameManager : MonoBehaviour
         {
             //Debug.Log("stage: " + bumperManager.current_stage);
             bumperManager.current_stage = 2;
-            SoundManager.instance.SwitchBackground(SoundManager.instance.space);
+            SoundManager.instance.PlayBackground(SoundManager.instance.space);
         }
         dimFactor = 1 - Mathf.Clamp((HeightScore - 250) / SKY_DIM_MAX, 0f, 0.8f);
         GameCamera.backgroundColor = startingColor * dimFactor;
@@ -216,7 +218,23 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int score)
     {
-        this.BumperScore += score;
+        this.BumperScore += (int) (ComboMult * score);
+        if (ComboMult == 1)
+            ComboMult = 1.25f;
+        else
+            ComboMult = 2 * ComboMult - 1;
+        //Debug.Log("Combo: " + ComboMult);
+    }
+
+    public void ResetCombo()
+    {
+        ComboMult = 1f;
+        //Debug.Log("Combo (reset): " + ComboMult);
+    }
+
+    public float GetCombo()
+    {
+        return ComboMult;
     }
 
     public void LoseLives(int lives)
@@ -227,7 +245,7 @@ public class GameManager : MonoBehaviour
         {
             PlayingCanvas.SetActive(false);
             GameOverCanvas.SetActive(true);
-            GameOverScoreText.SetText("Final Score: " + (HeightScore + BumperScore).ToString());
+            GameOverScoreText.SetText("Final Score: " + (HeightScore * 10 + BumperScore).ToString());
             state = GameState.GameOver;
         }
         else

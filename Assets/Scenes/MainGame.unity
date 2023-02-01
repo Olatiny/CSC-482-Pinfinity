@@ -1027,7 +1027,7 @@ GameObject:
   - component: {fileID: 195592191}
   m_Layer: 7
   m_Name: RightHolder
-  m_TagString: Untagged
+  m_TagString: Paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1685,7 +1685,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hieght: 0'
+  m_text: 'Height: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb78ae6bbe08d3c4695fcc74c3e305be, type: 2}
   m_sharedMaterial: {fileID: 648205595005964207, guid: eb78ae6bbe08d3c4695fcc74c3e305be, type: 2}
@@ -2125,8 +2125,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 61
-  m_fontSizeBase: 61
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2797,7 +2797,7 @@ GameObject:
   - component: {fileID: 861429702}
   m_Layer: 7
   m_Name: LeftHolder
-  m_TagString: Untagged
+  m_TagString: Paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5294,7 +5294,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play AGain
+  m_text: Play Again
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb78ae6bbe08d3c4695fcc74c3e305be, type: 2}
   m_sharedMaterial: {fileID: 648205595005964207, guid: eb78ae6bbe08d3c4695fcc74c3e305be, type: 2}

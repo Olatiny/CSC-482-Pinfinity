@@ -25,13 +25,14 @@ public class BallScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            Ball.AddForce(new Vector2(lastXnonZero * -0.25f, 0), ForceMode2D.Force);
+            Ball.AddForce(new Vector2(lastXnonZero * -.5f, 0), ForceMode2D.Force);
         }
 
-        //if (collision.gameObject.CompareTag("Paddle") && collision.gameObject.GetComponent<Rigidbody2D>().angularVelocity != 0)
-        //{
-        //    SoundManager.instance.PlaySoundEffect(SoundManager.instance.paddleSwing);
-        //}
+        if (collision.gameObject.CompareTag("Paddle") && collision.gameObject.GetComponent<Rigidbody2D>().angularVelocity != 0)
+        {
+            //SoundManager.instance.PlaySoundEffect(SoundManager.instance.paddleSwing);
+            GameManager.Instance.ResetCombo();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

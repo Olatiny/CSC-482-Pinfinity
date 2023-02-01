@@ -10,6 +10,21 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioSource Music;
     [SerializeField] AudioSource SoundEffects;
 
+    [Header("Background")]
+    public AudioClip arcade;
+    public AudioClip sky;
+    public AudioClip space;
+
+    [Header("Sound Effects")]
+    public AudioClip redBumper;
+    public AudioClip greenBumper;
+    public AudioClip blueBumper;
+    public AudioClip paddleSwing;
+    public AudioClip paddleHit;
+    public AudioClip wallHit;
+    public AudioClip spaceShipHit;
+    public AudioClip asteroidBallHit;
+ 
     private void Awake()
     {
         if (instance == null)
@@ -28,8 +43,15 @@ public class SoundManager : MonoBehaviour
         Music.loop = true;
     }
 
-    public void PlayMusic(AudioClip clip)
+    public void PlayBackground(AudioClip clip)
     {
+        Music.clip = clip;
+        Music.Play();
+    }
+
+    public void SwitchBackground(AudioClip clip)
+    {
+        Music.Stop();
         Music.clip = clip;
         Music.Play();
     }
@@ -50,5 +72,11 @@ public class SoundManager : MonoBehaviour
     {
         Music.UnPause();
         SoundEffects.UnPause();
+    }
+
+    public void Stop()
+    {
+        Music.Stop();
+        SoundEffects.Stop();
     }
 }

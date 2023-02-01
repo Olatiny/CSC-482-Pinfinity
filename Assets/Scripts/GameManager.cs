@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
         PausedCanvas.SetActive(false);
         GameOverCanvas.SetActive(false);
         StartCoroutine(FadePaddles());
+        SoundManager.instance.PlayBackground(SoundManager.instance.sky);
     }
 
     private bool enableCheck = true;
@@ -201,6 +202,7 @@ public class GameManager : MonoBehaviour
         if (HeightScore > 1000)
         {
             bumperManager.current_stage = 2;
+            SoundManager.instance.SwitchBackground(SoundManager.instance.space);
         }
         dimFactor = 1 - Mathf.Clamp((HeightScore - 250) / SKY_DIM_MAX, 0f, 0.8f);
         GameCamera.backgroundColor = startingColor * dimFactor;
@@ -244,6 +246,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        SoundManager.instance.Pause();
         state = GameState.Paused;
         Debug.Log("Paused Game");
         PlayingCanvas.SetActive(false);
@@ -258,6 +261,7 @@ public class GameManager : MonoBehaviour
 
     public void Resume()
     {
+        SoundManager.instance.UnPause();
         state = GameState.Playing;
         PausedCanvas.SetActive(false);
         PlayingCanvas.SetActive(true);

@@ -35,14 +35,12 @@ public class PaddleScriptTest : MonoBehaviour
     void FixedUpdate()
     {
         // Don't do anything if Paused or Game Over
-        if (
-            GameManager.Instance.state == GameManager.GameState.GameOver
-            || GameManager.Instance.state == GameManager.GameState.Paused
-        )
+        if (GameManager.Instance.state == GameManager.GameState.GameOver || GameManager.Instance.state == GameManager.GameState.Paused)
             return;
 
         if (Input.GetKey(key))
         {
+            //SoundManager.instance.PlaySoundEffect(SoundManager.instance.paddleSwing);
             GetComponent<Rigidbody2D>().AddTorque(hitStrength);
         }
         else

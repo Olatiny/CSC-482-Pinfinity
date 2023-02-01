@@ -34,6 +34,11 @@ public class BallScript : MonoBehaviour
         {
             Ball.AddForce(new Vector2(lastXnonZero * -0.25f, 0), ForceMode2D.Force);
         }
+
+        if (collision.gameObject.CompareTag("Paddle") && collision.gameObject.GetComponent<Rigidbody2D>().angularVelocity != 0)
+        {
+            SoundManager.instance.PlaySoundEffect(SoundManager.instance.paddleSwing);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

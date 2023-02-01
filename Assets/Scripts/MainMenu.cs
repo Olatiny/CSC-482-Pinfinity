@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private void Start()
+    {
+        SoundManager.instance.PlayBackground(SoundManager.instance.arcade);
+    }
+
     private void Update()
     {
         if (Input.anyKey)

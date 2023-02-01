@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14cefecd62567104a9c46f9bd64e1f5f
+guid: e8178091edef68b469e8a6ac4402266f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,12 +117,75 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FlipperSimple_0
+      name: SpaceStuff_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 35
-        width: 63
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 184019f0badef9548b9a64dde732f93c
+      internalID: -2009959008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceStuff_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 97
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944090902a96c184abbeda5fdb16432e
+      internalID: -1788196768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceStuff_5
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 72
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f41051de29cf80479a1df394129398c
+      internalID: 1692391681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceStuff_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 40
+        width: 25
         height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -131,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a41455a4426db44596936160aa7510e
-      internalID: -423068767
+      spriteID: 046cd38b5e46f8e4c95e9955a9570184
+      internalID: -1853667517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlipperSimple_1
+      name: SpaceStuff_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 7
-        width: 13
-        height: 21
+        x: 32
+        y: 34
+        width: 32
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +215,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4515eca5d81baad489226377624f4338
-      internalID: -698032913
+      spriteID: e1bd7dafb1f864d4997cbaa08552f541
+      internalID: -1639679944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpaceStuff_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 34
+        width: 32
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c099f25ed5634f4ab9d6eac270cab39
+      internalID: 1144825990
       vertices: []
       indices: 
       edges: []
@@ -169,8 +253,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FlipperSimple_1: -698032913
-      FlipperSimple_0: -423068767
+      SpaceStuff_4: -657023196
+      SpaceStuff_5: 1692391681
+      SpaceStuff_0: -2009959008
+      SpaceStuff_3: 432568640
+      SpaceStuff_2: -921179650
+      SpaceStuff_1: -1788196768
+      SpaceStuff_10: 1793655396
+      SpaceStuff_11: -1854427551
+      SpaceStuff_9: 1144825990
+      SpaceStuff_7: -1639679944
+      SpaceStuff_6: -1853667517
+      SpaceStuff_8: 1180739616
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

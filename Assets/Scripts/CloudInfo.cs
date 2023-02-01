@@ -24,6 +24,10 @@ public class CloudInfo : MonoBehaviour
             c.b,
             (FindObjectOfType<GameManager>().dimFactor / 2.5f)
         );
+        if (transform.position.y < cameraTransform.position.y - 10)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()

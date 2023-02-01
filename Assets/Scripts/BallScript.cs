@@ -32,7 +32,7 @@ public class BallScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall")
         {
-            Ball.AddForce(new Vector2(lastXnonZero * -3, 0), ForceMode2D.Force);
+            Ball.AddForce(new Vector2(lastXnonZero * -1, 0), ForceMode2D.Force);
         }
     }
 

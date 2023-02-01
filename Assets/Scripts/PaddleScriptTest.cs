@@ -32,7 +32,7 @@ public class PaddleScriptTest : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Don't do anything if Paused or Game Over
         if (

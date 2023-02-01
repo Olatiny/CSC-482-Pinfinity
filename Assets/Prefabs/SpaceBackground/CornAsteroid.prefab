@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1890143611976747423
+--- !u!1 &3769435706743180208
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1890143611976747419}
-  - component: {fileID: 1890143611976747418}
-  - component: {fileID: 1890143611976747421}
-  - component: {fileID: 1890143611976747420}
-  - component: {fileID: -5646867274269118752}
-  - component: {fileID: -1754787891003823453}
-  m_Layer: 3
-  m_Name: Bumper
-  m_TagString: Bumper
+  - component: {fileID: 8966990592499063103}
+  - component: {fileID: 6757241587969818750}
+  - component: {fileID: 7738555574191544488}
+  - component: {fileID: 9014496078804221712}
+  - component: {fileID: 6213697515034125754}
+  m_Layer: 0
+  m_Name: CornAsteroid
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1890143611976747419
+--- !u!4 &8966990592499063103
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890143611976747423}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.77, y: -1.59, z: 15}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_GameObject: {fileID: 3769435706743180208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.07, y: 76.159, z: -5.2885537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1890143611976747418
+--- !u!212 &6757241587969818750
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890143611976747423}
+  m_GameObject: {fileID: 3769435706743180208}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,43 +75,25 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
-  m_Sprite: {fileID: -768256713, guid: 1a81308c27d238240bbe2b101ef2462f, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 78485195, guid: 3ae3ae7ec6250b3468cc1f933c01f37b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1890143611976747421
-MonoBehaviour:
+--- !u!60 &7738555574191544488
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890143611976747423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c764226364e0f24bbe605d39a1f9b60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 7511442503439655751, guid: 8ed35eff7ceac714eb98a012d25be103, type: 3}
-  defaultSprite: {fileID: -768256713, guid: 1a81308c27d238240bbe2b101ef2462f, type: 3}
-  hitSprite: {fileID: 467104196, guid: 1a81308c27d238240bbe2b101ef2462f, type: 3}
-  forceMult: 1.5
-  forceStatic: 35
-  score: 300
---- !u!58 &1890143611976747420
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890143611976747423}
+  m_GameObject: {fileID: 3769435706743180208}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -120,46 +101,67 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.46
---- !u!50 &-5646867274269118752
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.10644722, y: 0.112579346}
+      - {x: 0.024532497, y: 0.10835627}
+      - {x: -0.0074460506, y: 0.079711914}
+      - {x: -0.03375697, y: 0.09376526}
+      - {x: -0.068068266, y: 0.09326172}
+      - {x: -0.079226255, y: 0.06814575}
+      - {x: -0.115005255, y: 0.061302185}
+      - {x: -0.12122035, y: 0.03916931}
+      - {x: -0.10954833, y: -0.008666992}
+      - {x: -0.12401843, y: -0.08618927}
+      - {x: -0.08498025, y: -0.12288666}
+      - {x: 0.0067715645, y: -0.111343384}
+      - {x: 0.07129693, y: -0.04349518}
+      - {x: 0.08625007, y: -0.052108765}
+      - {x: 0.13028026, y: -0.032180786}
+      - {x: 0.12372643, y: 0.0063210726}
+      - {x: 0.146433, y: 0.02788186}
+      - {x: 0.13373828, y: 0.095020235}
+--- !u!50 &9014496078804221712
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890143611976747423}
-  m_BodyType: 1
+  m_GameObject: {fileID: 3769435706743180208}
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &-1754787891003823453
-Animator:
-  serializedVersion: 4
+--- !u!114 &6213697515034125754
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890143611976747423}
+  m_GameObject: {fileID: 3769435706743180208}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 21a1bf4814aa700469e0f519f2238a0a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23fefc472f29bf64996ff7ca8940c7f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingVelocity: {x: 0, y: 0}
+  startingRotation: 0

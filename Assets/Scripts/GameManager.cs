@@ -197,7 +197,11 @@ public class GameManager : MonoBehaviour
         {
             bumperManager.current_stage = 1;
         }
-        dimFactor = 1 - Mathf.Clamp((HeightScore / 10) / SKY_DIM_MAX, 0f, 0.8f);
+        if (HeightScore > 1000)
+        {
+            bumperManager.current_stage = 2;
+        }
+        dimFactor = 1 - Mathf.Clamp((HeightScore - 250) / SKY_DIM_MAX, 0f, 0.8f);
         GameCamera.backgroundColor = startingColor * dimFactor;
     }
 

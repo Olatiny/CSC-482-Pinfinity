@@ -17,9 +17,6 @@ public class BumperScript : MonoBehaviour
     private Sprite hitSprite;
 
     [SerializeField]
-    private float forceMult;
-
-    [SerializeField]
     private float forceStatic;
 
     [SerializeField]
@@ -30,18 +27,21 @@ public class BumperScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            Vector2 dir = (collision.gameObject.transform.position - transform.position).normalized;
-
+            Vector2 normal = (
+                collision.gameObject.transform.position - transform.position
+            ).normalized;
+            float mag = Mathf.Sqrt(
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude
+            );
             //collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Animator>()
                 .Play("BumperBounce");
-
             collision.gameObject
                 .GetComponent<Rigidbody2D>()
                 .AddForce(
                     new Vector2(
-                        dir.x * forceMult + dir.x * forceStatic,
-                        dir.y * forceMult + dir.y * forceStatic
+                        mag * normal.x + normal.x * forceStatic,
+                        mag * normal.y + normal.y * forceStatic
                     ),
                     ForceMode2D.Impulse
                 );
@@ -52,10 +52,18 @@ public class BumperScript : MonoBehaviour
                 GameManager.Instance.AddScore(score);
             }
             numHits++;
-            if (numHits > 10)
+            if (numHits >= HITS_UNTIL_DEAD)
             {
                 Destroy(gameObject);
             }
+        }
+    }
+
+    private void Update()
+    {
+        if (transform.position.y < Camera.allCameras[0].transform.position.y - 10)
+        {
+            Destroy(gameObject);
         }
     }
 

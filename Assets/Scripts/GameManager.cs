@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
     public float dimFactor = 1;
 
     private Vector2 ballVelocity;
+    private float ballAngularVel;
     private Color startingColor;
     private int HeightScore = 0;
     private int BumperScore = 0;
@@ -243,24 +244,27 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        state = GameState.Paused;
         Debug.Log("Paused Game");
         PlayingCanvas.SetActive(false);
         PausedCanvas.SetActive(true);
-        //ballVelocity = ball.GetComponent<Rigidbody2D>().velocity;
-        //ball.GetComponent<Rigidbody2D>().gravityScale = 0;
-        //ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        ball.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-        state = GameState.Paused;
+        ballVelocity = ball.GetComponent<Rigidbody2D>().velocity;
+        ballAngularVel = ball.GetComponent<Rigidbody2D>().angularVelocity;
+        ball.GetComponent<Rigidbody2D>().gravityScale = 0;
+        ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        ball.GetComponent<Rigidbody2D>().angularVelocity = 0;
+        //ball.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     public void Resume()
     {
+        state = GameState.Playing;
         PausedCanvas.SetActive(false);
         PlayingCanvas.SetActive(true);
-        //ball.GetComponent<Rigidbody2D>().gravityScale = 1.6f;
-        //ball.GetComponent<Rigidbody2D>().velocity = ballVelocity;
-        ball.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-        state = GameState.Playing;
+        ball.GetComponent<Rigidbody2D>().gravityScale = 1.6f;
+        ball.GetComponent<Rigidbody2D>().velocity = ballVelocity;
+        ball.GetComponent<Rigidbody2D>().angularVelocity = ballAngularVel;
+        //ball.GetComponent<Rigidbody2D>().constraints = /*RigidbodyConstraints2D.None*/
     }
 
     public void ResetGame()

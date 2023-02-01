@@ -54,4 +54,12 @@ public class BumperManager : MonoBehaviour
             // Debug.Log(bump.name + "was instantiated");
         }
     }
+
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Despawn"))
+    //    {
+    //        Destroy(collision.transform.parent.gameObject);
+    //    }
+    //}
 }

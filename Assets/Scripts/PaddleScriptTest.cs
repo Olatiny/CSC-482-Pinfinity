@@ -18,6 +18,8 @@ public class PaddleScriptTest : MonoBehaviour
 
     private HingeJoint2D hinge;
 
+    bool playSound = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,11 +42,17 @@ public class PaddleScriptTest : MonoBehaviour
 
         if (Input.GetKey(key))
         {
+            if (playSound)
+            {
+                playSound = false;
+                GetComponent<AudioSource>().Play();
+            } 
             //SoundManager.instance.PlaySoundEffect(SoundManager.instance.paddleSwing);
             GetComponent<Rigidbody2D>().AddTorque(hitStrength);
         }
         else
         {
+            playSound = true;
             GetComponent<Rigidbody2D>().AddTorque(-damperStrength);
         }
     }

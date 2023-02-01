@@ -23,34 +23,11 @@ public class BumperScript : MonoBehaviour
     private int score;
     private int numHits = 0;
 
-    enum bumperColor
-    {
-        red,
-        green, 
-        blue
-    }
-
-    [SerializeField]
-    private bumperColor color;
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            switch (color)
-            {
-                case bumperColor.red:
-                    SoundManager.instance.PlaySoundEffect(SoundManager.instance.redBumper);
-                    break;
-                case bumperColor.green:
-                    SoundManager.instance.PlaySoundEffect(SoundManager.instance.greenBumper);
-                    break;
-                case bumperColor.blue:
-                    SoundManager.instance.PlaySoundEffect(SoundManager.instance.blueBumper);
-                    break;
-                default:
-                    break;
-            }
+            GetComponent<AudioSource>().Play();
 
             Vector2 normal = (
                 collision.gameObject.transform.position - transform.position
@@ -77,7 +54,7 @@ public class BumperScript : MonoBehaviour
                 GameManager.Instance.AddScore(score);
             }
             numHits++;
-            if (numHits >= HITS_UNTIL_DEAD)
+            if (numHits >= 7)
             {
                 Destroy(gameObject);
             }

@@ -195,12 +195,13 @@ public class GameManager : MonoBehaviour
         HeightScore = Mathf.Max((int)(ball.transform.position.y * 10.0), HeightScore);
         ScoreText.SetText("Score: " + (HeightScore * 10 + BumperScore).ToString());
         LivesText.SetText("Hieght: " + ((int)HeightScore).ToString());
-        if (HeightScore > 500)
+        if (HeightScore > 500 && bumperManager.current_stage < 1)
         {
             bumperManager.current_stage = 1;
         }
-        if (HeightScore > 1000)
+        if (HeightScore > 1000 && bumperManager.current_stage < 2)
         {
+            //Debug.Log("stage: " + bumperManager.current_stage);
             bumperManager.current_stage = 2;
             SoundManager.instance.SwitchBackground(SoundManager.instance.space);
         }
@@ -246,7 +247,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        SoundManager.instance.Pause();
+        //SoundManager.instance.Pause();
         state = GameState.Paused;
         Debug.Log("Paused Game");
         PlayingCanvas.SetActive(false);
@@ -261,7 +262,7 @@ public class GameManager : MonoBehaviour
 
     public void Resume()
     {
-        SoundManager.instance.UnPause();
+        //SoundManager.instance.UnPause();
         state = GameState.Playing;
         PausedCanvas.SetActive(false);
         PlayingCanvas.SetActive(true);

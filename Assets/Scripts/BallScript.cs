@@ -28,7 +28,7 @@ public class BallScript : MonoBehaviour
             Ball.AddForce(new Vector2(lastXnonZero * -.5f, 0), ForceMode2D.Force);
         }
 
-        if (collision.gameObject.CompareTag("Paddle") && collision.gameObject.GetComponent<Rigidbody2D>().angularVelocity != 0)
+        if (collision.gameObject.CompareTag("Paddle"))
         {
             //SoundManager.instance.PlaySoundEffect(SoundManager.instance.paddleSwing);
             GameManager.Instance.ResetCombo();
@@ -63,7 +63,10 @@ public class BallScript : MonoBehaviour
     private void Update()
     {
         // Don't do anything if paused or game over.
-        if (GameManager.Instance.state == GameManager.GameState.GameOver || GameManager.Instance.state == GameManager.GameState.Paused)
+        if (
+            GameManager.Instance.state == GameManager.GameState.GameOver
+            || GameManager.Instance.state == GameManager.GameState.Paused
+        )
         {
             Ball.velocity = Vector2.zero;
             return;

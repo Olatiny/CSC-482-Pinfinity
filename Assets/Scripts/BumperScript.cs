@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BumperScript : MonoBehaviour
 {
-    private const int HITS_UNTIL_DEAD = 3;
+    private const int HITS_UNTIL_DEAD = 5;
     private const float KNOCKBACK_MULT = 1.5f;
 
     [SerializeField]
@@ -43,8 +43,8 @@ public class BumperScript : MonoBehaviour
                 .GetComponent<Rigidbody2D>()
                 .AddForce(
                     new Vector2(
-                        mag * normal.x + normal.x * forceStatic * GameManager.Instance.GetCombo(),
-                        mag * normal.y + normal.y * forceStatic * GameManager.Instance.GetCombo()
+                        mag * normal.x + normal.x * forceStatic,
+                        mag * normal.y + normal.y * forceStatic
                     ),
                     ForceMode2D.Impulse
                 );
@@ -55,9 +55,9 @@ public class BumperScript : MonoBehaviour
                 GameManager.Instance.AddScore(score);
             }
             numHits++;
-            if (numHits >= 7)
+            if (numHits >= HITS_UNTIL_DEAD)
             {
-                Destroy(gameObject);
+                Destroy(gameObject, 0.25f);
             }
         }
     }
@@ -80,12 +80,13 @@ public class BumperScript : MonoBehaviour
 
         text.GetComponent<TextMesh>().alignment = TextAlignment.Center;
 
-        if (GameManager.Instance.GetCombo() > 1)
-        {
-            text.GetComponent<TextMesh>().text += "\n(x " + GameManager.Instance.GetCombo().ToString() + ")";
-            Debug.Log(text.GetComponent<TextMesh>().text);
-        }
-
+        // if (GameManager.Instance.GetCombo() > 1)
+        // {
+        //     text.GetComponent<TextMesh>().text +=
+        //         "\nx " + GameManager.Instance.GetCombo().ToString();
+        //     Debug.Log(text.GetComponent<TextMesh>().text);
+        // }
+        text.GetComponent<TextMesh>().text = (score * GameManager.Instance.GetCombo()).ToString();
         float highlight = 0.5f;
         GetComponent<SpriteRenderer>().sprite = hitSprite;
         float i = 0;

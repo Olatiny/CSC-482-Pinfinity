@@ -4930,11 +4930,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1295496217117376701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d9e03a1f0de0da4982a1e97c169070b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c19e28de9615e845a08fe4deee0d111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startingVelocity: {x: -0.5, y: 0}
-  depth: 1.2
+  depth: 1.5
 --- !u!1 &2517469046757055676
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     private GameObject spawnPoint;
 
     [SerializeField]
-    private BumperManager bumperManager;
+    private LevelManager bumperManager;
 
     [Header("UI fields")]
     [SerializeField]
@@ -197,7 +197,7 @@ public class GameManager : MonoBehaviour
         HeightScore = Mathf.Max((int)(ball.transform.position.y * 10.0), HeightScore);
         ScoreText.SetText("Score: " + (HeightScore * 10 + BumperScore).ToString());
         LivesText.SetText("Height: " + ((int)HeightScore).ToString());
-        if (HeightScore > 500 && bumperManager.current_stage < 1)
+        if (HeightScore > 200 && bumperManager.current_stage < 1)
         {
             bumperManager.current_stage = 1;
         }
@@ -218,11 +218,9 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int score)
     {
-        this.BumperScore += (int) (ComboMult * score);
-        if (ComboMult == 1)
-            ComboMult = 1.25f;
-        else
-            ComboMult = 2 * ComboMult - 1;
+        this.BumperScore += (int)(ComboMult * score);
+        ComboMult += 0.5f;
+        ComboMult = Mathf.Min(5f, ComboMult);
         //Debug.Log("Combo: " + ComboMult);
     }
 
@@ -245,7 +243,9 @@ public class GameManager : MonoBehaviour
         {
             PlayingCanvas.SetActive(false);
             GameOverCanvas.SetActive(true);
-            GameOverScoreText.SetText("Final Score: " + (HeightScore * 10 + BumperScore).ToString());
+            GameOverScoreText.SetText(
+                "Final Score: " + (HeightScore * 10 + BumperScore).ToString()
+            );
             state = GameState.GameOver;
         }
         else

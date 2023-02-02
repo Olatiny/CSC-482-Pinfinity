@@ -8,7 +8,7 @@ public class Plane : MonoBehaviour
     Vector2 startingVelocity;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GetComponent<Rigidbody2D>().velocity = startingVelocity;
         originalSpawn = transform.position;
@@ -29,5 +29,9 @@ public class Plane : MonoBehaviour
             originalSpawn.y - distanceFromCamera / depth + cameraTransform.position.y,
             originalSpawn.z
         );
+        if (transform.position.y < Camera.allCameras[0].transform.position.y - 10)
+        {
+            Destroy(gameObject);
+        }
     }
 }

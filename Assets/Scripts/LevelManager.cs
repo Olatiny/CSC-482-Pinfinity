@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BumperManager : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
     public int current_stage = 0;
 

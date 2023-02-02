@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
         {
             state = GameState.Intro;
 
-            lives = 3;
+            lives = 1;
             HeightScore = 0;
             BumperScore = 0;
             paddles = GameObject.FindGameObjectWithTag("Paddles");

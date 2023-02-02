@@ -197,11 +197,11 @@ public class GameManager : MonoBehaviour
         HeightScore = Mathf.Max((int)(ball.transform.position.y * 10.0), HeightScore);
         ScoreText.SetText("Score: " + (HeightScore * 10 + BumperScore).ToString());
         LivesText.SetText("Height: " + ((int)HeightScore).ToString());
-        if (HeightScore > 200 && bumperManager.current_stage < 1)
+        if (HeightScore > 20 && bumperManager.current_stage < 1)
         {
             bumperManager.current_stage = 1;
         }
-        if (HeightScore > 1000 && bumperManager.current_stage < 2)
+        if (HeightScore > 30 && bumperManager.current_stage < 2)
         {
             //Debug.Log("stage: " + bumperManager.current_stage);
             bumperManager.current_stage = 2;

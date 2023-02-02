@@ -6,6 +6,7 @@ public class AnimatedText : MonoBehaviour
 {
     // Start is called before the first frame update
     private bool white = false;
+    public float scrollSpeed = 0.5f;
 
     void Start()
     {
@@ -22,7 +23,7 @@ public class AnimatedText : MonoBehaviour
         {
             lifetime -= Time.deltaTime;
             color_iter += Time.deltaTime;
-            gameObject.transform.position += new Vector3(0, Time.deltaTime * 0.5f, 0);
+            gameObject.transform.position += new Vector3(0, Time.deltaTime * scrollSpeed, 0);
             if (color_iter > COLOR_SWITCH)
             {
                 white = !white;

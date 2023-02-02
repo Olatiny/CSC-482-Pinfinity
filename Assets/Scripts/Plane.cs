@@ -29,7 +29,7 @@ public class Plane : MonoBehaviour
             originalSpawn.y - distanceFromCamera / depth + cameraTransform.position.y,
             originalSpawn.z
         );
-        if (transform.position.y < Camera.allCameras[0].transform.position.y - 10)
+        if (transform.position.y < Camera.allCameras[0].transform.position.y - 5)
         {
             Destroy(gameObject);
         }

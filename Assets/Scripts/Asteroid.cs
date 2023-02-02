@@ -16,12 +16,4 @@ public class Asteroid : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(startingVelocity);
         GetComponent<Rigidbody2D>().AddTorque(startingRotation);
     }
-
-    // Update is called once per frame
-    void Update() { }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Destroy(gameObject);
-    }
 }

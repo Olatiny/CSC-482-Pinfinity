@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject[] stage_3;
 
+    [SerializeField]
+    private GameObject[] planes;
     private int stages_num = 3;
 
     [SerializeField]
@@ -41,7 +43,35 @@ public class LevelManager : MonoBehaviour
                 10
             );
             Vector2 pos2 = spawnPoint.transform.position;
-
+            if (current_stage == 1)
+            {
+                int chance = Random.Range(0, 5);
+                if (chance == 1)
+                {
+                    Instantiate(
+                        planes[0],
+                        new Vector3(
+                            planes[0].transform.position.x,
+                            spawnPoint.transform.position.y,
+                            10
+                        ),
+                        spawnPoint.transform.rotation
+                    );
+                    Debug.Log("spawned");
+                }
+                if (chance == 2)
+                {
+                    Instantiate(
+                        planes[1],
+                        new Vector3(
+                            planes[1].transform.position.x,
+                            spawnPoint.transform.position.y,
+                            10
+                        ),
+                        spawnPoint.transform.rotation
+                    );
+                }
+            }
             if (pos1.y > pos2.y)
             {
                 Instantiate(bump, pos1, spawnPoint.transform.rotation);

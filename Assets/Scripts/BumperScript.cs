@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class BumperScript : MonoBehaviour
 {
-    private const int HITS_UNTIL_DEAD = 5;
+    [SerializeField]
+    private int hitsUntilDead = 5;
     private const float KNOCKBACK_MULT = 1.5f;
 
     [SerializeField]
@@ -22,6 +23,7 @@ public class BumperScript : MonoBehaviour
 
     [SerializeField]
     private int score;
+
     private int numHits = 0;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -37,8 +39,10 @@ public class BumperScript : MonoBehaviour
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude
             );
             //collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
             GetComponent<Animator>()
                 .Play("BumperBounce");
+
             collision.gameObject
                 .GetComponent<Rigidbody2D>()
                 .AddForce(
@@ -48,14 +52,14 @@ public class BumperScript : MonoBehaviour
                     ),
                     ForceMode2D.Impulse
                 );
-            if (numHits < HITS_UNTIL_DEAD)
+            if (numHits < hitsUntilDead)
             {
                 forceStatic *= KNOCKBACK_MULT;
                 StartCoroutine(BumperScore());
                 GameManager.Instance.AddScore(score);
             }
             numHits++;
-            if (numHits >= HITS_UNTIL_DEAD)
+            if (numHits >= hitsUntilDead)
             {
                 Destroy(gameObject, 0.25f);
             }
@@ -70,14 +74,17 @@ public class BumperScript : MonoBehaviour
         }
     }
 
+    private float extraScoreHeight = 0;
+
     IEnumerator BumperScore()
     {
+        extraScoreHeight += 0.5f;
         GameObject text = Instantiate(
             scoreText,
-            gameObject.transform.position + new Vector3(0, 0.5f, 0),
+            gameObject.transform.position + new Vector3(0, extraScoreHeight, 0),
             gameObject.transform.rotation
         );
-
+        float heightNow = extraScoreHeight;
         text.GetComponent<TextMesh>().alignment = TextAlignment.Center;
 
         // if (GameManager.Instance.GetCombo() > 1)
@@ -96,5 +103,9 @@ public class BumperScript : MonoBehaviour
             yield return null;
         }
         GetComponent<SpriteRenderer>().sprite = defaultSprite;
+        if (heightNow == extraScoreHeight)
+        {
+            extraScoreHeight = 0;
+        }
     }
 }

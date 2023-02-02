@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
     private Color startingColor;
     private int HeightScore = 0;
     private int BumperScore = 0;
-    private int lives = 3;
+    private int lives = 1;
     private GameObject ball;
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -223,6 +223,8 @@ public class GameManager : MonoBehaviour
 
         if (PlayingCanvas) PlayingCanvas.SetActive(true);
         state = GameState.Playing;
+        paddles.GetComponentsInChildren<PaddleScriptTest>()[0].enabled = true;
+        paddles.GetComponentsInChildren<PaddleScriptTest>()[1].enabled = true;
     }
 
     void Update()
@@ -264,7 +266,7 @@ public class GameManager : MonoBehaviour
         HeightScore = Mathf.Max((int)(ball.transform.position.y * 10.0), HeightScore);
         ScoreText.SetText("Score: " + (HeightScore * 10 + BumperScore).ToString());
         LivesText.SetText("Height: " + ((int)HeightScore).ToString());
-        if (HeightScore > 800 && bumperManager.current_stage < 1)
+        if (HeightScore > 1000 && bumperManager.current_stage < 1)
         {
             bumperManager.current_stage = 1;
         }
@@ -274,7 +276,7 @@ public class GameManager : MonoBehaviour
             bumperManager.current_stage = 2;
             SoundManager.instance.PlayBackground(SoundManager.instance.space);
         }
-        dimFactor = 1 - Mathf.Clamp((HeightScore - 250) / SKY_DIM_MAX, 0f, 0.8f);
+        dimFactor = 1 - Mathf.Clamp((HeightScore - 1000) / SKY_DIM_MAX, 0f, 0.8f);
         GameCamera.backgroundColor = startingColor * dimFactor;
     }
 

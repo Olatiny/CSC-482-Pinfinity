@@ -45,7 +45,7 @@ public class LevelManager : MonoBehaviour
             Vector2 pos2 = spawnPoint.transform.position;
             if (current_stage == 1)
             {
-                int chance = Random.Range(0, 5);
+                int chance = Random.Range(0, 3);
                 if (chance == 1)
                 {
                     Instantiate(

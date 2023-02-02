@@ -87,12 +87,12 @@ public class BumperScript : MonoBehaviour
         float heightNow = extraScoreHeight;
         text.GetComponent<TextMesh>().alignment = TextAlignment.Center;
 
-        // if (GameManager.Instance.GetCombo() > 1)
-        // {
-        //     text.GetComponent<TextMesh>().text +=
-        //         "\nx " + GameManager.Instance.GetCombo().ToString();
-        //     Debug.Log(text.GetComponent<TextMesh>().text);
-        // }
+        //if (GameManager.Instance.GetCombo() > 1)
+        //{
+        //    text.GetComponent<TextMesh>().text +=
+        //        "\nx " + GameManager.Instance.GetCombo().ToString();
+        //    Debug.Log(text.GetComponent<TextMesh>().text);
+        //}
         text.GetComponent<TextMesh>().text = (score * GameManager.Instance.GetCombo()).ToString();
         float highlight = 0.5f;
         GetComponent<SpriteRenderer>().sprite = hitSprite;

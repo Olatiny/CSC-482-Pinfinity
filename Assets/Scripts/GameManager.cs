@@ -20,15 +20,29 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
+    //private void Awake()
+    //{
+    //    Instance = this;
+    //    startingColor = GameCamera.backgroundColor;
+    //}
+
     private void Awake()
     {
-        Instance = this;
-        startingColor = GameCamera.backgroundColor;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += (scene, mode) => OnSceneLoaded(scene, mode);
     }
 
     [Header("States and Flags")]
     public bool ballOnTop = false;
-    public GameState state = GameState.Intro;
+    public GameState state = GameState.MainMenu;
 
     [Header("Object References")]
     [SerializeField]
@@ -63,7 +77,16 @@ public class GameManager : MonoBehaviour
     private GameObject GameOverCanvas;
 
     [SerializeField]
+    private GameObject MainMenuCanvas;
+
+    [SerializeField]
+    private TextMeshProUGUI HighScoreTextMM;
+
+    [SerializeField]
     private TextMeshProUGUI GameOverScoreText;
+
+    [SerializeField]
+    private TextMeshProUGUI HighScoreText;
 
     [Header("Effects")]
     public float dimFactor = 1;
@@ -78,13 +101,54 @@ public class GameManager : MonoBehaviour
     private int lives = 1;
     private GameObject ball;
 
-    private void Start()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        state = GameState.Intro;
-        PausedCanvas.SetActive(false);
-        GameOverCanvas.SetActive(false);
-        StartCoroutine(FadePaddles());
-        SoundManager.instance.PlayBackground(SoundManager.instance.sky);
+        if (Instance != this)
+        {
+            return;
+        }
+
+        if (scene.name == "MainGame")
+        {
+            state = GameState.Intro;
+
+            lives = 1;
+            HeightScore = 0;
+            BumperScore = 0;
+            paddles = GameObject.FindGameObjectWithTag("Paddles");
+            spawnPoint = GameObject.FindGameObjectWithTag("BallSpawn");
+            bumperManager = GameObject.FindGameObjectWithTag("BumperManager").GetComponent<LevelManager>();
+            GameCamera = Camera.allCameras[0];
+            startingColor = GameCamera.backgroundColor;
+
+            UpdateHighScoreText();
+            if (PausedCanvas) PausedCanvas.SetActive(false);
+            if (GameOverCanvas) GameOverCanvas.SetActive(false);
+            if (PlayingCanvas) PlayingCanvas.SetActive(false);
+            if (MainMenuCanvas) MainMenuCanvas.SetActive(false);
+            StartCoroutine(FadePaddles());
+            SoundManager.instance.PlayBackground(SoundManager.instance.sky);
+        }
+
+        if (scene.name == "MainMenu")
+        {
+            if (PausedCanvas) PausedCanvas.SetActive(false);
+            if (GameOverCanvas) GameOverCanvas.SetActive(false);
+            if (PlayingCanvas) PlayingCanvas.SetActive(false);
+            if (MainMenuCanvas) MainMenuCanvas.SetActive(true);
+            UpdateHighScoreText();
+            state = GameState.MainMenu;
+        }
+
+        if (scene.name == "IntroCutscene")
+        {
+            if (PausedCanvas) PausedCanvas.SetActive(false);
+            if (GameOverCanvas) GameOverCanvas.SetActive(false);
+            if (PlayingCanvas) PlayingCanvas.SetActive(false);
+            if (MainMenuCanvas) MainMenuCanvas.SetActive(false);
+            UpdateHighScoreText();
+            state = GameState.Intro;
+        }
     }
 
     private bool enableCheck = true;
@@ -157,6 +221,7 @@ public class GameManager : MonoBehaviour
             3
         );
 
+        if (PlayingCanvas) PlayingCanvas.SetActive(true);
         state = GameState.Playing;
         paddles.GetComponentsInChildren<PaddleScriptTest>()[0].enabled = true;
         paddles.GetComponentsInChildren<PaddleScriptTest>()[1].enabled = true;
@@ -167,6 +232,8 @@ public class GameManager : MonoBehaviour
         if (state == GameState.Intro)
             return;
         if (state == GameState.GameOver)
+            return;
+        if (state == GameState.MainMenu)
             return;
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -245,9 +312,13 @@ public class GameManager : MonoBehaviour
         {
             PlayingCanvas.SetActive(false);
             GameOverCanvas.SetActive(true);
-            GameOverScoreText.SetText(
-                "Final Score: " + (HeightScore * 10 + BumperScore).ToString()
-            );
+            GameOverScoreText.SetText("Final Score: " + (HeightScore * 10 + BumperScore).ToString());
+            // Check for new high score
+            if (HeightScore + BumperScore > PlayerPrefs.GetInt("HighScore", 0))
+            {
+                PlayerPrefs.SetInt("HighScore", HeightScore * 10 + BumperScore);
+                UpdateHighScoreText();
+            }
             state = GameState.GameOver;
         }
         else
@@ -300,5 +371,11 @@ public class GameManager : MonoBehaviour
     public void PlayAgain()
     {
         SceneManager.LoadScene("MainGame");
+    }
+
+    void UpdateHighScoreText()
+    {
+        HighScoreText.text = "High Score: " + $"{PlayerPrefs.GetInt("HighScore", 0)}";
+        HighScoreTextMM.text = "High Score: " + $"{PlayerPrefs.GetInt("HighScore", 0)}";
     }
 }

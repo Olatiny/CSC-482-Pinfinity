@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += (scene, mode) => OnSceneLoaded(scene, mode);
     }
 
     [Header("States and Flags")]
@@ -94,14 +95,45 @@ public class GameManager : MonoBehaviour
     private int lives = 3;
     private GameObject ball;
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "MainGame")
+        {
+            state = GameState.Intro;
+
+            paddles = GameObject.FindGameObjectWithTag("Paddles");
+            spawnPoint = GameObject.FindGameObjectWithTag("BallSpawn");
+            bumperManager = GameObject.FindGameObjectWithTag("BumperManager").GetComponent<LevelManager>();
+            GameCamera = Camera.allCameras[0];
+            startingColor = GameCamera.backgroundColor;
+
+            UpdateHighScoreText();
+            if (PausedCanvas) PausedCanvas.SetActive(false);
+            if (GameOverCanvas) GameOverCanvas.SetActive(false);
+            if (PlayingCanvas) PlayingCanvas.SetActive(true);
+            StartCoroutine(FadePaddles());
+            SoundManager.instance.PlayBackground(SoundManager.instance.sky);
+        }
+
+        if (scene.name == "MainMenu")
+        {
+            if (PausedCanvas) PausedCanvas.SetActive(false);
+            if (GameOverCanvas) GameOverCanvas.SetActive(false);
+            if (PlayingCanvas) PlayingCanvas.SetActive(false);
+            state = GameState.MainMenu;
+        }
+
+        if (scene.name == "IntroCutscene")
+        {
+            if (PausedCanvas) PausedCanvas.SetActive(false);
+            if (GameOverCanvas) GameOverCanvas.SetActive(false);
+            if (PlayingCanvas) PlayingCanvas.SetActive(false);
+            state = GameState.Intro;
+        }
+    }
+
     private void Start()
     {
-        state = GameState.MainMenu;
-        UpdateHighScoreText();
-        PausedCanvas.SetActive(false);
-        GameOverCanvas.SetActive(false);
-        StartCoroutine(FadePaddles());
-        SoundManager.instance.PlayBackground(SoundManager.instance.sky);
     }
 
     private bool enableCheck = true;
@@ -182,6 +214,8 @@ public class GameManager : MonoBehaviour
         if (state == GameState.Intro)
             return;
         if (state == GameState.GameOver)
+            return;
+        if (state == GameState.MainMenu)
             return;
 
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -13,6 +13,8 @@ TagManager:
   - BumperRow
   - BumperManager
   - ScoreManager
+  - BallSpawn
+  - Paddles
   layers:
   - Default
   - TransparentFX

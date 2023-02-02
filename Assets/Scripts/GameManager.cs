@@ -20,10 +20,23 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
+    //private void Awake()
+    //{
+    //    Instance = this;
+    //    startingColor = GameCamera.backgroundColor;
+    //}
+
     private void Awake()
     {
-        Instance = this;
-        startingColor = GameCamera.backgroundColor;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
     [Header("States and Flags")]
@@ -197,11 +210,11 @@ public class GameManager : MonoBehaviour
         HeightScore = Mathf.Max((int)(ball.transform.position.y * 10.0), HeightScore);
         ScoreText.SetText("Score: " + (HeightScore * 10 + BumperScore).ToString());
         LivesText.SetText("Height: " + ((int)HeightScore).ToString());
-        if (HeightScore > 20 && bumperManager.current_stage < 1)
+        if (HeightScore > 800 && bumperManager.current_stage < 1)
         {
             bumperManager.current_stage = 1;
         }
-        if (HeightScore > 30 && bumperManager.current_stage < 2)
+        if (HeightScore > 2000 && bumperManager.current_stage < 2)
         {
             //Debug.Log("stage: " + bumperManager.current_stage);
             bumperManager.current_stage = 2;

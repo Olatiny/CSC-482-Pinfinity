@@ -285,6 +285,6 @@ public class GameManager : MonoBehaviour
 
     void UpdateHighScoreText()
     {
-        HighScoreText.text = $"{PlayerPrefs.GetInt("HighScore", 0)}";
+        //HighScoreText.text = $"{PlayerPrefs.GetInt("HighScore", 0)}";
     }
 }

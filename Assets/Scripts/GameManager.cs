@@ -77,6 +77,12 @@ public class GameManager : MonoBehaviour
     private GameObject GameOverCanvas;
 
     [SerializeField]
+    private GameObject MainMenuCanvas;
+
+    [SerializeField]
+    private TextMeshProUGUI HighScoreTextMM;
+
+    [SerializeField]
     private TextMeshProUGUI GameOverScoreText;
 
     [SerializeField]
@@ -97,10 +103,18 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (Instance != this)
+        {
+            return;
+        }
+
         if (scene.name == "MainGame")
         {
             state = GameState.Intro;
 
+            lives = 3;
+            HeightScore = 0;
+            BumperScore = 0;
             paddles = GameObject.FindGameObjectWithTag("Paddles");
             spawnPoint = GameObject.FindGameObjectWithTag("BallSpawn");
             bumperManager = GameObject.FindGameObjectWithTag("BumperManager").GetComponent<LevelManager>();
@@ -110,7 +124,8 @@ public class GameManager : MonoBehaviour
             UpdateHighScoreText();
             if (PausedCanvas) PausedCanvas.SetActive(false);
             if (GameOverCanvas) GameOverCanvas.SetActive(false);
-            if (PlayingCanvas) PlayingCanvas.SetActive(true);
+            if (PlayingCanvas) PlayingCanvas.SetActive(false);
+            if (MainMenuCanvas) MainMenuCanvas.SetActive(false);
             StartCoroutine(FadePaddles());
             SoundManager.instance.PlayBackground(SoundManager.instance.sky);
         }
@@ -120,6 +135,8 @@ public class GameManager : MonoBehaviour
             if (PausedCanvas) PausedCanvas.SetActive(false);
             if (GameOverCanvas) GameOverCanvas.SetActive(false);
             if (PlayingCanvas) PlayingCanvas.SetActive(false);
+            if (MainMenuCanvas) MainMenuCanvas.SetActive(true);
+            UpdateHighScoreText();
             state = GameState.MainMenu;
         }
 
@@ -128,12 +145,10 @@ public class GameManager : MonoBehaviour
             if (PausedCanvas) PausedCanvas.SetActive(false);
             if (GameOverCanvas) GameOverCanvas.SetActive(false);
             if (PlayingCanvas) PlayingCanvas.SetActive(false);
+            if (MainMenuCanvas) MainMenuCanvas.SetActive(false);
+            UpdateHighScoreText();
             state = GameState.Intro;
         }
-    }
-
-    private void Start()
-    {
     }
 
     private bool enableCheck = true;
@@ -206,6 +221,7 @@ public class GameManager : MonoBehaviour
             3
         );
 
+        if (PlayingCanvas) PlayingCanvas.SetActive(true);
         state = GameState.Playing;
     }
 
@@ -298,7 +314,7 @@ public class GameManager : MonoBehaviour
             // Check for new high score
             if (HeightScore + BumperScore > PlayerPrefs.GetInt("HighScore", 0))
             {
-                PlayerPrefs.SetInt("HighScore", HeightScore + BumperScore);
+                PlayerPrefs.SetInt("HighScore", HeightScore * 10 + BumperScore);
                 UpdateHighScoreText();
             }
             state = GameState.GameOver;
@@ -357,6 +373,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateHighScoreText()
     {
-        //HighScoreText.text = $"{PlayerPrefs.GetInt("HighScore", 0)}";
+        HighScoreText.text = "High Score: " + $"{PlayerPrefs.GetInt("HighScore", 0)}";
+        HighScoreTextMM.text = "High Score: " + $"{PlayerPrefs.GetInt("HighScore", 0)}";
     }
 }

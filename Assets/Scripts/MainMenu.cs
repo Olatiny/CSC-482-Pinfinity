@@ -13,9 +13,10 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKey)
+        if(Input.GetKeyDown(KeyCode.Return))
         {
             GetComponent<Animator>().Play("Fade Out");
+            loadCutscene();
         }
     }
 

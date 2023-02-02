@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     [Header("States and Flags")]
     public bool ballOnTop = false;
-    public GameState state = GameState.Intro;
+    public GameState state = GameState.MainMenu;
 
     [Header("Object References")]
     [SerializeField]
@@ -78,6 +78,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI GameOverScoreText;
 
+    [SerializeField]
+    private TextMeshProUGUI HighScoreText;
+
     [Header("Effects")]
     public float dimFactor = 1;
 
@@ -93,7 +96,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        state = GameState.Intro;
+        state = GameState.MainMenu;
+        UpdateHighScoreText();
         PausedCanvas.SetActive(false);
         GameOverCanvas.SetActive(false);
         StartCoroutine(FadePaddles());
@@ -256,9 +260,13 @@ public class GameManager : MonoBehaviour
         {
             PlayingCanvas.SetActive(false);
             GameOverCanvas.SetActive(true);
-            GameOverScoreText.SetText(
-                "Final Score: " + (HeightScore * 10 + BumperScore).ToString()
-            );
+            GameOverScoreText.SetText("Final Score: " + (HeightScore * 10 + BumperScore).ToString());
+            // Check for new high score
+            if (HeightScore + BumperScore > PlayerPrefs.GetInt("HighScore", 0))
+            {
+                PlayerPrefs.SetInt("HighScore", HeightScore + BumperScore);
+                UpdateHighScoreText();
+            }
             state = GameState.GameOver;
         }
         else
@@ -311,5 +319,10 @@ public class GameManager : MonoBehaviour
     public void PlayAgain()
     {
         SceneManager.LoadScene("MainGame");
+    }
+
+    void UpdateHighScoreText()
+    {
+        //HighScoreText.text = $"{PlayerPrefs.GetInt("HighScore", 0)}";
     }
 }

@@ -3229,6 +3229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 100
+  altKey: 275
   isMoving: 0
   hitStrength: -800
   damperStrength: -200
@@ -5436,6 +5437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 97
+  altKey: 276
   isMoving: 0
   hitStrength: 800
   damperStrength: 200

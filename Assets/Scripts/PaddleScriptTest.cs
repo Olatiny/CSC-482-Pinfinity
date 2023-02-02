@@ -8,6 +8,9 @@ public class PaddleScriptTest : MonoBehaviour
     private KeyCode key;
 
     [SerializeField]
+    private KeyCode altKey;
+
+    [SerializeField]
     private bool isMoving = false;
 
     [SerializeField]
@@ -40,7 +43,7 @@ public class PaddleScriptTest : MonoBehaviour
         if (GameManager.Instance.state == GameManager.GameState.GameOver || GameManager.Instance.state == GameManager.GameState.Paused)
             return;
 
-        if (Input.GetKey(key))
+        if (Input.GetKey(key) || Input.GetKey(altKey))
         {
             if (playSound)
             {

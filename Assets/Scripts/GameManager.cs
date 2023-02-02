@@ -65,6 +65,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI GameOverScoreText;
 
+    [SerializeField]
+    private TextMeshProUGUI HighScoreText;
+
     [Header("Effects")]
     public float dimFactor = 1;
 
@@ -78,6 +81,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         state = GameState.MainMenu;
+        UpdateHighScoreText();
         PausedCanvas.SetActive(false);
         GameOverCanvas.SetActive(false);
         StartCoroutine(FadePaddles());
@@ -224,6 +228,12 @@ public class GameManager : MonoBehaviour
             PlayingCanvas.SetActive(false);
             GameOverCanvas.SetActive(true);
             GameOverScoreText.SetText("Final Score: " + (HeightScore + BumperScore).ToString());
+            // Check for new high score
+            if (HeightScore + BumperScore > PlayerPrefs.GetInt("HighScore", 0))
+            {
+                PlayerPrefs.SetInt("HighScore", HeightScore + BumperScore);
+                UpdateHighScoreText();
+            }
             state = GameState.GameOver;
         }
         else
@@ -271,5 +281,10 @@ public class GameManager : MonoBehaviour
     public void PlayAgain()
     {
         SceneManager.LoadScene("MainGame");
+    }
+
+    void UpdateHighScoreText()
+    {
+        HighScoreText.text = $"{PlayerPrefs.GetInt("HighScore", 0)}";
     }
 }

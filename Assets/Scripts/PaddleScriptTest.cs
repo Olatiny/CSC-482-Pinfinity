@@ -8,6 +8,9 @@ public class PaddleScriptTest : MonoBehaviour
     private KeyCode key;
 
     [SerializeField]
+    private KeyCode altKey;
+
+    [SerializeField]
     private bool isMoving = false;
 
     [SerializeField]
@@ -41,7 +44,7 @@ public class PaddleScriptTest : MonoBehaviour
         )
             return;
 
-        if (Input.GetKey(key))
+        if (Input.GetKey(key) || Input.GetKey(altKey))
         {
             GetComponent<Rigidbody2D>().AddTorque(hitStrength);
         }

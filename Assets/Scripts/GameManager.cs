@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     [Header("States and Flags")]
     public bool ballOnTop = false;
-    public GameState state = GameState.Intro;
+    public GameState state = GameState.MainMenu;
 
     [Header("Object References")]
     [SerializeField]
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        state = GameState.Intro;
+        state = GameState.MainMenu;
         PausedCanvas.SetActive(false);
         GameOverCanvas.SetActive(false);
         StartCoroutine(FadePaddles());

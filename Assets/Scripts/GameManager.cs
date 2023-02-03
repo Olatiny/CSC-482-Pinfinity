@@ -314,7 +314,7 @@ public class GameManager : MonoBehaviour
             GameOverCanvas.SetActive(true);
             GameOverScoreText.SetText("Final Score: " + (HeightScore * 10 + BumperScore).ToString());
             // Check for new high score
-            if (HeightScore + BumperScore > PlayerPrefs.GetInt("HighScore", 0))
+            if ((HeightScore * 10) + BumperScore > PlayerPrefs.GetInt("HighScore", 0))
             {
                 PlayerPrefs.SetInt("HighScore", HeightScore * 10 + BumperScore);
                 UpdateHighScoreText();

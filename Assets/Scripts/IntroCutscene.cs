@@ -9,7 +9,7 @@ public class IntroCutscene : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKey)
+        if (Input.anyKeyDown)
         {
             beginTransition();
         }

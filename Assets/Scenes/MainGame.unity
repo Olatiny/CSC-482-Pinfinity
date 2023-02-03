@@ -208,7 +208,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -20
+  m_SortingOrder: 20
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -1654,7 +1654,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -10
+  m_SortingOrder: 20
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -2228,6 +2228,8 @@ MonoBehaviour:
   isMoving: 0
   hitStrength: -800
   damperStrength: -200
+  min_x_touch: 0
+  max_x_touch: 3
 --- !u!212 &872496721
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2461,7 +2463,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -10
+  m_SortingOrder: 20
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -3426,6 +3428,8 @@ MonoBehaviour:
   isMoving: 0
   hitStrength: 800
   damperStrength: 200
+  min_x_touch: -3
+  max_x_touch: 0
 --- !u!212 &1608824350
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3830,6 +3834,8 @@ MonoBehaviour:
   isMoving: 0
   hitStrength: 800
   damperStrength: 200
+  min_x_touch: 0
+  max_x_touch: 0
 --- !u!50 &7399665522054965314
 Rigidbody2D:
   serializedVersion: 4

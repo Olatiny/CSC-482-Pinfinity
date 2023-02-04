@@ -128,6 +128,7 @@ public class GameManager : MonoBehaviour
             if (MainMenuCanvas) MainMenuCanvas.SetActive(false);
             StartCoroutine(FadePaddles());
             SoundManager.instance.PlayBackground(SoundManager.instance.sky);
+            Application.targetFrameRate = 60;
         }
 
         if (scene.name == "MainMenu")

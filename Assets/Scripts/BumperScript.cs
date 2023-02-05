@@ -61,7 +61,7 @@ public class BumperScript : MonoBehaviour
             numHits++;
             if (numHits >= hitsUntilDead)
             {
-                Destroy(gameObject, 0.25f);
+                Destroy(gameObject, 0.35f);
             }
         }
     }

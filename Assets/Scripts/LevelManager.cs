@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("BumperRow"))
         {
-            GameObject bump = stages[current_stage][Random.Range(0, stages[current_stage].Length)];
+            GameObject level = stages[current_stage][Random.Range(0, stages[current_stage].Length)];
 
             Vector2 pos1 = new Vector3(
                 spawnPoint.transform.position.x,
@@ -74,11 +74,20 @@ public class LevelManager : MonoBehaviour
             }
             if (pos1.y > pos2.y)
             {
-                Instantiate(bump, pos1, spawnPoint.transform.rotation);
+                Instantiate(level, pos1, spawnPoint.transform.rotation);
             }
             else
             {
-                Instantiate(bump, pos2, spawnPoint.transform.rotation);
+                Instantiate(level, pos2, spawnPoint.transform.rotation);
+            }
+            if (current_stage == 2)
+            {
+                FindObjectOfType<SpaceBackground>()
+                    .SpawnNewElements(
+                        spawnPoint.transform.position,
+                        level.transform.GetChild(0).transform.position.y
+                            - level.transform.position.y
+                    );
             }
 
             // Debug.Log(bump.name + "was instantiated");

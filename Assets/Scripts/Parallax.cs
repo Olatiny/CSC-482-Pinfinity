@@ -5,24 +5,26 @@ using UnityEngine;
 public class Parallax : MonoBehaviour
 {
     [SerializeField]
-    private float depth = 1;
+    public float depth = 1;
     private Vector3 originalSpawn;
+    private float originalOffset;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         originalSpawn = transform.position;
+        originalOffset = transform.position.y - Camera.allCameras[0].transform.position.y;
     }
 
     // Update is called once per frame
     void Update()
     {
         Transform cameraTransform = Camera.allCameras[0].transform;
-        float distanceFromCamera = cameraTransform.position.y;
+        float cameraY = cameraTransform.position.y;
         transform.position = new Vector3(
             transform.position.x,
-            originalSpawn.y - distanceFromCamera / depth + cameraTransform.position.y,
-            originalSpawn.z
+            ((originalSpawn.y - cameraY) / depth) + cameraY + originalOffset,
+            1.0f
         );
         if (transform.position.y < cameraTransform.position.y - 10)
         {

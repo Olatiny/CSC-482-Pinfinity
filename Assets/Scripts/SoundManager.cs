@@ -7,8 +7,11 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance = null;
 
     [Header("Audio Sources")]
-    [SerializeField] AudioSource Music;
-    [SerializeField] AudioSource SoundEffects;
+    [SerializeField]
+    AudioSource Music;
+
+    [SerializeField]
+    AudioSource SoundEffects;
 
     [Header("Background")]
     public AudioClip arcade;
@@ -24,7 +27,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip wallHit;
     public AudioClip spaceShipHit;
     public AudioClip asteroidBallHit;
- 
+
     private void Awake()
     {
         if (instance == null)
@@ -46,6 +49,12 @@ public class SoundManager : MonoBehaviour
     public void PlayBackground(AudioClip clip)
     {
         Music.clip = clip;
+        Music.volume = 1f;
+
+        if (clip == sky)
+        {
+            Music.volume = .2f;
+        }
         Music.Play();
     }
 

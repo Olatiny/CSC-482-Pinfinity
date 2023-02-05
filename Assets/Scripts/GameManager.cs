@@ -55,6 +55,9 @@ public class GameManager : MonoBehaviour
     private GameObject paddles;
 
     [SerializeField]
+    private Combo comboSystem;
+
+    [SerializeField]
     private GameObject spawnPoint;
 
     [SerializeField]
@@ -117,15 +120,21 @@ public class GameManager : MonoBehaviour
             BumperScore = 0;
             paddles = GameObject.FindGameObjectWithTag("Paddles");
             spawnPoint = GameObject.FindGameObjectWithTag("BallSpawn");
-            bumperManager = GameObject.FindGameObjectWithTag("BumperManager").GetComponent<LevelManager>();
+            bumperManager = GameObject
+                .FindGameObjectWithTag("BumperManager")
+                .GetComponent<LevelManager>();
             GameCamera = Camera.allCameras[0];
             startingColor = GameCamera.backgroundColor;
 
             UpdateHighScoreText();
-            if (PausedCanvas) PausedCanvas.SetActive(false);
-            if (GameOverCanvas) GameOverCanvas.SetActive(false);
-            if (PlayingCanvas) PlayingCanvas.SetActive(false);
-            if (MainMenuCanvas) MainMenuCanvas.SetActive(false);
+            if (PausedCanvas)
+                PausedCanvas.SetActive(false);
+            if (GameOverCanvas)
+                GameOverCanvas.SetActive(false);
+            if (PlayingCanvas)
+                PlayingCanvas.SetActive(false);
+            if (MainMenuCanvas)
+                MainMenuCanvas.SetActive(false);
             StartCoroutine(FadePaddles());
             SoundManager.instance.PlayBackground(SoundManager.instance.sky);
             Application.targetFrameRate = 60;
@@ -133,20 +142,28 @@ public class GameManager : MonoBehaviour
 
         if (scene.name == "MainMenu")
         {
-            if (PausedCanvas) PausedCanvas.SetActive(false);
-            if (GameOverCanvas) GameOverCanvas.SetActive(false);
-            if (PlayingCanvas) PlayingCanvas.SetActive(false);
-            if (MainMenuCanvas) MainMenuCanvas.SetActive(true);
+            if (PausedCanvas)
+                PausedCanvas.SetActive(false);
+            if (GameOverCanvas)
+                GameOverCanvas.SetActive(false);
+            if (PlayingCanvas)
+                PlayingCanvas.SetActive(false);
+            if (MainMenuCanvas)
+                MainMenuCanvas.SetActive(true);
             UpdateHighScoreText();
             state = GameState.MainMenu;
         }
 
         if (scene.name == "IntroCutscene")
         {
-            if (PausedCanvas) PausedCanvas.SetActive(false);
-            if (GameOverCanvas) GameOverCanvas.SetActive(false);
-            if (PlayingCanvas) PlayingCanvas.SetActive(false);
-            if (MainMenuCanvas) MainMenuCanvas.SetActive(false);
+            if (PausedCanvas)
+                PausedCanvas.SetActive(false);
+            if (GameOverCanvas)
+                GameOverCanvas.SetActive(false);
+            if (PlayingCanvas)
+                PlayingCanvas.SetActive(false);
+            if (MainMenuCanvas)
+                MainMenuCanvas.SetActive(false);
             UpdateHighScoreText();
             state = GameState.Intro;
         }
@@ -168,7 +185,7 @@ public class GameManager : MonoBehaviour
         paddles.transform.GetChild(2).transform.position += new Vector3(length, 0, 0);
         paddles.transform.GetChild(3).transform.position += new Vector3(length, 0, 0);
 
-        for (float distance = length; distance >= 0; distance -= speed * Time.deltaTime)
+        for (float distance = length; distance > .1f; distance -= speed * Time.deltaTime)
         {
             paddles.transform.GetChild(0).transform.position += new Vector3(
                 speed * Time.deltaTime,
@@ -222,7 +239,8 @@ public class GameManager : MonoBehaviour
             3
         );
 
-        if (PlayingCanvas) PlayingCanvas.SetActive(true);
+        if (PlayingCanvas)
+            PlayingCanvas.SetActive(true);
         state = GameState.Playing;
         paddles.GetComponentsInChildren<PaddleScriptTest>()[0].enabled = true;
         paddles.GetComponentsInChildren<PaddleScriptTest>()[1].enabled = true;
@@ -265,8 +283,12 @@ public class GameManager : MonoBehaviour
         }
 
         HeightScore = Mathf.Max((int)(ball.transform.position.y * 10.0), HeightScore);
-        ScoreText.SetText("Score: " + (HeightScore * 10 + BumperScore).ToString());
-        LivesText.SetText("Height: " + ((int)HeightScore).ToString());
+        if (HeightScore > 1)
+        {
+            ScoreText.SetText("Score " + (HeightScore * 10 + BumperScore).ToString());
+            LivesText.SetText("Height " + ((int)HeightScore).ToString());
+        }
+
         if (HeightScore > 1000 && bumperManager.current_stage < 1)
         {
             bumperManager.current_stage = 1;
@@ -290,13 +312,15 @@ public class GameManager : MonoBehaviour
     {
         this.BumperScore += (int)(ComboMult * score);
         ComboMult += 0.5f;
-        ComboMult = Mathf.Min(5f, ComboMult);
+        comboSystem.UpdateCombo(ComboMult);
+
         //Debug.Log("Combo: " + ComboMult);
     }
 
     public void ResetCombo()
     {
         ComboMult = 1f;
+        comboSystem.UpdateCombo(ComboMult);
         //Debug.Log("Combo (reset): " + ComboMult);
     }
 
@@ -313,7 +337,9 @@ public class GameManager : MonoBehaviour
         {
             PlayingCanvas.SetActive(false);
             GameOverCanvas.SetActive(true);
-            GameOverScoreText.SetText("Final Score: " + (HeightScore * 10 + BumperScore).ToString());
+            GameOverScoreText.SetText(
+                "Final Score: " + (HeightScore * 10 + BumperScore).ToString()
+            );
             // Check for new high score
             if ((HeightScore * 10) + BumperScore > PlayerPrefs.GetInt("HighScore", 0))
             {

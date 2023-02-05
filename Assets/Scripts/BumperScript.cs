@@ -25,6 +25,7 @@ public class BumperScript : MonoBehaviour
     private int score;
 
     private int numHits = 0;
+    float timeToDestory = 0;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -59,9 +60,9 @@ public class BumperScript : MonoBehaviour
                 GameManager.Instance.AddScore(score);
             }
             numHits++;
-            if (numHits >= hitsUntilDead)
+            if (numHits == hitsUntilDead)
             {
-                Destroy(gameObject, 0.35f);
+                timeToDestory = Time.time + .4f;
             }
         }
     }
@@ -69,6 +70,10 @@ public class BumperScript : MonoBehaviour
     private void Update()
     {
         if (transform.position.y < Camera.allCameras[0].transform.position.y - 10)
+        {
+            Destroy(gameObject);
+        }
+        if (timeToDestory != 0 && Time.time > timeToDestory)
         {
             Destroy(gameObject);
         }

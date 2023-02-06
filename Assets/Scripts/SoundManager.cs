@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] AudioSource Music;
     [SerializeField] AudioSource SoundEffects;
+    [SerializeField] AudioSource Bumpers;
 
     [Header("Background")]
     [SerializeField] AudioClip arcade;
@@ -33,22 +34,48 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip planeFlyBy;
     [SerializeField] AudioClip spaceShipHit;
 
-    //private void Awake()
-    //{
-    //    if (instance == null)
-    //    {
-    //        instance = this;
-    //    }
-    //    else if (instance != this)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //    DontDestroyOnLoad(gameObject);
-    //}
+    private float comboPitchMod = 1f;
 
     private void Start()
     {
         Music.loop = true;
+    }
+
+    enum pitch
+    {
+        c, d, e, f, g, a, b, oct
+    }
+
+    private pitch currPitch = pitch.c;
+
+    public void FXComboPitchUp()
+    {
+        //Debug.Log(currPitch);
+
+        // don't go higher than 1 octave
+        if (currPitch == pitch.oct) return;
+
+        if (currPitch == pitch.e || currPitch == pitch.b)
+        {
+            // Go up 1 semitone
+            comboPitchMod *= Mathf.Pow(1.059463f, 1);
+            currPitch++;
+        }
+        else
+        {
+            // Go up 2 semitones
+            comboPitchMod *= Mathf.Pow(1.059463f, 2);
+            currPitch++;
+        }
+
+
+        //Debug.Log("comboPitch: " + comboPitchMod);
+    }
+
+    public void FXComboPitchReset()
+    {
+        comboPitchMod = 1f;
+        currPitch = pitch.c;
     }
 
     public void FXasteroidBallHit()
@@ -58,17 +85,23 @@ public class SoundManager : MonoBehaviour
 
     public void FXRedBumper()
     {
-        SoundEffects.PlayOneShot(redBumper);
+        Bumpers.pitch = comboPitchMod;
+        Bumpers.PlayOneShot(redBumper);
+        //SoundEffects.pitch = 1;
     }
 
     public void FXGreenBumper()
     {
-        SoundEffects.PlayOneShot(greenBumper);
+        Bumpers.pitch = comboPitchMod;
+        Bumpers.PlayOneShot(greenBumper);
+        //SoundEffects.pitch = 1;
     }
 
     public void FXBlueBumper()
     {
-        SoundEffects.PlayOneShot(blueBumper);
+        Bumpers.pitch = comboPitchMod;
+        Bumpers.PlayOneShot(blueBumper);
+        //SoundEffects.pitch = 1;
     }
 
     public void FXDeath()
@@ -116,10 +149,16 @@ public class SoundManager : MonoBehaviour
         SoundEffects.PlayOneShot(spaceShipHit);
     }
 
+    public void FXBlastOff()
+    {
+        SoundEffects.PlayOneShot(Blastoff);
+    }
+
     public void BGArcade()
     {
         Music.clip = arcade;
         Music.volume = 1f;
+        Music.loop = true;
         Music.Play();
     }
 
@@ -127,6 +166,7 @@ public class SoundManager : MonoBehaviour
     {
         Music.clip = sky;
         Music.volume = .2f;
+        Music.loop = true;
         Music.Play();
     }
 
@@ -134,6 +174,7 @@ public class SoundManager : MonoBehaviour
     {
         Music.clip = space;
         Music.volume = 1f;
+        Music.loop = true;
         Music.Play();
     }
 
@@ -141,40 +182,34 @@ public class SoundManager : MonoBehaviour
     {
         Music.clip = IntroCutscene;
         Music.volume = 1f;
+        Music.loop = false;
         Music.Play();
     }
 
-    public void BGBlastOff()
-    {
-        Music.clip = Blastoff;
-        Music.volume = 1f;
-        Music.Play();
-    }
+    //public void PlayBackground(AudioClip clip)
+    //{
+    //    Music.clip = clip;
+    //    Music.volume = 1f;
 
-    public void PlayBackground(AudioClip clip)
-    {
-        Music.clip = clip;
-        Music.volume = 1f;
+    //    if (clip == sky)
+    //    {
+    //        Music.volume = .2f;
+    //    }
+    //    Music.Play();
+    //}
 
-        if (clip == sky)
-        {
-            Music.volume = .2f;
-        }
-        Music.Play();
-    }
+    //public void SwitchBackground(AudioClip clip)
+    //{
+    //    Music.Stop();
+    //    Music.clip = clip;
+    //    Music.Play();
+    //}
 
-    public void SwitchBackground(AudioClip clip)
-    {
-        Music.Stop();
-        Music.clip = clip;
-        Music.Play();
-    }
-
-    public void PlaySoundEffect(AudioClip clip)
-    {
-        SoundEffects.clip = clip;
-        SoundEffects.Play();
-    }
+    //public void PlaySoundEffect(AudioClip clip)
+    //{
+    //    SoundEffects.clip = clip;
+    //    SoundEffects.Play();
+    //}
 
     public void Pause()
     {
@@ -192,5 +227,11 @@ public class SoundManager : MonoBehaviour
     {
         Music.Stop();
         SoundEffects.Stop();
+    }
+
+    public void FXStop()
+    {
+        SoundEffects.Stop();
+        Bumpers.Stop();
     }
 }

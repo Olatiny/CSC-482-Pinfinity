@@ -105,7 +105,7 @@ public class PaddleScriptTest : MonoBehaviour
             if (playSound)
             {
                 playSound = false;
-                            GameManager.Instance.soundManager.FXPaddleClick();
+                GameManager.Instance.soundManager.FXPaddleClick();
             } 
             //SoundManager.instance.PlaySoundEffect(SoundManager.instance.paddleSwing);
             GetComponent<Rigidbody2D>().AddTorque(hitStrength);

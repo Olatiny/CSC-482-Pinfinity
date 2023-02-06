@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
         if (scene.name == "MainGame")
         {
             state = GameState.Intro;
+            soundManager.Stop();
 
             lives = 1;
             HeightScore = 0;
@@ -97,7 +98,7 @@ public class GameManager : MonoBehaviour
                 .GetComponent<LevelManager>();
             GameCamera = Camera.allCameras[0];
             startingColor = GameCamera.backgroundColor;
-            soundManager.BGBlastOff();
+            soundManager.FXBlastOff();
 
             UpdateHighScoreText();
             if (PausedCanvas)
@@ -289,6 +290,7 @@ public class GameManager : MonoBehaviour
         this.BumperScore += (int)(ComboMult * score);
         ComboMult += 0.5f;
         comboSystem.UpdateCombo(ComboMult);
+        soundManager.FXComboPitchUp();
 
         //Debug.Log("Combo: " + ComboMult);
     }
@@ -297,6 +299,7 @@ public class GameManager : MonoBehaviour
     {
         ComboMult = 1f;
         comboSystem.UpdateCombo(ComboMult);
+        soundManager.FXComboPitchReset();
         //Debug.Log("Combo (reset): " + ComboMult);
     }
 
@@ -370,6 +373,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
+        soundManager.FXStop();
         SceneManager.LoadScene("MainMenu");
     }
 

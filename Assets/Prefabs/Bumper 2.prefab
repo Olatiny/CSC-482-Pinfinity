@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: -7426686043113946328, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 88010f781d84299409505cd6539b001d, type: 3}
+      objectReference: {fileID: 8300000, guid: 07e9c5147a347c44ba2037b70457c0fc, type: 3}
     - target: {fileID: -1754787891003823453, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
       propertyPath: m_Controller
       value: 
@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1890143611976747421, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
       propertyPath: color
-      value: 2
+      value: blue
       objectReference: {fileID: 0}
     - target: {fileID: 1890143611976747421, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
       propertyPath: force

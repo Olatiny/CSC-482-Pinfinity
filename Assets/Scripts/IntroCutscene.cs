@@ -22,7 +22,7 @@ public class IntroCutscene : MonoBehaviour
 
     private void loadMainScene()
     {
-        SoundManager.instance.Stop();
+        //SoundManager.instance.Stop();
         SceneManager.LoadScene("MainGame");
     }
 }

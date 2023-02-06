@@ -25,6 +25,7 @@ public class BallScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
+            GameManager.Instance.soundManager.FXWallHit();
             Ball.AddForce(new Vector2(lastXnonZero * -.5f, 0), ForceMode2D.Force);
         }
 

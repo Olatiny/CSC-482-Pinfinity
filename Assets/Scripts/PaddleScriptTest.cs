@@ -28,6 +28,7 @@ public class PaddleScriptTest : MonoBehaviour
     private HingeJoint2D hinge;
 
     bool playSound = true;
+    bool playRelease = true;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,29 @@ public class PaddleScriptTest : MonoBehaviour
         return isMoving;
     }
 
+    bool playRoll = true;
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            if (playRoll)
+            {
+                playRoll = false;
+                GameManager.Instance.soundManager.FXPaddleBallRoll();
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            //GameManager.Instance.soundManager.FXPaddleBallHit();
+            playRoll = true;
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -51,50 +75,22 @@ public class PaddleScriptTest : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
-            Touch touch1 = Input.GetTouch(0);
+            playRelease = true;
 
-            if (touch1.phase == TouchPhase.Began || touch1.phase == TouchPhase.Stationary || touch1.phase == TouchPhase.Moved)
+            for (int i = 0; i < Input.touchCount; i++)
             {
-                Vector2 pos1 = Camera.main.ScreenToWorldPoint(touch1.position);
+                Touch t = Input.GetTouch(i);
 
-                if (pos1.x > min_x_touch && pos1.x < max_x_touch)
+                if (t.phase == TouchPhase.Began || t.phase == TouchPhase.Stationary || t.phase == TouchPhase.Moved)
                 {
-                    if (playSound)
-                    {
-                        playSound = false;
-                        GetComponent<AudioSource>().Play();
-                    }
-                    //SoundManager.instance.PlaySoundEffect(SoundManager.instance.paddleSwing);
-                    GetComponent<Rigidbody2D>().AddTorque(hitStrength);
-                }
-            }
-
-
-            if (Input.touchCount >= 2)
-            {
-                Touch touch2 = Input.GetTouch(1);
-
-                if (touch2.phase == TouchPhase.Began || touch2.phase == TouchPhase.Stationary || touch2.phase == TouchPhase.Moved || touch1.phase == TouchPhase.Began || touch1.phase == TouchPhase.Stationary || touch1.phase == TouchPhase.Moved)
-                {
-                    Vector2 pos1 = Camera.main.ScreenToWorldPoint(touch1.position);
-                    Vector2 pos2 = Camera.main.ScreenToWorldPoint(touch2.position);
+                    Vector2 pos1 = Camera.main.ScreenToWorldPoint(t.position);
 
                     if (pos1.x > min_x_touch && pos1.x < max_x_touch)
                     {
                         if (playSound)
                         {
                             playSound = false;
-                            GetComponent<AudioSource>().Play();
-                        }
-                        //SoundManager.instance.PlaySoundEffect(SoundManager.instance.paddleSwing);
-                        GetComponent<Rigidbody2D>().AddTorque(hitStrength);
-                    }
-                    else if (pos2.x > min_x_touch && pos2.x < max_x_touch)
-                    {
-                        if (playSound)
-                        {
-                            playSound = false;
-                            GetComponent<AudioSource>().Play();
+                            GameManager.Instance.soundManager.FXPaddleClick();
                         }
                         //SoundManager.instance.PlaySoundEffect(SoundManager.instance.paddleSwing);
                         GetComponent<Rigidbody2D>().AddTorque(hitStrength);
@@ -104,10 +100,12 @@ public class PaddleScriptTest : MonoBehaviour
         } 
         else if (Input.GetKey(key) || Input.GetKey(altKey))
         {
+            playRelease = true;
+
             if (playSound)
             {
                 playSound = false;
-                GetComponent<AudioSource>().Play();
+                            GameManager.Instance.soundManager.FXPaddleClick();
             } 
             //SoundManager.instance.PlaySoundEffect(SoundManager.instance.paddleSwing);
             GetComponent<Rigidbody2D>().AddTorque(hitStrength);
@@ -115,6 +113,13 @@ public class PaddleScriptTest : MonoBehaviour
         else
         {
             playSound = true;
+
+            if (playRelease)
+            {
+                playRelease = false;
+                GameManager.Instance.soundManager.FXPaddleRelease();
+            }
+
             GetComponent<Rigidbody2D>().AddTorque(-damperStrength);
         }
     }

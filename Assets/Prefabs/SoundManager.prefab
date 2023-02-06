@@ -304,14 +304,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Music: {fileID: 1520563055426760259}
   SoundEffects: {fileID: 1520563054571082931}
-  arcade: {fileID: 8300000, guid: e5200aa34d28834458159b19d17e0d7b, type: 3}
-  sky: {fileID: 8300000, guid: 693f955cc672b494abe8d4199752dc47, type: 3}
-  space: {fileID: 8300000, guid: e547b592bc214a248b0784c5da6d8036, type: 3}
-  redBumper: {fileID: 8300000, guid: 8bddc127c74a5e14fb8e04c7d6f8726a, type: 3}
-  greenBumper: {fileID: 8300000, guid: 599758cf2c9c9644892735077e205ccb, type: 3}
-  blueBumper: {fileID: 8300000, guid: 88010f781d84299409505cd6539b001d, type: 3}
-  paddleSwing: {fileID: 8300000, guid: 621486c3a0621724abe925e86183662a, type: 3}
-  paddleHit: {fileID: 8300000, guid: c8fd21dd47a5b0742ad40b04cc756ff6, type: 3}
-  wallHit: {fileID: 8300000, guid: 834f835c96d9be544b1970888fb6c6c0, type: 3}
-  spaceShipHit: {fileID: 8300000, guid: f8df1c41755ef7a46839b4ebc427e610, type: 3}
-  asteroidBallHit: {fileID: 8300000, guid: cc26b5abbdb5aea49a33d5f166974efa, type: 3}
+  arcade: {fileID: 8300000, guid: ddf62a4893c9db047a8536fd4c702e47, type: 3}
+  sky: {fileID: 8300000, guid: 3227382ed8d5f954782aed35af584d65, type: 3}
+  space: {fileID: 8300000, guid: a7623c6664d8dca42accaa1d8f3d6a4d, type: 3}
+  IntroCutscene: {fileID: 8300000, guid: bd385e4986d75cf4f9e4a1d54a451721, type: 3}
+  Blastoff: {fileID: 8300000, guid: 79a1ca79d790c42469ed3d0e59eacdcc, type: 3}
+  asteroidBallHit: {fileID: 8300000, guid: 9f7f919ea6438ff47be1c9808149e1ec, type: 3}
+  redBumper: {fileID: 8300000, guid: faa984b28de283443bc9050b29f55586, type: 3}
+  greenBumper: {fileID: 8300000, guid: 07e9c5147a347c44ba2037b70457c0fc, type: 3}
+  blueBumper: {fileID: 8300000, guid: 07e9c5147a347c44ba2037b70457c0fc, type: 3}
+  death: {fileID: 8300000, guid: adfb9e23d59b36748a237c0e76d24be2, type: 3}
+  menuClick: {fileID: 8300000, guid: 18690a025dc81b347904e6ae5601eaac, type: 3}
+  paddleBallHit: {fileID: 8300000, guid: 5288f0ab51fa91349a0aceadcac988e3, type: 3}
+  paddleBallRoll: {fileID: 8300000, guid: 771f598f623980c49b831a3da30a9d4c, type: 3}
+  paddleClick: {fileID: 8300000, guid: 5e68424345bb9ab4ba34475d7edc75ea, type: 3}
+  paddleRelease: {fileID: 8300000, guid: c4fc046e3ddf9c942bed7632afb84a4a, type: 3}
+  wallHit: {fileID: 8300000, guid: b4469057cce634c49b7e0c9dc75da034, type: 3}
+  planeFlyBy: {fileID: 8300000, guid: 1d95d6cc2a3c799419a4838e143067ff, type: 3}
+  spaceShipHit: {fileID: 8300000, guid: 92e5351e6b70432469ae0f96c7e3d181, type: 3}

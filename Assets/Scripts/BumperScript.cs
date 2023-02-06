@@ -24,6 +24,9 @@ public class BumperScript : MonoBehaviour
     [SerializeField]
     private int score;
 
+    [SerializeField]
+    private string color;
+
     private int numHits = 0;
     float timeToDestory = 0;
 
@@ -31,7 +34,21 @@ public class BumperScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            GetComponent<AudioSource>().Play();
+            //GetComponent<AudioSource>().Play();
+            switch (color)
+            {
+                case "red":
+                    GameManager.Instance.soundManager.FXRedBumper();
+                    break;
+                case "green":
+                    GameManager.Instance.soundManager.FXGreenBumper();
+                    break;
+                case "blue":
+                    GameManager.Instance.soundManager.FXBlueBumper();
+                    break;
+                default:
+                    break;
+            }
 
             Vector2 normal = (
                 collision.gameObject.transform.position - transform.position

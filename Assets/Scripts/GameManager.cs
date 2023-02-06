@@ -45,55 +45,27 @@ public class GameManager : MonoBehaviour
     public GameState state = GameState.MainMenu;
 
     [Header("Object References")]
-    [SerializeField]
-    private Camera GameCamera;
-
-    [SerializeField]
-    private GameObject BallPrefab;
-
-    [SerializeField]
-    private GameObject paddles;
-
-    [SerializeField]
-    private Combo comboSystem;
-
-    [SerializeField]
-    private GameObject spawnPoint;
-
-    [SerializeField]
-    private LevelManager bumperManager;
+    [SerializeField] private Camera GameCamera;
+    [SerializeField] private GameObject BallPrefab;
+    [SerializeField] private GameObject paddles;
+    [SerializeField] private Combo comboSystem;
+    [SerializeField] private GameObject spawnPoint;
+    [SerializeField] private LevelManager bumperManager;
+    public SoundManager soundManager;
 
     [Header("UI fields")]
-    [SerializeField]
-    private TextMeshProUGUI ScoreText;
-
-    [SerializeField]
-    private TextMeshProUGUI LivesText;
-
-    [SerializeField]
-    private GameObject PlayingCanvas;
-
-    [SerializeField]
-    private GameObject PausedCanvas;
-
-    [SerializeField]
-    private GameObject GameOverCanvas;
-
-    [SerializeField]
-    private GameObject MainMenuCanvas;
-
-    [SerializeField]
-    private TextMeshProUGUI HighScoreTextMM;
-
-    [SerializeField]
-    private TextMeshProUGUI GameOverScoreText;
-
-    [SerializeField]
-    private TextMeshProUGUI HighScoreText;
+    [SerializeField] private TextMeshProUGUI ScoreText;
+    [SerializeField] private TextMeshProUGUI LivesText;
+    [SerializeField] private GameObject PlayingCanvas;
+    [SerializeField] private GameObject PausedCanvas;
+    [SerializeField] private GameObject GameOverCanvas;
+    [SerializeField] private GameObject MainMenuCanvas;
+    [SerializeField] private TextMeshProUGUI HighScoreTextMM;
+    [SerializeField] private TextMeshProUGUI GameOverScoreText;
+    [SerializeField] private TextMeshProUGUI HighScoreText;
 
     [Header("Effects")]
     public float dimFactor = 1;
-
     private float ComboMult = 1;
 
     private Vector2 ballVelocity;
@@ -125,6 +97,7 @@ public class GameManager : MonoBehaviour
                 .GetComponent<LevelManager>();
             GameCamera = Camera.allCameras[0];
             startingColor = GameCamera.backgroundColor;
+            soundManager.BGBlastOff();
 
             UpdateHighScoreText();
             if (PausedCanvas)
@@ -136,7 +109,6 @@ public class GameManager : MonoBehaviour
             if (MainMenuCanvas)
                 MainMenuCanvas.SetActive(false);
             StartCoroutine(FadePaddles());
-            SoundManager.instance.PlayBackground(SoundManager.instance.sky);
             Application.targetFrameRate = 60;
         }
 
@@ -152,6 +124,7 @@ public class GameManager : MonoBehaviour
                 MainMenuCanvas.SetActive(true);
             UpdateHighScoreText();
             state = GameState.MainMenu;
+            soundManager.BGArcade();
         }
 
         if (scene.name == "IntroCutscene")
@@ -164,8 +137,10 @@ public class GameManager : MonoBehaviour
                 PlayingCanvas.SetActive(false);
             if (MainMenuCanvas)
                 MainMenuCanvas.SetActive(false);
+            soundManager.BGCutscene();
             UpdateHighScoreText();
             state = GameState.Intro;
+
         }
     }
 
@@ -244,6 +219,7 @@ public class GameManager : MonoBehaviour
         state = GameState.Playing;
         paddles.GetComponentsInChildren<PaddleScriptTest>()[0].enabled = true;
         paddles.GetComponentsInChildren<PaddleScriptTest>()[1].enabled = true;
+        soundManager.BGSky();
     }
 
     void Update()
@@ -297,7 +273,7 @@ public class GameManager : MonoBehaviour
         {
             //Debug.Log("stage: " + bumperManager.current_stage);
             bumperManager.current_stage = 2;
-            SoundManager.instance.PlayBackground(SoundManager.instance.space);
+            soundManager.BGSpace();
         }
         dimFactor = 1 - Mathf.Clamp((HeightScore - 1000) / SKY_DIM_MAX, 0f, 0.8f);
         GameCamera.backgroundColor = startingColor * dimFactor;
@@ -332,6 +308,8 @@ public class GameManager : MonoBehaviour
     public void LoseLives(int lives)
     {
         this.lives -= lives;
+
+        soundManager.FXDeath();
 
         if (this.lives <= 0)
         {

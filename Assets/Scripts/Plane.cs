@@ -12,6 +12,7 @@ public class Plane : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = startingVelocity;
         originalSpawn = transform.position;
+        GameManager.Instance.soundManager.FXPlaneFlyBy();
     }
 
     // Update is called once per frame

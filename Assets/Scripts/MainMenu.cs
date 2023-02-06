@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     private void Start()
     {
-        SoundManager.instance.PlayBackground(SoundManager.instance.arcade);
+        //SoundManager.instance.PlayBackground(SoundManager.instance.arcade);
     }
 
     private void Update()

@@ -62,6 +62,7 @@ public class PaddleScriptTest : MonoBehaviour
         if (collision.gameObject.CompareTag("Ball"))
         {
             //GameManager.Instance.soundManager.FXPaddleBallHit();
+            GameManager.Instance.soundManager.FXStopBallRoll();
             playRoll = true;
         }
     }

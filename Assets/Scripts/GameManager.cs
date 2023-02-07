@@ -99,6 +99,8 @@ public class GameManager : MonoBehaviour
             GameCamera = Camera.allCameras[0];
             startingColor = GameCamera.backgroundColor;
             soundManager.FXBlastOff();
+            ScoreText.text = "0";
+            LivesText.text = "0";
 
             UpdateHighScoreText();
             if (PausedCanvas)
@@ -262,8 +264,8 @@ public class GameManager : MonoBehaviour
         HeightScore = Mathf.Max((int)(ball.transform.position.y * 10.0), HeightScore);
         if (HeightScore > 1)
         {
-            ScoreText.SetText("Score " + (HeightScore * 10 + BumperScore).ToString());
-            LivesText.SetText("Height " + ((int)HeightScore).ToString());
+            ScoreText.SetText((HeightScore * 10 + BumperScore).ToString());
+            LivesText.SetText(((int)HeightScore * 10).ToString());
         }
 
         if (HeightScore > 1000 && bumperManager.current_stage < 1)
@@ -319,7 +321,7 @@ public class GameManager : MonoBehaviour
             PlayingCanvas.SetActive(false);
             GameOverCanvas.SetActive(true);
             GameOverScoreText.SetText(
-                "Final Score: " + (HeightScore * 10 + BumperScore).ToString()
+                "Final Score:  " + (HeightScore * 10 + BumperScore).ToString()
             );
             // Check for new high score
             if ((HeightScore * 10) + BumperScore > PlayerPrefs.GetInt("HighScore", 0))
@@ -346,6 +348,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        //HeightScore += 100000;
         //SoundManager.instance.Pause();
         state = GameState.Paused;
         Debug.Log("Paused Game");
@@ -384,7 +387,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateHighScoreText()
     {
-        HighScoreText.text = "High Score: " + $"{PlayerPrefs.GetInt("HighScore", 0)}";
-        HighScoreTextMM.text = "High Score: " + $"{PlayerPrefs.GetInt("HighScore", 0)}";
+        HighScoreText.text = "High Score:  " + $"{PlayerPrefs.GetInt("HighScore", 0)}";
+        HighScoreTextMM.text = "High Score:  " + $"{PlayerPrefs.GetInt("HighScore", 0)}";
     }
 }

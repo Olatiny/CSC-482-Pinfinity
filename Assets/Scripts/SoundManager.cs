@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioSource Music;
     [SerializeField] AudioSource SoundEffects;
     [SerializeField] AudioSource Bumpers;
+    [SerializeField] AudioSource BallRoll;
 
     [Header("Background")]
     [SerializeField] AudioClip arcade;
@@ -121,7 +122,12 @@ public class SoundManager : MonoBehaviour
 
     public void FXPaddleBallRoll() 
     {
-        SoundEffects.PlayOneShot(paddleBallRoll);
+        BallRoll.PlayOneShot(paddleBallRoll);
+    }
+
+    public void FXStopBallRoll()
+    {
+        BallRoll.Stop();
     }
 
     public void FXPaddleClick()

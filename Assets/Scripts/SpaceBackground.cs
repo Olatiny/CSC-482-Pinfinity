@@ -30,7 +30,7 @@ public class SpaceBackground : MonoBehaviour
             p,
             new Vector3(
                 Random.Range(minX, maxX),
-                Camera.allCameras[0].transform.position.y + 7.5f + Random.Range(0.0f, 4.0f),
+                Camera.main.transform.position.y + 7.5f + Random.Range(0.0f, 4.0f),
                 10
             ),
             Quaternion.Euler(0, 0, Random.Range(0, 360)),
@@ -47,7 +47,7 @@ public class SpaceBackground : MonoBehaviour
                 s,
                 new Vector3(
                     Random.Range(minX, maxX),
-                    Camera.allCameras[0].transform.position.y + 7.5f + Random.Range(0.0f, 4.0f),
+                    Camera.main.transform.position.y + 7.5f + Random.Range(0.0f, 4.0f),
                     10
                 ),
                 s.transform.localRotation
@@ -65,7 +65,7 @@ public class SpaceBackground : MonoBehaviour
                 SpaceShip,
                 new Vector3(
                     Random.Range(minX, maxX),
-                    Camera.allCameras[0].transform.position.y + 7.5f + Random.Range(0.0f, 4.0f),
+                    Camera.main.transform.position.y + 7.5f + Random.Range(0.0f, 4.0f),
                     10
                 ),
                 Quaternion.Euler(0, 0, Random.Range(0, 360)),

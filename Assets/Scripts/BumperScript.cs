@@ -86,7 +86,7 @@ public class BumperScript : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y < Camera.allCameras[0].transform.position.y - 10)
+        if (transform.position.y < Camera.main.transform.position.y - 10)
         {
             Destroy(gameObject);
         }

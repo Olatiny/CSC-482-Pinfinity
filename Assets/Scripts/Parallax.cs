@@ -13,13 +13,13 @@ public class Parallax : MonoBehaviour
     void Awake()
     {
         originalSpawn = transform.position;
-        originalOffset = transform.position.y - Camera.allCameras[0].transform.position.y;
+        originalOffset = transform.position.y - Camera.main.transform.position.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Transform cameraTransform = Camera.allCameras[0].transform;
+        Transform cameraTransform = Camera.main.transform;
         float cameraY = cameraTransform.position.y;
         transform.position = new Vector3(
             transform.position.x,

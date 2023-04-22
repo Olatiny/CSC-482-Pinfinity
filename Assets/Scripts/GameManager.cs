@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
         Paused,
         GameOver,
         MainMenu,
+        Credits,
     }
 
     public static GameManager Instance;
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject PausedCanvas;
     [SerializeField] private GameObject GameOverCanvas;
     [SerializeField] private GameObject MainMenuCanvas;
+    [SerializeField] private GameObject CreditsCanvas;
     [SerializeField] private TextMeshProUGUI HighScoreTextMM;
     [SerializeField] private TextMeshProUGUI GameOverScoreText;
     [SerializeField] private TextMeshProUGUI HighScoreText;
@@ -96,7 +98,7 @@ public class GameManager : MonoBehaviour
             bumperManager = GameObject
                 .FindGameObjectWithTag("BumperManager")
                 .GetComponent<LevelManager>();
-            GameCamera = Camera.allCameras[0];
+            GameCamera = Camera.main;
             startingColor = GameCamera.backgroundColor;
             soundManager.FXBlastOff();
             ScoreText.text = "0";
@@ -111,6 +113,8 @@ public class GameManager : MonoBehaviour
                 PlayingCanvas.SetActive(false);
             if (MainMenuCanvas)
                 MainMenuCanvas.SetActive(false);
+            if (CreditsCanvas)
+                CreditsCanvas.SetActive(false);
             StartCoroutine(FadePaddles());
             Application.targetFrameRate = 60;
         }
@@ -125,6 +129,8 @@ public class GameManager : MonoBehaviour
                 PlayingCanvas.SetActive(false);
             if (MainMenuCanvas)
                 MainMenuCanvas.SetActive(true);
+            if (CreditsCanvas)
+                CreditsCanvas.SetActive(false);
             UpdateHighScoreText();
             state = GameState.MainMenu;
             soundManager.BGArcade();
@@ -140,6 +146,8 @@ public class GameManager : MonoBehaviour
                 PlayingCanvas.SetActive(false);
             if (MainMenuCanvas)
                 MainMenuCanvas.SetActive(false);
+            if (CreditsCanvas)
+                CreditsCanvas.SetActive(false);
             soundManager.BGCutscene();
             UpdateHighScoreText();
             state = GameState.Intro;
@@ -232,6 +240,8 @@ public class GameManager : MonoBehaviour
         if (state == GameState.GameOver)
             return;
         if (state == GameState.MainMenu)
+            return;
+        if (state == GameState.Credits)
             return;
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -372,6 +382,16 @@ public class GameManager : MonoBehaviour
         ball.GetComponent<Rigidbody2D>().velocity = ballVelocity;
         ball.GetComponent<Rigidbody2D>().angularVelocity = ballAngularVel;
         //ball.GetComponent<Rigidbody2D>().constraints = /*RigidbodyConstraints2D.None*/
+    }
+
+    public void Credits()
+    {
+        state = GameState.Credits;
+        PausedCanvas.SetActive(false);
+        PlayingCanvas.SetActive(false);
+        MainMenuCanvas.SetActive(false);
+        GameOverCanvas.SetActive(false);
+        CreditsCanvas.SetActive(true);
     }
 
     public void ResetGame()

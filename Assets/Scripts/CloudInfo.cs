@@ -10,7 +10,7 @@ public class CloudInfo : MonoBehaviour
 
     private void Update()
     {
-        Transform cameraTransform = Camera.allCameras[0].transform;
+        Transform cameraTransform = Camera.main.transform;
         float distanceFromCamera = cameraTransform.position.y - origialSpawnPos.y;
         transform.position = new Vector3(
             transform.position.x + Time.deltaTime * (1 / depth) * 0.1f,

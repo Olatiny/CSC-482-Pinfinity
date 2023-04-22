@@ -18,7 +18,7 @@ public class SpaceshipBackground : MonoBehaviour
         velocityX = Mathf.Cos(angle * Mathf.Deg2Rad) / 3.0f;
         velocityY = Mathf.Sin(angle * Mathf.Deg2Rad) / 3.0f;
         originalSpawn = transform.position;
-        originalOffset = transform.position.y - Camera.allCameras[0].transform.position.y;
+        originalOffset = transform.position.y - Camera.main.transform.position.y;
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class SpaceshipBackground : MonoBehaviour
     {
         originalOffset += (velocityY * Time.deltaTime) / depth;
         transform.position += new Vector3((velocityX * Time.deltaTime) / depth, 0, 0);
-        Transform cameraTransform = Camera.allCameras[0].transform;
+        Transform cameraTransform = Camera.main.transform;
         float cameraY = cameraTransform.position.y;
         transform.position = new Vector3(
             transform.position.x,

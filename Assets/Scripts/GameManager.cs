@@ -46,25 +46,55 @@ public class GameManager : MonoBehaviour
     public GameState state = GameState.MainMenu;
 
     [Header("Object References")]
-    [SerializeField] private Camera GameCamera;
-    [SerializeField] private GameObject BallPrefab;
-    [SerializeField] private GameObject paddles;
-    [SerializeField] private Combo comboSystem;
-    [SerializeField] private GameObject spawnPoint;
-    [SerializeField] private LevelManager bumperManager;
+    [SerializeField]
+    private Camera GameCamera;
+
+    [SerializeField]
+    private GameObject BallPrefab;
+
+    [SerializeField]
+    private GameObject paddles;
+
+    [SerializeField]
+    private Combo comboSystem;
+
+    [SerializeField]
+    private GameObject spawnPoint;
+
+    [SerializeField]
+    private LevelManager bumperManager;
     public SoundManager soundManager;
 
     [Header("UI fields")]
-    [SerializeField] private TextMeshProUGUI ScoreText;
-    [SerializeField] private TextMeshProUGUI LivesText;
-    [SerializeField] private GameObject PlayingCanvas;
-    [SerializeField] private GameObject PausedCanvas;
-    [SerializeField] private GameObject GameOverCanvas;
-    [SerializeField] private GameObject MainMenuCanvas;
-    [SerializeField] private GameObject CreditsCanvas;
-    [SerializeField] private TextMeshProUGUI HighScoreTextMM;
-    [SerializeField] private TextMeshProUGUI GameOverScoreText;
-    [SerializeField] private TextMeshProUGUI HighScoreText;
+    [SerializeField]
+    private TextMeshProUGUI ScoreText;
+
+    [SerializeField]
+    private TextMeshProUGUI LivesText;
+
+    [SerializeField]
+    private GameObject PlayingCanvas;
+
+    [SerializeField]
+    private GameObject PausedCanvas;
+
+    [SerializeField]
+    private GameObject GameOverCanvas;
+
+    [SerializeField]
+    private GameObject MainMenuCanvas;
+
+    [SerializeField]
+    private GameObject CreditsCanvas;
+
+    [SerializeField]
+    private TextMeshProUGUI HighScoreTextMM;
+
+    [SerializeField]
+    private TextMeshProUGUI GameOverScoreText;
+
+    [SerializeField]
+    private TextMeshProUGUI HighScoreText;
 
     [Header("Effects")]
     public float dimFactor = 1;
@@ -151,7 +181,6 @@ public class GameManager : MonoBehaviour
             soundManager.BGCutscene();
             UpdateHighScoreText();
             state = GameState.Intro;
-
         }
     }
 

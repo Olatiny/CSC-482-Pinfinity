@@ -57,7 +57,7 @@ public class SpaceBackground : MonoBehaviour
             star.GetComponent<Parallax>().depth = 15 / size;
             star.GetComponent<SpriteRenderer>().color = Color.white * (size / 2.0f);
         }
-        if (Random.Range(0, 3) > 2)
+        if (Random.Range(0, 3) > 1)
         {
             size = Random.Range(0.5f, 2f);
             // planet.GetComponent<SpriteRenderer>().color *= (size / 2.0f);

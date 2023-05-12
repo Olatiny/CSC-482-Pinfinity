@@ -1281,7 +1281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: babf2031ed1270b43981eecbe81e918e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHeight: 0
+  startHeight: 220
   firstLevel: {fileID: 1229870603}
 --- !u!114 &519420034
 MonoBehaviour:

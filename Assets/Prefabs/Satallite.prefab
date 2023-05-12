@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1598958286, guid: c0620f938ec753e41a03ca4064568087, type: 3}
-  m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
+  m_Sprite: {fileID: -1006096135, guid: 0667ea23f6d3d2845a125f1c96e449ce, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.31}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -111,5 +111,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f7aa55a1811a94685beb67184fb93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSatallite: {fileID: -1598958286, guid: c0620f938ec753e41a03ca4064568087, type: 3}
-  onSatallite: {fileID: 167034524, guid: c0620f938ec753e41a03ca4064568087, type: 3}
+  defaultSatallite: {fileID: -1006096135, guid: 0667ea23f6d3d2845a125f1c96e449ce, type: 3}
+  onSatallite: {fileID: 1595281522, guid: 0667ea23f6d3d2845a125f1c96e449ce, type: 3}

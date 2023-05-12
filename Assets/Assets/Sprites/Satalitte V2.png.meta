@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14cefecd62567104a9c46f9bd64e1f5f
+guid: 0667ea23f6d3d2845a125f1c96e449ce
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -102,6 +102,30 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -117,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FlipperSimple_0
+      name: Satalitte V2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 35
-        width: 63
-        height: 19
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a41455a4426db44596936160aa7510e
-      internalID: -423068767
+      spriteID: 0710275b868e11948937b113913146c3
+      internalID: -1006096135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlipperSimple_1
+      name: Satalitte V2_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 7
-        width: 13
-        height: 21
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4515eca5d81baad489226377624f4338
-      internalID: -698032913
+      spriteID: 4c7ead36275ac4640b687be54171210c
+      internalID: 1595281522
       vertices: []
       indices: 
       edges: []
@@ -169,8 +193,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FlipperSimple_1: -698032913
-      FlipperSimple_0: -423068767
+      Satalitte V2_0: -1006096135
+      Satalitte V2_1: 1595281522
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

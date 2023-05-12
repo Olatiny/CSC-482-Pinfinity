@@ -4,6 +4,10 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,24 +49,52 @@ public class GameManager : MonoBehaviour
     public GameState state = GameState.MainMenu;
 
     [Header("Object References")]
-    [SerializeField] private Camera GameCamera;
-    [SerializeField] private GameObject BallPrefab;
-    [SerializeField] private GameObject paddles;
-    [SerializeField] private Combo comboSystem;
-    [SerializeField] private GameObject spawnPoint;
-    [SerializeField] private LevelManager bumperManager;
+    [SerializeField]
+    private Camera GameCamera;
+
+    [SerializeField]
+    private GameObject BallPrefab;
+
+    [SerializeField]
+    private GameObject paddles;
+
+    [SerializeField]
+    private Combo comboSystem;
+
+    [SerializeField]
+    private GameObject spawnPoint;
+
+    [SerializeField]
+    private LevelManager bumperManager;
     public SoundManager soundManager;
 
     [Header("UI fields")]
-    [SerializeField] private TextMeshProUGUI ScoreText;
-    [SerializeField] private TextMeshProUGUI LivesText;
-    [SerializeField] private GameObject PlayingCanvas;
-    [SerializeField] private GameObject PausedCanvas;
-    [SerializeField] private GameObject GameOverCanvas;
-    [SerializeField] private GameObject MainMenuCanvas;
-    [SerializeField] private TextMeshProUGUI HighScoreTextMM;
-    [SerializeField] private TextMeshProUGUI GameOverScoreText;
-    [SerializeField] private TextMeshProUGUI HighScoreText;
+    [SerializeField]
+    private TextMeshProUGUI ScoreText;
+
+    [SerializeField]
+    private TextMeshProUGUI LivesText;
+
+    [SerializeField]
+    private GameObject PlayingCanvas;
+
+    [SerializeField]
+    private GameObject PausedCanvas;
+
+    [SerializeField]
+    private GameObject GameOverCanvas;
+
+    [SerializeField]
+    private GameObject MainMenuCanvas;
+
+    [SerializeField]
+    private TextMeshProUGUI HighScoreTextMM;
+
+    [SerializeField]
+    private TextMeshProUGUI GameOverScoreText;
+
+    [SerializeField]
+    private TextMeshProUGUI HighScoreText;
 
     [Header("Effects")]
     public float dimFactor = 1;
@@ -143,7 +175,6 @@ public class GameManager : MonoBehaviour
             soundManager.BGCutscene();
             UpdateHighScoreText();
             state = GameState.Intro;
-
         }
     }
 
@@ -310,6 +341,143 @@ public class GameManager : MonoBehaviour
         return ComboMult;
     }
 
+    public class GameData
+    {
+        public Game[] game;
+    }
+
+    public class Game
+    {
+        public string date;
+        public int score;
+        public int machineId;
+        public int id;
+        public string userId;
+        public int status;
+    }
+
+    static async Task PutScoreOnlineAsync(float data, LevelManager manager, bool newHighscore)
+    {
+        Debug.Log("posting");
+        // Set the request URI
+        string uri =
+            "https://innate-carport-376722-kgs2kgxc6a-uc.a.run.app/freeflow-server/v1/venues/19227/machines/110/games";
+
+        // Create an HttpClient object
+        HttpClient client = new HttpClient();
+
+        // Create a new post object
+        var post = new { score = data.ToString() };
+        // Convert the post object to JSON
+        var json = Newtonsoft.Json.JsonConvert.SerializeObject(post);
+        // Create a StringContent object with the JSON
+        var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+        content.Headers.Add("score", data.ToString());
+        // Send the POST request and wait for the response
+        HttpResponseMessage response = await client.PutAsync(uri, content);
+        // Read the response content as a string
+        string responseBody = await response.Content.ReadAsStringAsync();
+        Debug.Log("about to decode" + responseBody);
+        // Find the index of the "id" field in the JSON string
+
+
+        int idIndex = responseBody.IndexOf("id");
+        // Find the end index of the "id" field value in the JSON string
+        int idValueEndIndex = responseBody.IndexOf(',', idIndex);
+
+        if (idValueEndIndex == -1)
+        {
+            idValueEndIndex = responseBody.IndexOf('}', idIndex);
+        }
+
+        // Extract the "id" field value from the JSON string
+
+        int id = int.Parse(responseBody.Substring(idIndex + 4, idValueEndIndex - (idIndex + 4)));
+
+        // Find the index of the "userId" field in the JSON string
+        int userIdIndex = responseBody.IndexOf("userId");
+
+        // Find the end index of the "userId" field value in the JSON string
+        int userIdValueEndIndex = responseBody.IndexOf(',', userIdIndex);
+
+        if (userIdValueEndIndex == -1)
+        {
+            userIdValueEndIndex = responseBody.IndexOf('}', userIdIndex);
+        }
+
+        // Extract the "userId" field value from the JSON string
+        string userId = responseBody.Substring(
+            userIdIndex + 9,
+            userIdValueEndIndex - (userIdIndex + 10)
+        );
+        Debug.Log("here");
+        // Use the values as needed
+        Debug.Log("id: " + id);
+        Debug.Log("userId: " + userId);
+
+        // Output the response content
+        bool gotToSky = manager.current_stage > 0;
+        bool gotToSpace = manager.current_stage > 1;
+        string gotToSkyUri =
+            "https://innate-carport-376722-kgs2kgxc6a-uc.a.run.app/freeflow-server/v1/users/"
+            + userId
+            + "/achievements/13";
+        string gotToSpaceUri =
+            "https://innate-carport-376722-kgs2kgxc6a-uc.a.run.app/freeflow-server/v1/users/"
+            + userId
+            + "/achievements/14";
+        string newHighscoreUri =
+            "https://innate-carport-376722-kgs2kgxc6a-uc.a.run.app/freeflow-server/v1/users/"
+            + userId
+            + "/achievements/15";
+        Debug.Log("urls made");
+        if (gotToSky)
+        {
+            PutAchievment(gotToSkyUri, id, 1);
+        }
+        else
+        {
+            PutAchievment(gotToSkyUri, id, 0);
+        }
+        if (gotToSpace)
+        {
+            PutAchievment(gotToSpaceUri, id, 1);
+        }
+        else
+        {
+            PutAchievment(gotToSpaceUri, id, 0);
+        }
+        if (newHighscore)
+        {
+            PutAchievment(newHighscoreUri, id, 1);
+        }
+        else
+        {
+            PutAchievment(gotToSpaceUri, id, 0);
+        }
+    }
+
+    static async Task PutAchievment(string uri, int gameID, int times)
+    {
+        Debug.Log("posting acheivment to gameid" + gameID);
+        // Create an HttpClient object
+        HttpClient client = new HttpClient();
+
+        // Create a new post object
+        var post = new { gameId = gameID.ToString(), timesAchieved = times.ToString() };
+        // Convert the post object to JSON
+        var json = Newtonsoft.Json.JsonConvert.SerializeObject(post);
+        // Create a StringContent object with the JSON
+        var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+        content.Headers.Add("gameId", gameID.ToString());
+        content.Headers.Add("timesAchieved", times.ToString());
+        // Send the POST request and wait for the response
+        HttpResponseMessage response = await client.PutAsync(uri, content);
+        // Read the response content as a string
+        string responseBody = await response.Content.ReadAsStringAsync();
+        Debug.Log(responseBody);
+    }
+
     public void LoseLives(int lives)
     {
         this.lives -= lives;
@@ -318,13 +486,16 @@ public class GameManager : MonoBehaviour
 
         if (this.lives <= 0)
         {
+            bool newHighscore =
+                (HeightScore * 10) + BumperScore > PlayerPrefs.GetInt("HighScore", 0);
+            PutScoreOnlineAsync((HeightScore * 10 + BumperScore), bumperManager, newHighscore);
             PlayingCanvas.SetActive(false);
             GameOverCanvas.SetActive(true);
             GameOverScoreText.SetText(
                 "Final Score:  " + (HeightScore * 10 + BumperScore).ToString()
             );
             // Check for new high score
-            if ((HeightScore * 10) + BumperScore > PlayerPrefs.GetInt("HighScore", 0))
+            if (newHighscore)
             {
                 PlayerPrefs.SetInt("HighScore", HeightScore * 10 + BumperScore);
                 UpdateHighScoreText();

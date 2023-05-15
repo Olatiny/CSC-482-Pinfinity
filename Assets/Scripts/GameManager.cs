@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private const float SKY_DIM_MAX = 1000.0f;
+    public const float SKY_BOUNDARY = 100000.0f;
+    public const float SPACE_BOUNDARY = 200000.0f;
 
     public enum GameState
     {
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI ScoreText;
 
     [SerializeField]
-    private TextMeshProUGUI LivesText;
+    private TextMeshProUGUI HeightTexts;
 
     [SerializeField]
     private GameObject PlayingCanvas;
@@ -103,7 +104,13 @@ public class GameManager : MonoBehaviour
     private Vector2 ballVelocity;
     private float ballAngularVel;
     private Color startingColor;
-    private int HeightScore = 0;
+    private int BallHeight = 0;
+
+    public int getBallHeight()
+    {
+        return BallHeight;
+    }
+
     private int BumperScore = 0;
     private int lives = 1;
     private GameObject ball;
@@ -121,7 +128,7 @@ public class GameManager : MonoBehaviour
             soundManager.Stop();
 
             lives = 1;
-            HeightScore = 0;
+            BallHeight = 0;
             BumperScore = 0;
             paddles = GameObject.FindGameObjectWithTag("Paddles");
             spawnPoint = GameObject.FindGameObjectWithTag("BallSpawn");
@@ -132,7 +139,7 @@ public class GameManager : MonoBehaviour
             startingColor = GameCamera.backgroundColor;
             soundManager.FXBlastOff();
             ScoreText.text = "0";
-            LivesText.text = "0";
+            HeightTexts.text = "0";
 
             UpdateHighScoreText();
             if (PausedCanvas)
@@ -300,24 +307,24 @@ public class GameManager : MonoBehaviour
             );
         }
 
-        HeightScore = Mathf.Max((int)(ball.transform.position.y * 10.0), HeightScore);
-        if (HeightScore > 1)
+        BallHeight = Mathf.Max((int)(ball.transform.position.y * 100.0), BallHeight);
+        if (BallHeight > 1)
         {
-            ScoreText.SetText((HeightScore * 10 + BumperScore).ToString());
-            LivesText.SetText(((int)HeightScore * 10).ToString());
+            ScoreText.SetText((BallHeight + BumperScore).ToString());
+            HeightTexts.SetText((BallHeight).ToString());
         }
 
-        if (HeightScore > 1000 && bumperManager.current_stage < 1)
+        if (BallHeight > SKY_BOUNDARY && bumperManager.current_stage < 1)
         {
             bumperManager.current_stage = 1;
         }
-        if (HeightScore > 2000 && bumperManager.current_stage < 2)
+        if (BallHeight > SPACE_BOUNDARY && bumperManager.current_stage < 2)
         {
             //Debug.Log("stage: " + bumperManager.current_stage);
             bumperManager.current_stage = 2;
             soundManager.BGSpace();
         }
-        dimFactor = 1 - Mathf.Clamp((HeightScore - 1000) / SKY_DIM_MAX, 0f, 0.8f);
+        dimFactor = 1 - Mathf.Clamp((BallHeight - 1000) / SKY_BOUNDARY, 0f, 0.8f);
         GameCamera.backgroundColor = startingColor * dimFactor;
     }
 
@@ -359,13 +366,11 @@ public class GameManager : MonoBehaviour
         {
             PlayingCanvas.SetActive(false);
             GameOverCanvas.SetActive(true);
-            GameOverScoreText.SetText(
-                "Final Score:  " + (HeightScore * 10 + BumperScore).ToString()
-            );
+            GameOverScoreText.SetText("Final Score:  " + (BallHeight + BumperScore).ToString());
             // Check for new high score
-            if ((HeightScore * 10) + BumperScore > PlayerPrefs.GetInt("HighScore", 0))
+            if (BallHeight + BumperScore > PlayerPrefs.GetInt("HighScore", 0))
             {
-                PlayerPrefs.SetInt("HighScore", HeightScore * 10 + BumperScore);
+                PlayerPrefs.SetInt("HighScore", BallHeight + BumperScore);
                 UpdateHighScoreText();
             }
             state = GameState.GameOver;
@@ -387,7 +392,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        //HeightScore += 100000;
+        // BallHeight = 100000;
         //SoundManager.instance.Pause();
         state = GameState.Paused;
         Debug.Log("Paused Game");

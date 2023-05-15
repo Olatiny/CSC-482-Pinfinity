@@ -69,7 +69,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -155,8 +155,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0710275b868e11948937b113913146c3
-      internalID: -1006096135
+      spriteID: 6a618a4ca13126340a809f1347be7643
+      internalID: 319581952
       vertices: []
       indices: 
       edges: []
@@ -176,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c7ead36275ac4640b687be54171210c
-      internalID: 1595281522
+      spriteID: 8ac45c5d3700b5245b2e679050a175b9
+      internalID: -1326011641
       vertices: []
       indices: 
       edges: []
@@ -193,8 +193,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Satalitte V2_0: -1006096135
-      Satalitte V2_1: 1595281522
+      Satalitte V2_0: 319581952
+      Satalitte V2_1: -1326011641
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitsUntilDead: 5
   scoreText: {fileID: 7511442503439655751, guid: 8ed35eff7ceac714eb98a012d25be103, type: 3}
+  particleEffect: {fileID: 1007577722402390294, guid: 4f2c02db994844f40b61953bb26d7655, type: 3}
   defaultSprite: {fileID: -768256713, guid: 1a81308c27d238240bbe2b101ef2462f, type: 3}
   hitSprite: {fileID: 467104196, guid: 1a81308c27d238240bbe2b101ef2462f, type: 3}
   forceStatic: 35

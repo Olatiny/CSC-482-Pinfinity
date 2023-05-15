@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-    [SerializeField]
-    public float depth = 1;
+    public float depth;
     private Vector3 originalSpawn;
     private float originalOffset;
+    float originalCameraHieght;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         originalSpawn = transform.position;
+        originalCameraHieght = Camera.main.transform.position.y;
         originalOffset = transform.position.y - Camera.main.transform.position.y;
+        depth = transform.position.z;
     }
 
     // Update is called once per frame
@@ -23,12 +25,12 @@ public class Parallax : MonoBehaviour
         float cameraY = cameraTransform.position.y;
         transform.position = new Vector3(
             transform.position.x,
-            ((originalSpawn.y - cameraY) / depth) + cameraY + originalOffset,
-            1.0f
+            (
+                cameraY
+                + originalOffset
+                - ((Camera.main.transform.position.y - originalCameraHieght) / depth)
+            ),
+            originalSpawn.z
         );
-        if (transform.position.y < cameraTransform.position.y - 10)
-        {
-            Destroy(gameObject);
-        }
     }
 }

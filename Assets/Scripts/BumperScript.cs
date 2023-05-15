@@ -13,6 +13,9 @@ public class BumperScript : MonoBehaviour
     private GameObject scoreText;
 
     [SerializeField]
+    private GameObject particleEffect;
+
+    [SerializeField]
     private Sprite defaultSprite;
 
     [SerializeField]
@@ -49,7 +52,10 @@ public class BumperScript : MonoBehaviour
                 default:
                     break;
             }
-
+            if (particleEffect)
+            {
+                GameObject.Destroy(Instantiate(particleEffect, gameObject.transform), 1.0f);
+            }
             Vector2 normal = (
                 collision.gameObject.transform.position - transform.position
             ).normalized;

@@ -5,44 +5,91 @@ using UnityEngine;
 public class CloudManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject spawnPoint;
+    private GameObject[] big_clouds;
 
     [SerializeField]
-    public GameObject[] prefabClouds;
+    private GameObject[] small_clouds;
+    private float _whenToSpawn;
+    private List<GameObject> activeClouds = new List<GameObject>();
+    private GameManager gameManager;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void NextCloudSpawn()
     {
-        if (collision.gameObject.CompareTag("Clouds"))
+        _whenToSpawn = gameObject.transform.position.y + Random.Range(0.3f, 15.0f);
+    }
+
+    void SetupCloud(GameObject newCloud)
+    {
+        newCloud.transform.parent = Camera.main.transform;
+        activeClouds.Add(newCloud);
+        Debug.Log(activeClouds);
+        int randomCloud = Random.Range(0, 100);
+        newCloud.transform.position += new Vector3(0, (randomCloud - 50) / 30, 0);
+        newCloud.AddComponent<Despawn>();
+        newCloud.AddComponent<Parallax>();
+        if (randomCloud % 2 == 0)
         {
-            GameObject cloud = prefabClouds[Random.Range(0, prefabClouds.Length)];
-
-            Vector2 pos1 = collision.gameObject.transform.GetChild(0).position;
-            Vector2 pos2 = spawnPoint.transform.position;
-
-            if (pos1.y > pos2.y)
-            {
-                Instantiate(cloud, pos1, spawnPoint.transform.rotation);
-            }
-            else
-            {
-                Instantiate(cloud, pos2, spawnPoint.transform.rotation);
-            }
+            newCloud.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        if (randomCloud > 80)
+        {
+            newCloud.transform.localScale *= 3;
+            newCloud.AddComponent<Cloud>().depth = (float)Depth.CloseClouds;
+        }
+        else if (randomCloud < 50)
+        {
+            newCloud.transform.localScale *= 2;
+            newCloud.AddComponent<Cloud>().depth = (float)Depth.FarClouds1;
+        }
+        else
+        {
+            newCloud.AddComponent<Cloud>().depth = (float)Depth.FarClouds2;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    void SpawnSmallCloud()
     {
-        Debug.Log("Cloud detected in bumper row");
-
-        if (collision.gameObject.CompareTag("Despawn"))
-        {
-            Destroy(collision.transform.parent.gameObject);
-        }
+        GameObject newCloud = Instantiate(
+            small_clouds[Random.Range(0, small_clouds.Length)],
+            new Vector3(Random.Range(-2.5f, 2.5f), transform.position.y, (float)Depth.FarClouds1),
+            Quaternion.identity
+        );
+        SetupCloud(newCloud);
     }
 
-    class Cloud
+    void SpawnBigCloud()
     {
-        public GameObject gameObjectC;
-        public float depth;
+        GameObject newCloud = Instantiate(
+            big_clouds[Random.Range(0, big_clouds.Length)],
+            new Vector3(Random.Range(-2.5f, 2.5f), transform.position.y, (float)Depth.CloseClouds),
+            Quaternion.identity
+        );
+        SpawnSmallCloud();
+        SpawnSmallCloud();
+        SpawnSmallCloud();
+        SetupCloud(newCloud);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
+    void FixedUpdate()
+    {
+        if (gameManager.getBallHeight() > GameManager.SPACE_BOUNDARY) { }
+        else if (gameManager.getBallHeight() > GameManager.SKY_BOUNDARY)
+        {
+            SpawnBigCloud();
+            NextCloudSpawn();
+        }
+        if (_whenToSpawn < gameObject.transform.position.y)
+        {
+            SpawnSmallCloud();
+            SpawnSmallCloud();
+            SpawnSmallCloud();
+            NextCloudSpawn();
+        }
     }
 }

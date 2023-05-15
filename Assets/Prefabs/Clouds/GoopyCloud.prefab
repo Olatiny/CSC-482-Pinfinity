@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5981711956875418918}
   - component: {fileID: 6825320576302811972}
-  - component: {fileID: 2666421663186193611}
   m_Layer: 0
   m_Name: GoopyCloud
   m_TagString: Untagged
@@ -85,16 +84,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2666421663186193611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1822479347959882534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb8bff80f10e11244b265a9420fdd5fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  depth: 16

@@ -127,6 +127,10 @@ PrefabInstance:
       propertyPath: defaultSprite
       value: 
       objectReference: {fileID: -144790701, guid: 82404c4aee5fb5a42b290a3ba9ee91ed, type: 3}
+    - target: {fileID: 1890143611976747421, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
+      propertyPath: particleEffect
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1890143611976747423, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
       propertyPath: m_Name
       value: Bumper 2

@@ -16,6 +16,9 @@ public class BumperScript : MonoBehaviour
     private GameObject particleEffect;
 
     [SerializeField]
+    private GameObject particleEffectSecondary;
+
+    [SerializeField]
     private Sprite defaultSprite;
 
     [SerializeField]
@@ -52,20 +55,36 @@ public class BumperScript : MonoBehaviour
                 default:
                     break;
             }
-            if (particleEffect)
-            {
-                GameObject.Destroy(Instantiate(particleEffect, gameObject.transform), 1.0f);
-            }
             Vector2 normal = (
                 collision.gameObject.transform.position - transform.position
             ).normalized;
             float mag = Mathf.Sqrt(
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude
             );
-            //collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
-            GetComponent<Animator>()
-                .Play("BumperBounce");
+            ParticleSystem.Burst burst = new ParticleSystem.Burst(
+                0f,
+                (int)mag * 5 * GameManager.Instance.GetCombo() + 10
+            );
+            if (particleEffect)
+            {
+                particleEffect.GetComponent<ParticleSystem>().emission.SetBurst(0, burst);
+                GameObject.Destroy(Instantiate(particleEffect, gameObject.transform), 1.0f);
+            }
+            if (particleEffectSecondary)
+            {
+                particleEffectSecondary.GetComponent<ParticleSystem>().emission.SetBurst(0, burst);
+                GameObject.Destroy(
+                    Instantiate(particleEffectSecondary, gameObject.transform),
+                    1.0f
+                );
+            }
+
+            //collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            if (GetComponent<Animator>())
+            {
+                GetComponent<Animator>().Play("BumperBounce");
+            }
 
             collision.gameObject
                 .GetComponent<Rigidbody2D>()
@@ -123,7 +142,10 @@ public class BumperScript : MonoBehaviour
         //}
         text.GetComponent<TextMesh>().text = (score * GameManager.Instance.GetCombo()).ToString();
         float highlight = 0.5f;
-        GetComponent<SpriteRenderer>().sprite = hitSprite;
+        if (hitSprite)
+        {
+            GetComponent<SpriteRenderer>().sprite = hitSprite;
+        }
         float i = 0;
         while (i < highlight)
         {

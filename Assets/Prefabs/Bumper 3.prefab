@@ -115,6 +115,14 @@ PrefabInstance:
       propertyPath: defaultSprite
       value: 
       objectReference: {fileID: -2104627863, guid: 1d8d4f3f5e6c82147b1430b392d08b4c, type: 3}
+    - target: {fileID: 1890143611976747421, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
+      propertyPath: particleEffect
+      value: 
+      objectReference: {fileID: 1007577722402390294, guid: 0afa47af9fb2b1048bd318f82cd8b5e7, type: 3}
+    - target: {fileID: 1890143611976747421, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
+      propertyPath: particleEffectSecondary
+      value: 
+      objectReference: {fileID: 1007577722402390294, guid: c3eafbe521910b44484e6bfd09d67e4f, type: 3}
     - target: {fileID: 1890143611976747423, guid: bdae5f0e14c968140ba6d2c8cdd5a4f7, type: 3}
       propertyPath: m_Name
       value: Bumper 3

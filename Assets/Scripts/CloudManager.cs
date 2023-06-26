@@ -22,7 +22,6 @@ public class CloudManager : MonoBehaviour
     {
         newCloud.transform.parent = Camera.main.transform;
         activeClouds.Add(newCloud);
-        Debug.Log(activeClouds);
         int randomCloud = Random.Range(0, 100);
         newCloud.transform.position += new Vector3(0, (randomCloud - 50) / 30, 0);
         newCloud.AddComponent<Despawn>();

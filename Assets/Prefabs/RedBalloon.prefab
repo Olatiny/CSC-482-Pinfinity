@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitsUntilDead: 1
   scoreText: {fileID: 7511442503439655751, guid: 8ed35eff7ceac714eb98a012d25be103, type: 3}
-  particleEffect: {fileID: 0}
+  particleEffect: {fileID: 1007577722402390294, guid: fbe71aab739ce474dbf66235bad8f0ee, type: 3}
   particleEffectSecondary: {fileID: 0}
   defaultSprite: {fileID: 0}
   hitSprite: {fileID: 0}

@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitsUntilDead: 1
-  scoreText: {fileID: 778580984711955555, guid: c93441e9837ceec4f931033748c5a12b, type: 3}
-  particleEffect: {fileID: 0}
+  scoreText: {fileID: 3443613835840044567, guid: 9e142f5c055f1ae4a8b6d8d347cce919, type: 3}
+  particleEffect: {fileID: 1007577722402390294, guid: 1d751f81a5d8da740953463b44fbe4a1, type: 3}
   particleEffectSecondary: {fileID: 0}
   defaultSprite: {fileID: 0}
   hitSprite: {fileID: 0}
@@ -253,6 +253,7 @@ MonoBehaviour:
   - {fileID: -906310288, guid: 679cd57f9d069c541a9c936a6ba0092f, type: 3}
   - {fileID: -84591716, guid: 679cd57f9d069c541a9c936a6ba0092f, type: 3}
   - {fileID: 1635391837, guid: 679cd57f9d069c541a9c936a6ba0092f, type: 3}
+  popped: 0
 --- !u!58 &6033813894698716818
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -11,8 +11,9 @@ public class Balloon : MonoBehaviour
     private Sprite[] floatingBallonSprites;
 
     int _ballonSpriteID = 0;
-    bool _popped = false;
-    float _cooldown = .1f;
+    public bool popped = false;
+    float _cooldown = .05f;
+    public float balloon_speed = 1.0f;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class Balloon : MonoBehaviour
 
     IEnumerator AnimateBalloon()
     {
-        while (!_popped)
+        while (!popped)
         {
             GetComponent<SpriteRenderer>().sprite = floatingBallonSprites[_ballonSpriteID % 6];
             _ballonSpriteID++;
@@ -37,7 +38,7 @@ public class Balloon : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = poppedBallonSprites[3];
         yield return new WaitForSeconds(_cooldown);
         _ballonSpriteID = 0;
-        while (_popped)
+        while (popped)
         {
             GetComponent<SpriteRenderer>().sprite = poppedBallonSprites[_ballonSpriteID % 2 + 4];
             _ballonSpriteID++;
@@ -49,9 +50,9 @@ public class Balloon : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            _popped = true;
+            popped = true;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            GameObject.Destroy(gameObject, 2.0f);
+            GameObject.Destroy(gameObject, 1.0f);
         }
     }
 
@@ -62,13 +63,13 @@ public class Balloon : MonoBehaviour
             transform.position.y,
             transform.position.y + 50
         );
-        if (!_popped)
+        if (!popped)
         {
-            transform.position += Time.deltaTime * Vector3.up;
+            transform.position += Time.deltaTime * Vector3.up * balloon_speed;
         }
         else
         {
-            transform.position += Time.deltaTime * Vector3.down * 5;
+            transform.position += Time.deltaTime * Vector3.down * balloon_speed * 5;
         }
     }
 }

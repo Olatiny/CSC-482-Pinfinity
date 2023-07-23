@@ -215,13 +215,14 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.services.leaderboards": {
-      "version": "file:C:/Users/thoma/Downloads/com.unity.services.leaderboards-1.0.0-exp.1.tgz",
+      "version": "1.0.0",
       "depth": 0,
-      "source": "local-tarball",
+      "source": "registry",
       "dependencies": {
-        "com.unity.services.authentication": "2.3.1",
-        "com.unity.services.core": "1.5.2"
-      }
+        "com.unity.services.authentication": "2.5.0",
+        "com.unity.services.core": "1.9.0"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.services.playeraccounts": {
       "version": "1.0.0-pre.2",

@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,15 +19,10 @@ public class GameManager : MonoBehaviour
         GameOver,
         MainMenu,
         Credits,
+        Leaderboard,
     }
 
     public static GameManager Instance;
-
-    //private void Awake()
-    //{
-    //    Instance = this;
-    //    startingColor = GameCamera.backgroundColor;
-    //}
 
     private void Awake()
     {
@@ -66,6 +62,9 @@ public class GameManager : MonoBehaviour
     private LevelManager bumperManager;
     public SoundManager soundManager;
 
+    [SerializeField]
+    private LeaderboardManager leaderboardManager;
+
     [Header("UI fields")]
     [SerializeField]
     private TextMeshProUGUI ScoreText;
@@ -87,6 +86,24 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject CreditsCanvas;
+        
+    [SerializeField]
+    private GameObject LeaderboardCanvas;
+
+    [SerializeField]
+    private GameObject SettingsCanvas;
+
+    [SerializeField]
+    private TextMeshProUGUI usernamePlaceholderText;
+
+    [SerializeField]
+    private TextMeshProUGUI usernameSubmitText;
+
+    [SerializeField]
+    private TextMeshProUGUI usernameErrorText;
+
+    [SerializeField]
+    private Slider volumeSlider;
 
     [SerializeField]
     private TextMeshProUGUI HighScoreTextMM;
@@ -152,6 +169,10 @@ public class GameManager : MonoBehaviour
                 MainMenuCanvas.SetActive(false);
             if (CreditsCanvas)
                 CreditsCanvas.SetActive(false);
+            if (LeaderboardCanvas)
+                LeaderboardCanvas.SetActive(false);
+            if (SettingsCanvas)
+                SettingsCanvas.SetActive(false);
             StartCoroutine(FadePaddles());
             Application.targetFrameRate = 60;
         }
@@ -168,6 +189,10 @@ public class GameManager : MonoBehaviour
                 MainMenuCanvas.SetActive(true);
             if (CreditsCanvas)
                 CreditsCanvas.SetActive(false);
+            if (LeaderboardCanvas)
+                LeaderboardCanvas.SetActive(false);
+            if (SettingsCanvas)
+                SettingsCanvas.SetActive(false);
             UpdateHighScoreText();
             state = GameState.MainMenu;
             soundManager.BGArcade();
@@ -185,13 +210,15 @@ public class GameManager : MonoBehaviour
                 MainMenuCanvas.SetActive(false);
             if (CreditsCanvas)
                 CreditsCanvas.SetActive(false);
+            if (LeaderboardCanvas)
+                LeaderboardCanvas.SetActive(false);
+            if (SettingsCanvas)
+                SettingsCanvas.SetActive(false);
             soundManager.BGCutscene();
             UpdateHighScoreText();
             state = GameState.Intro;
         }
     }
-
-    private bool enableCheck = true;
 
     IEnumerator FadePaddles()
     {
@@ -279,6 +306,8 @@ public class GameManager : MonoBehaviour
             return;
         if (state == GameState.Credits)
             return;
+        if (state == GameState.Leaderboard)
+            return;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -310,7 +339,7 @@ public class GameManager : MonoBehaviour
         BallHeight = Mathf.Max((int)(ball.transform.position.y * 100.0), BallHeight);
         if (BallHeight > 1)
         {
-            ScoreText.SetText((BallHeight + BumperScore).ToString());
+            ScoreText.SetText((GetTotalScore()).ToString());
             HeightTexts.SetText((BallHeight).ToString());
         }
 
@@ -356,21 +385,23 @@ public class GameManager : MonoBehaviour
         return ComboMult;
     }
 
-    public void LoseLives(int lives)
+    public async void LoseLives(int lives)
     {
         this.lives -= lives;
 
         soundManager.FXDeath();
 
+        await leaderboardManager.AddScore(GetTotalScore());
+
         if (this.lives <= 0)
         {
             PlayingCanvas.SetActive(false);
             GameOverCanvas.SetActive(true);
-            GameOverScoreText.SetText("Final Score:  " + (BallHeight + BumperScore).ToString());
+            GameOverScoreText.SetText("Final Score:  " + (GetTotalScore()).ToString());
             // Check for new high score
-            if (BallHeight + BumperScore > PlayerPrefs.GetInt("HighScore", 0))
+            if (GetTotalScore() > PlayerPrefs.GetInt("HighScore", 0))
             {
-                PlayerPrefs.SetInt("HighScore", BallHeight + BumperScore);
+                PlayerPrefs.SetInt("HighScore", GetTotalScore());
                 UpdateHighScoreText();
             }
             state = GameState.GameOver;
@@ -383,6 +414,10 @@ public class GameManager : MonoBehaviour
                 spawnPoint.transform.rotation
             );
         }
+    }
+
+    public int GetTotalScore() {
+        return BallHeight + BumperScore;
     }
 
     public Vector2 GetLastBallVelocity()
@@ -426,6 +461,53 @@ public class GameManager : MonoBehaviour
         MainMenuCanvas.SetActive(false);
         GameOverCanvas.SetActive(false);
         CreditsCanvas.SetActive(true);
+        LeaderboardCanvas.SetActive(false);
+        SettingsCanvas.SetActive(false);
+    }
+
+    public void Leaderboard()
+    {
+        state = GameState.Leaderboard;
+        PausedCanvas.SetActive(false);
+        PlayingCanvas.SetActive(false);
+        MainMenuCanvas.SetActive(false);
+        GameOverCanvas.SetActive(false);
+        CreditsCanvas.SetActive(false);
+        LeaderboardCanvas.SetActive(true);
+        SettingsCanvas.SetActive(false);
+
+        leaderboardManager.UpdateScoreBoard();
+    }
+
+    public async void Settings()
+    {
+        state = GameState.Leaderboard;
+        PausedCanvas.SetActive(false);
+        PlayingCanvas.SetActive(false);
+        MainMenuCanvas.SetActive(false);
+        GameOverCanvas.SetActive(false);
+        CreditsCanvas.SetActive(false);
+        LeaderboardCanvas.SetActive(false);
+        SettingsCanvas.SetActive(false);
+        SettingsCanvas.SetActive(true);
+
+        usernameErrorText.text = "";
+        usernamePlaceholderText.text = (await leaderboardManager.GetPlayerName()).Substring(0, (await leaderboardManager.GetPlayerName()).IndexOf('#'));
+    }
+
+    public void SetVolume() {
+        soundManager.SetVolume(volumeSlider.value);
+    }
+
+    public async void SetUsername() {
+        string s = await leaderboardManager.UpdatePlayerName(usernameSubmitText.text);
+        usernameErrorText.text = s;
+
+        if (s == "success!") {
+            usernameErrorText.color = Color.green;
+        } else {
+            usernameErrorText.color = Color.red;
+        }
     }
 
     public void ResetGame()

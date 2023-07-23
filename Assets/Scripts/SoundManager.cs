@@ -49,6 +49,13 @@ public class SoundManager : MonoBehaviour
 
     private pitch currPitch = pitch.c;
 
+    public void SetVolume(float inVolume) {
+        Music.volume = inVolume;
+        SoundEffects.volume = inVolume;
+        Bumpers.volume = inVolume;
+        BallRoll.volume = inVolume;
+    }
+
     public void FXComboPitchUp()
     {
         //Debug.Log(currPitch);
@@ -191,31 +198,6 @@ public class SoundManager : MonoBehaviour
         Music.loop = false;
         Music.Play();
     }
-
-    //public void PlayBackground(AudioClip clip)
-    //{
-    //    Music.clip = clip;
-    //    Music.volume = 1f;
-
-    //    if (clip == sky)
-    //    {
-    //        Music.volume = .2f;
-    //    }
-    //    Music.Play();
-    //}
-
-    //public void SwitchBackground(AudioClip clip)
-    //{
-    //    Music.Stop();
-    //    Music.clip = clip;
-    //    Music.Play();
-    //}
-
-    //public void PlaySoundEffect(AudioClip clip)
-    //{
-    //    SoundEffects.clip = clip;
-    //    SoundEffects.Play();
-    //}
 
     public void Pause()
     {

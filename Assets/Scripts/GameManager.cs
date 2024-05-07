@@ -8,8 +8,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public const float SKY_BOUNDARY = 100000.0f;
-    public const float SPACE_BOUNDARY = 200000.0f;
+    public const float SKY_BOUNDARY = 20000.0f;
+    public const float SPACE_BOUNDARY = 40000.0f;
 
     public enum GameState
     {
@@ -20,6 +20,13 @@ public class GameManager : MonoBehaviour
         MainMenu,
         Credits,
         Leaderboard,
+    }
+
+    public bool Paused { 
+        get 
+        {
+            return state == GameState.GameOver || state == GameState.Paused;
+        }
     }
 
     public static GameManager Instance;
@@ -323,7 +330,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Don't do anything else while paused.
-        if (state == GameState.Paused)
+        if (Paused)
             return;
 
         if (ballOnTop)
@@ -353,7 +360,7 @@ public class GameManager : MonoBehaviour
             bumperManager.current_stage = 2;
             soundManager.BGSpace();
         }
-        dimFactor = 1 - Mathf.Clamp((BallHeight - 1000) / SKY_BOUNDARY, 0f, 0.8f);
+        dimFactor = 1 - Mathf.Clamp((BallHeight - SKY_BOUNDARY) / SKY_BOUNDARY, 0f, 0.8f);
         GameCamera.backgroundColor = startingColor * dimFactor;
     }
 

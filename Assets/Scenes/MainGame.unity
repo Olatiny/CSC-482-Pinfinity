@@ -315,11 +315,16 @@ MonoBehaviour:
   - {fileID: 8976691321332216114, guid: 8c4cac59c254ee041975028a5cb00086, type: 3}
   - {fileID: 8976691321332216114, guid: 038ba3f58c484c349ac5e2ff2e749951, type: 3}
   - {fileID: 8976691321332216114, guid: fb711cd45f3650d47bb011f7dcfa41db, type: 3}
+  - {fileID: 8976691321332216114, guid: d6d8d89591dab1542b62fb17dc1f2abf, type: 3}
+  - {fileID: 8976691321332216114, guid: b177f609ae0f9f0438deb4f739b1fd3f, type: 3}
+  - {fileID: 8976691321332216114, guid: 14d61d4cb4b376443823bb72613c9478, type: 3}
   stage_3:
   - {fileID: 8976691321332216114, guid: 048c97f7182e9cb4b83bf9769acb365e, type: 3}
   - {fileID: 8976691321332216114, guid: ae499e241faf65f478c2f4ee51bf0bbd, type: 3}
   - {fileID: 8976691321332216114, guid: bfbf2b9298a4e9745aadf5b072ee0858, type: 3}
   - {fileID: 8976691321332216114, guid: 69d73a38f0ed8a84c9585379bfaad569, type: 3}
+  - {fileID: 8976691321332216114, guid: c109dfee963fd014c8cc255ee820fc49, type: 3}
+  - {fileID: 8976691321332216114, guid: fc6c8202e3b084547a70e4a027e8d536, type: 3}
   planes:
   - {fileID: 1295496217117376701, guid: 14436b8c2a2a6de42ade4e3f57779c2b, type: 3}
   - {fileID: 1295496217117376701, guid: b8b3077495e7d1745b2e8399bfeedf16, type: 3}
@@ -434,7 +439,6 @@ GameObject:
   - component: {fileID: 119453927}
   - component: {fileID: 119453926}
   - component: {fileID: 119453928}
-  - component: {fileID: 119453929}
   m_Layer: 0
   m_Name: BackgroundSpawner
   m_TagString: Untagged
@@ -511,28 +515,6 @@ MonoBehaviour:
   - {fileID: 1822479347959882534, guid: a9215f129298ae748a04177f19cf2fea, type: 3}
   - {fileID: 1822479347959882534, guid: c549a291507dea347a713d3fe5f821ea, type: 3}
   - {fileID: 1822479347959882534, guid: 57ebf3e8896c37a459e5ead4b9fe4742, type: 3}
---- !u!114 &119453929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119453925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cf4f1b96ed80844abfe7d385b11d9b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  balloons:
-  - {fileID: 3769435706743180208, guid: 5b352c880cb70bb4fb924f15186fbfe8, type: 3}
-  - {fileID: 3769435706743180208, guid: efa656c3744b71b438ea77cc64369535, type: 3}
-  - {fileID: 3769435706743180208, guid: 8ade96d080e5b754aa8dada849dac8cf, type: 3}
-  particleEffects:
-  - {fileID: 1007577722402390294, guid: 4a0bcc568df9cd444a85f12a8749124d, type: 3}
-  - {fileID: 1007577722402390294, guid: fbe71aab739ce474dbf66235bad8f0ee, type: 3}
-  - {fileID: 1007577722402390294, guid: 1d751f81a5d8da740953463b44fbe4a1, type: 3}
-  balloonIDs: 00000000000000000000000000000000000000000000000000000000010000000100000002000000
 --- !u!1 &170441670
 GameObject:
   m_ObjectHideFlags: 0

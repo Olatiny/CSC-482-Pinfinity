@@ -64,10 +64,7 @@ public class BallScript : MonoBehaviour
     private void Update()
     {
         // Don't do anything if paused or game over.
-        if (
-            GameManager.Instance.state == GameManager.GameState.GameOver
-            || GameManager.Instance.state == GameManager.GameState.Paused
-        )
+        if (GameManager.Instance.Paused)
         {
             Ball.velocity = Vector2.zero;
             return;

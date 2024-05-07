@@ -34,6 +34,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip wallHit;
     [SerializeField] AudioClip planeFlyBy;
     [SerializeField] AudioClip spaceShipHit;
+    [SerializeField] List<AudioClip> balloonHit;
 
     private float comboPitchMod = 1f;
 
@@ -165,6 +166,13 @@ public class SoundManager : MonoBehaviour
     public void FXBlastOff()
     {
         SoundEffects.PlayOneShot(Blastoff);
+    }
+
+    public void FXBalloon()
+    {
+        Bumpers.pitch = comboPitchMod;
+
+        Bumpers.PlayOneShot(balloonHit[Random.Range(0, balloonHit.Count)], .5f);
     }
 
     public void BGArcade()

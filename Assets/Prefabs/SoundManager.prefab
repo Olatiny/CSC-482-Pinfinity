@@ -326,6 +326,10 @@ MonoBehaviour:
   wallHit: {fileID: 8300000, guid: b4469057cce634c49b7e0c9dc75da034, type: 3}
   planeFlyBy: {fileID: 8300000, guid: 1d95d6cc2a3c799419a4838e143067ff, type: 3}
   spaceShipHit: {fileID: 8300000, guid: 92e5351e6b70432469ae0f96c7e3d181, type: 3}
+  balloonHit:
+  - {fileID: 8300000, guid: c3785230cf99f07459767ba99bfc610d, type: 3}
+  - {fileID: 8300000, guid: 033d3421a8341e744bd5901206454e83, type: 3}
+  - {fileID: 8300000, guid: bcd24ab31257b9b4bbaab70a31e5575a, type: 3}
 --- !u!1 &3570278028220981928
 GameObject:
   m_ObjectHideFlags: 0

@@ -71,8 +71,13 @@ public class PaddleScriptTest : MonoBehaviour
     void FixedUpdate()
     {
         // Don't do anything if Paused or Game Over
-        if (GameManager.Instance.state == GameManager.GameState.GameOver || GameManager.Instance.state == GameManager.GameState.Paused)
+        if (GameManager.Instance.Paused)
+        {
+            GetComponent<Rigidbody2D>().freezeRotation = true;
             return;
+        }
+        else if (GetComponent<Rigidbody2D>().freezeRotation)
+            GetComponent<Rigidbody2D>().freezeRotation = false;
 
         if (Input.touchCount > 0)
         {

@@ -53,11 +53,15 @@ public class Balloon : MonoBehaviour
             popped = true;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             GameObject.Destroy(gameObject, 1.0f);
+            GameManager.Instance.soundManager.FXBalloon();
         }
     }
 
     void Update()
     {
+        if (GameManager.Instance.Paused)
+            return;            
+
         transform.position = new Vector3(
             transform.position.x,
             transform.position.y,

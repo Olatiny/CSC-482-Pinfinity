@@ -13,9 +13,15 @@ public class CloudManager : MonoBehaviour
     private List<GameObject> activeClouds = new List<GameObject>();
     private GameManager gameManager;
 
-    void NextCloudSpawn()
+    //[SerializeField]
+    //private float numGroundClouds;
+
+    //[SerializeField]
+    //private float numSkyClouds;
+
+    void NextCloudSpawn(bool isBig)
     {
-        _whenToSpawn = gameObject.transform.position.y + Random.Range(0.3f, 15.0f);
+        _whenToSpawn = gameObject.transform.position.y + (isBig ? Random.Range(5f, 20f) : Random.Range(0.3f, 15.0f));
     }
 
     void SetupCloud(GameObject newCloud)
@@ -77,18 +83,27 @@ public class CloudManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (gameManager.getBallHeight() > GameManager.SPACE_BOUNDARY) { }
-        else if (gameManager.getBallHeight() > GameManager.SKY_BOUNDARY)
+        if (gameManager.getBallHeight() > GameManager.SPACE_BOUNDARY)
+            return;
+
+        if (_whenToSpawn >= gameObject.transform.position.y)
+            return;
+
+        if (gameManager.getBallHeight() > GameManager.SKY_BOUNDARY)
         {
             SpawnBigCloud();
-            NextCloudSpawn();
+            SpawnBigCloud();
+            SpawnBigCloud();
+            SpawnBigCloud();
+            SpawnSmallCloud();
+            NextCloudSpawn(true);
         }
-        if (_whenToSpawn < gameObject.transform.position.y)
+        else
         {
             SpawnSmallCloud();
             SpawnSmallCloud();
             SpawnSmallCloud();
-            NextCloudSpawn();
+            NextCloudSpawn(false);
         }
     }
 }

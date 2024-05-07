@@ -52,7 +52,8 @@ public class LeaderboardManager : MonoBehaviour
             Debug.Log(s);
         };
 
-        await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        if (!AuthenticationService.Instance.IsSignedIn)
+            await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
 
     public async Task<string> UpdatePlayerName(string playerName) {

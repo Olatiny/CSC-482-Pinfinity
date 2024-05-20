@@ -140,7 +140,9 @@ public class BumperScript : MonoBehaviour
         //        "\nx " + GameManager.Instance.GetCombo().ToString();
         //    Debug.Log(text.GetComponent<TextMesh>().text);
         //}
-        text.GetComponent<TextMesh>().text = (score * GameManager.Instance.GetCombo()).ToString();
+        text.GetComponent<TextMesh>().text = (
+            GameManager.Instance.getBumperMult() * score * GameManager.Instance.GetCombo()
+        ).ToString();
         float highlight = 0.5f;
         if (hitSprite)
         {

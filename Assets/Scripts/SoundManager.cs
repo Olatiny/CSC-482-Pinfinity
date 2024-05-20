@@ -8,33 +8,76 @@ public class SoundManager : MonoBehaviour
     //public static SoundManager instance = null;
 
     [Header("Audio Sources")]
-    [SerializeField] AudioSource Music;
-    [SerializeField] AudioSource SoundEffects;
-    [SerializeField] AudioSource Bumpers;
-    [SerializeField] AudioSource BallRoll;
+    [SerializeField]
+    AudioSource Music;
+
+    [SerializeField]
+    AudioSource SoundEffects;
+
+    [SerializeField]
+    AudioSource Bumpers;
+
+    [SerializeField]
+    AudioSource BallRoll;
 
     [Header("Background")]
-    [SerializeField] AudioClip arcade;
-    [SerializeField] AudioClip sky;
-    [SerializeField] AudioClip space;
-    [SerializeField] AudioClip IntroCutscene;
-    [SerializeField] AudioClip Blastoff;
+    [SerializeField]
+    AudioClip arcade;
+
+    [SerializeField]
+    AudioClip sky;
+
+    [SerializeField]
+    AudioClip space;
+
+    [SerializeField]
+    AudioClip IntroCutscene;
+
+    [SerializeField]
+    AudioClip Blastoff;
 
     [Header("Sound Effects")]
-    [SerializeField] AudioClip asteroidBallHit;
-    [SerializeField] AudioClip redBumper;
-    [SerializeField] AudioClip greenBumper;
-    [SerializeField] AudioClip blueBumper;
-    [SerializeField] AudioClip death;
-    [SerializeField] AudioClip menuClick;
-    [SerializeField] AudioClip paddleBallHit;
-    [SerializeField] AudioClip paddleBallRoll;
-    [SerializeField] AudioClip paddleClick;
-    [SerializeField] AudioClip paddleRelease;
-    [SerializeField] AudioClip wallHit;
-    [SerializeField] AudioClip planeFlyBy;
-    [SerializeField] AudioClip spaceShipHit;
-    [SerializeField] List<AudioClip> balloonHit;
+    [SerializeField]
+    AudioClip asteroidBallHit;
+
+    [SerializeField]
+    AudioClip redBumper;
+
+    [SerializeField]
+    AudioClip greenBumper;
+
+    [SerializeField]
+    AudioClip blueBumper;
+
+    [SerializeField]
+    AudioClip death;
+
+    [SerializeField]
+    AudioClip menuClick;
+
+    [SerializeField]
+    AudioClip paddleBallHit;
+
+    [SerializeField]
+    AudioClip paddleBallRoll;
+
+    [SerializeField]
+    AudioClip paddleClick;
+
+    [SerializeField]
+    AudioClip paddleRelease;
+
+    [SerializeField]
+    AudioClip wallHit;
+
+    [SerializeField]
+    AudioClip planeFlyBy;
+
+    [SerializeField]
+    AudioClip spaceShipHit;
+
+    [SerializeField]
+    List<AudioClip> balloonHit;
 
     private float comboPitchMod = 1f;
 
@@ -45,12 +88,20 @@ public class SoundManager : MonoBehaviour
 
     enum pitch
     {
-        c, d, e, f, g, a, b, oct
+        c,
+        d,
+        e,
+        f,
+        g,
+        a,
+        b,
+        oct
     }
 
     private pitch currPitch = pitch.c;
 
-    public void SetVolume(float inVolume) {
+    public void SetVolume(float inVolume)
+    {
         Music.volume = inVolume;
         SoundEffects.volume = inVolume;
         Bumpers.volume = inVolume;
@@ -62,7 +113,8 @@ public class SoundManager : MonoBehaviour
         //Debug.Log(currPitch);
 
         // don't go higher than 1 octave
-        if (currPitch == pitch.oct) return;
+        if (currPitch == pitch.oct)
+            return;
 
         if (currPitch == pitch.e || currPitch == pitch.b)
         {
@@ -76,7 +128,6 @@ public class SoundManager : MonoBehaviour
             comboPitchMod *= Mathf.Pow(1.059463f, 2);
             currPitch++;
         }
-
 
         //Debug.Log("comboPitch: " + comboPitchMod);
     }
@@ -128,7 +179,7 @@ public class SoundManager : MonoBehaviour
         SoundEffects.PlayOneShot(paddleBallHit);
     }
 
-    public void FXPaddleBallRoll() 
+    public void FXPaddleBallRoll()
     {
         BallRoll.PlayOneShot(paddleBallRoll);
     }
@@ -152,7 +203,7 @@ public class SoundManager : MonoBehaviour
     {
         SoundEffects.PlayOneShot(wallHit, 0.2f);
     }
-    
+
     public void FXPlaneFlyBy()
     {
         SoundEffects.PlayOneShot(planeFlyBy);

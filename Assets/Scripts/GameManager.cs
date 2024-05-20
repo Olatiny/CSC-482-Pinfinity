@@ -22,11 +22,9 @@ public class GameManager : MonoBehaviour
         Leaderboard,
     }
 
-    public bool Paused { 
-        get 
-        {
-            return state == GameState.GameOver || state == GameState.Paused;
-        }
+    public bool Paused
+    {
+        get { return state == GameState.GameOver || state == GameState.Paused; }
     }
 
     public static GameManager Instance;
@@ -52,9 +50,6 @@ public class GameManager : MonoBehaviour
     [Header("Object References")]
     [SerializeField]
     private Camera GameCamera;
-
-    [SerializeField]
-    private GameObject BallPrefab;
 
     [SerializeField]
     private GameObject paddles;
@@ -93,12 +88,15 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject CreditsCanvas;
-        
+
     [SerializeField]
     private GameObject LeaderboardCanvas;
 
     [SerializeField]
     private GameObject SettingsCanvas;
+
+    [SerializeField]
+    private GameObject SkinsCanvas;
 
     [SerializeField]
     private TextMeshProUGUI usernamePlaceholderText;
@@ -121,10 +119,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI HighScoreText;
 
+    [SerializeField]
+    private SkinManager skinManager;
+
     [Header("Effects")]
     public float dimFactor = 1;
     private float ComboMult = 1;
-
+    public float comboAdd = 0.5f;
     private Vector2 ballVelocity;
     private float ballAngularVel;
     private Color startingColor;
@@ -135,8 +136,13 @@ public class GameManager : MonoBehaviour
         return BallHeight;
     }
 
+    public void setBallHeight(int height)
+    {
+        BallHeight = height;
+    }
+
     private int BumperScore = 0;
-    private int lives = 1;
+    public int lives = 1;
     private GameObject ball;
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -180,6 +186,8 @@ public class GameManager : MonoBehaviour
                 LeaderboardCanvas.SetActive(false);
             if (SettingsCanvas)
                 SettingsCanvas.SetActive(false);
+            if (SkinsCanvas)
+                SkinsCanvas.SetActive(false);
             StartCoroutine(FadePaddles());
             Application.targetFrameRate = 60;
         }
@@ -200,6 +208,8 @@ public class GameManager : MonoBehaviour
                 LeaderboardCanvas.SetActive(false);
             if (SettingsCanvas)
                 SettingsCanvas.SetActive(false);
+            if (SkinsCanvas)
+                SkinsCanvas.SetActive(false);
             UpdateHighScoreText();
             state = GameState.MainMenu;
             soundManager.BGArcade();
@@ -221,10 +231,21 @@ public class GameManager : MonoBehaviour
                 LeaderboardCanvas.SetActive(false);
             if (SettingsCanvas)
                 SettingsCanvas.SetActive(false);
+            if (SkinsCanvas)
+                SkinsCanvas.SetActive(false);
             soundManager.BGCutscene();
             UpdateHighScoreText();
             state = GameState.Intro;
         }
+    }
+
+    private void ResetBallMods()
+    {
+        comboAdd = 0.5f;
+        heightMod = 1;
+        setScoreModifier(0);
+        score_mult = 1.0f;
+        bumperMult = 1;
     }
 
     IEnumerator FadePaddles()
@@ -269,8 +290,9 @@ public class GameManager : MonoBehaviour
             }
             yield return null;
         }
+        ResetBallMods();
         ball = Instantiate(
-            BallPrefab,
+            skinManager.getBall(),
             spawnPoint.transform.position,
             spawnPoint.transform.rotation
         );
@@ -372,7 +394,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int score)
     {
         this.BumperScore += (int)(ComboMult * score);
-        ComboMult += 0.5f;
+        ComboMult += comboAdd;
         comboSystem.UpdateCombo(ComboMult);
         soundManager.FXComboPitchUp();
 
@@ -416,15 +438,54 @@ public class GameManager : MonoBehaviour
         else
         {
             ball = Instantiate(
-                BallPrefab,
+                skinManager.getBall(),
                 spawnPoint.transform.position,
                 spawnPoint.transform.rotation
             );
         }
     }
 
-    public int GetTotalScore() {
-        return BallHeight + BumperScore;
+    private int score_modifier = 0;
+
+    public void setScoreModifier(int modifier)
+    {
+        score_modifier = modifier;
+    }
+
+    public int heightMod = 1;
+
+    public void setHeightModifier(int modifier)
+    {
+        heightMod = modifier;
+    }
+
+    private float score_mult = 1.0f;
+
+    public void setScoreMult(float mult)
+    {
+        score_mult = mult;
+    }
+
+    private int bumperMult = 1;
+
+    public void setBumperMult(int mult)
+    {
+        bumperMult = mult;
+    }
+
+    public int getBumperMult()
+    {
+        return bumperMult;
+    }
+
+    public int GetTotalScore()
+    {
+        return Mathf.Max(
+            (int)(
+                (BallHeight * heightMod + BumperScore * bumperMult) * score_mult + score_modifier
+            ),
+            0
+        );
     }
 
     public Vector2 GetLastBallVelocity()
@@ -434,7 +495,6 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        // BallHeight = 100000;
         //SoundManager.instance.Pause();
         state = GameState.Paused;
         Debug.Log("Paused Game");
@@ -470,6 +530,7 @@ public class GameManager : MonoBehaviour
         CreditsCanvas.SetActive(true);
         LeaderboardCanvas.SetActive(false);
         SettingsCanvas.SetActive(false);
+        SkinsCanvas.SetActive(false);
     }
 
     public void Leaderboard()
@@ -482,6 +543,7 @@ public class GameManager : MonoBehaviour
         CreditsCanvas.SetActive(false);
         LeaderboardCanvas.SetActive(true);
         SettingsCanvas.SetActive(false);
+        SkinsCanvas.SetActive(false);
 
         leaderboardManager.UpdateScoreBoard();
     }
@@ -495,24 +557,47 @@ public class GameManager : MonoBehaviour
         GameOverCanvas.SetActive(false);
         CreditsCanvas.SetActive(false);
         LeaderboardCanvas.SetActive(false);
-        SettingsCanvas.SetActive(false);
         SettingsCanvas.SetActive(true);
+        SkinsCanvas.SetActive(false);
 
         usernameErrorText.text = "";
-        usernamePlaceholderText.text = (await leaderboardManager.GetPlayerName()).Substring(0, (await leaderboardManager.GetPlayerName()).IndexOf('#'));
+        usernamePlaceholderText.text = (await leaderboardManager.GetPlayerName()).Substring(
+            0,
+            (await leaderboardManager.GetPlayerName()).IndexOf('#')
+        );
     }
 
-    public void SetVolume() {
+    public void Skins()
+    {
+        state = GameState.Leaderboard;
+        PausedCanvas.SetActive(false);
+        PlayingCanvas.SetActive(false);
+        MainMenuCanvas.SetActive(false);
+        GameOverCanvas.SetActive(false);
+        CreditsCanvas.SetActive(false);
+        LeaderboardCanvas.SetActive(false);
+        SettingsCanvas.SetActive(false);
+        SkinsCanvas.SetActive(true);
+        skinManager.updateUI();
+        leaderboardManager.UpdateScoreBoard();
+    }
+
+    public void SetVolume()
+    {
         soundManager.SetVolume(volumeSlider.value);
     }
 
-    public async void SetUsername() {
+    public async void SetUsername()
+    {
         string s = await leaderboardManager.UpdatePlayerName(usernameSubmitText.text);
         usernameErrorText.text = s;
 
-        if (s == "success!") {
+        if (s == "success!")
+        {
             usernameErrorText.color = Color.green;
-        } else {
+        }
+        else
+        {
             usernameErrorText.color = Color.red;
         }
     }

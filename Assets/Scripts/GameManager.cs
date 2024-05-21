@@ -397,7 +397,7 @@ public class GameManager : MonoBehaviour
         ComboMult += comboAdd;
         comboSystem.UpdateCombo(ComboMult);
         soundManager.FXComboPitchUp();
-
+        GetComponent<UnlockManager>().ComboUnlock(ComboMult);
         //Debug.Log("Combo: " + ComboMult);
     }
 
@@ -417,7 +417,7 @@ public class GameManager : MonoBehaviour
     public async void LoseLives(int lives)
     {
         this.lives -= lives;
-
+        PlayerPrefs.SetInt("deaths", PlayerPrefs.GetInt("deaths") + 1);
         soundManager.FXDeath();
 
         await leaderboardManager.AddScore(GetTotalScore());
@@ -434,6 +434,7 @@ public class GameManager : MonoBehaviour
                 UpdateHighScoreText();
             }
             state = GameState.GameOver;
+            GetComponent<UnlockManager>().CheckForUnlocks();
         }
         else
         {

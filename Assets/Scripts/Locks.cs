@@ -11,7 +11,12 @@ public class Locks : MonoBehaviour
     string lockText;
 
     // Start is called before the first frame update
-    void Awake()
+    void Update()
+    {
+        isActive();
+    }
+
+    public void isActive()
     {
         gameObject.SetActive(
             !GameObject.Find("GameManager").GetComponent<UnlockManager>().isUnlocked(lockID)

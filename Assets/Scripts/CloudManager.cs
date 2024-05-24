@@ -21,7 +21,9 @@ public class CloudManager : MonoBehaviour
 
     void NextCloudSpawn(bool isBig)
     {
-        _whenToSpawn = gameObject.transform.position.y + (isBig ? Random.Range(5f, 20f) : Random.Range(0.3f, 15.0f));
+        _whenToSpawn =
+            gameObject.transform.position.y
+            + (isBig ? Random.Range(5f, 20f) : Random.Range(5f, 15.0f));
     }
 
     void SetupCloud(GameObject newCloud)
@@ -69,9 +71,7 @@ public class CloudManager : MonoBehaviour
             new Vector3(Random.Range(-2.5f, 2.5f), transform.position.y, (float)Depth.CloseClouds),
             Quaternion.identity
         );
-        SpawnSmallCloud();
-        SpawnSmallCloud();
-        SpawnSmallCloud();
+
         SetupCloud(newCloud);
     }
 
@@ -95,7 +95,6 @@ public class CloudManager : MonoBehaviour
             SpawnBigCloud();
             SpawnBigCloud();
             SpawnBigCloud();
-            SpawnSmallCloud();
             NextCloudSpawn(true);
         }
         else

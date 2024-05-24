@@ -220,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2089209225410760244, guid: 9aeb9f3577af6724ab46cc65419848d0, type: 3}
       propertyPath: resetLocksOnRun
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2207193983600417169, guid: 9aeb9f3577af6724ab46cc65419848d0, type: 3}
       propertyPath: m_IsActive

@@ -16,7 +16,6 @@ public class Despawn : MonoBehaviour
         if (gameObject.transform.position.y < despawn.transform.position.y)
         {
             Destroy(gameObject);
-            Debug.Log("cloud deleted");
         }
     }
 }

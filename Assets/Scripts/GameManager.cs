@@ -244,7 +244,6 @@ public class GameManager : MonoBehaviour
         comboAdd = 0.5f;
         heightMod = 1;
         setScoreModifier(0);
-        score_mult = 1.0f;
         bumperMult = 1;
     }
 
@@ -446,35 +445,34 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private int score_modifier = 0;
+    private float score_modifier = 0;
 
-    public void setScoreModifier(int modifier)
+    public void setScoreModifier(float modifier)
     {
         score_modifier = modifier;
     }
 
-    public int heightMod = 1;
+    public float heightMod = 1;
 
-    public void setHeightModifier(int modifier)
+    public void setHeightModifier(float modifier)
     {
         heightMod = modifier;
     }
 
-    private float score_mult = 1.0f;
-
     public void setScoreMult(float mult)
     {
-        score_mult = mult;
+        bumperMult = mult;
+        heightMod = mult;
     }
 
-    private int bumperMult = 1;
+    private float bumperMult = 1;
 
-    public void setBumperMult(int mult)
+    public void setBumperMult(float mult)
     {
         bumperMult = mult;
     }
 
-    public int getBumperMult()
+    public float getBumperMult()
     {
         return bumperMult;
     }
@@ -482,9 +480,7 @@ public class GameManager : MonoBehaviour
     public int GetTotalScore()
     {
         return Mathf.Max(
-            (int)(
-                (BallHeight * heightMod + BumperScore * bumperMult) * score_mult + score_modifier
-            ),
+            (int)((BallHeight * heightMod + BumperScore * bumperMult) + score_modifier),
             0
         );
     }

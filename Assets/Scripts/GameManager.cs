@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -213,6 +211,12 @@ public class GameManager : MonoBehaviour
             UpdateHighScoreText();
             state = GameState.MainMenu;
             soundManager.BGArcade();
+
+            string s = PlayerPrefs.GetString("Skin");
+            if (PlayerPrefs.GetString("Skin") == "")
+                PlayerPrefs.SetString("Skin", "DefaultBall");
+
+            skinManager.updateUI();
         }
 
         if (scene.name == "IntroCutscene")
@@ -419,10 +423,14 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("deaths", PlayerPrefs.GetInt("deaths") + 1);
         soundManager.FXDeath();
 
-        await leaderboardManager.AddScore(GetTotalScore());
-
         if (this.lives <= 0)
         {
+            try
+            {
+                await leaderboardManager.AddScore(GetTotalScore());
+            }
+            catch { }
+
             PlayingCanvas.SetActive(false);
             GameOverCanvas.SetActive(true);
             GameOverScoreText.SetText("Final Score:  " + (GetTotalScore()).ToString());
